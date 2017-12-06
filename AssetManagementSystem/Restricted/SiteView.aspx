@@ -14,8 +14,9 @@
             OnItemCommand="FvSiteView_ItemCommand" 
             OnModeChanging="FvSiteView_ModeChanging"
             OnItemInserting="FvSiteView_ItemInserting"
-            OnItemUpdating="FvSiteView_ItemUpdating">
-
+            OnItemUpdating="FvSiteView_ItemUpdating"
+            OnDataBound="FvSiteView_DataBound">
+            
             <ItemTemplate>
                 <section class="row">
                     <section class="col-xs-8">
@@ -29,6 +30,21 @@
                         </h3>
                     </section>
                 </section>
+
+                <section class="row">
+                    <section class="col-xs-12">
+                        <table>
+                            <tr><td>Site ID:</td><td><asp:TextBox ID="txtSiteID" runat="server" Enabled="False" Text='<%#Eval("SiteID") %>'></asp:TextBox></td></tr>
+                            <tr><td>Site Name:</td><td><asp:TextBox ID="txtSiteName" runat="server" Enabled="False" Text='<%#Eval("SiteName") %>'></asp:TextBox></td></tr>
+                            <tr><td>Address Line 1:</td><td><asp:TextBox ID="txtAddress1" runat="server" Enabled="False" Text='<%#Eval("[Address 1]") %>'></asp:TextBox></td></tr>
+                            <tr><td>Address Line 2:</td><td><asp:TextBox ID="txtAddress2" runat="server" Enabled="False" Text='<%#Eval("[Address 2]") %>'></asp:TextBox></td></tr>
+                            <tr><td>City:</td><td><asp:TextBox ID="txtCity" runat="server" Enabled="False" Text='<%#Eval("City") %>'></asp:TextBox></td></tr>
+                            <tr><td>Post Code:</td><td><asp:TextBox ID="txtPostCode" runat="server" Enabled="False" Text='<%#Eval("PostCode") %>'></asp:TextBox></td></tr>
+                            <tr><td>Status:</td><td><asp:TextBox ID="txtStatus" runat="server" Enabled="False" Text='<%#Eval("Status") %>'></asp:TextBox></td></tr>
+                        </table>
+                    </section>
+                </section>
+
             </ItemTemplate>
 
             <EditItemTemplate>
@@ -44,6 +60,23 @@
                         </h3>
                     </section>
                 </section>
+
+                <section class="row">
+                    <section class="col-xs-12">
+                        <table>
+                            <tr><td>Site ID:</td><td><asp:TextBox ID="txtSiteID" runat="server" Enabled="True" Text='<%#Bind("SiteID") %>'></asp:TextBox></td></tr>
+                            <tr><td>Site Name:</td><td><asp:TextBox ID="txtSiteName" runat="server" Enabled="True" Text='<%#Bind("SiteName") %>'></asp:TextBox></td></tr>
+                            <tr><td>Address Line 1:</td><td><asp:TextBox ID="txtAddress1" runat="server" Enabled="True" Text='<%#Bind("[Address 1]") %>'></asp:TextBox></td></tr>
+                            <tr><td>Address Line 2:</td><td><asp:TextBox ID="txtAddress2" runat="server" Enabled="True" Text='<%#Bind("[Address 2]") %>'></asp:TextBox></td></tr>
+                            <tr><td>City:</td><td><asp:TextBox ID="txtCity" runat="server" Enabled="True" Text='<%#Bind("City") %>'></asp:TextBox></td></tr>
+                            <tr><td>Post Code:</td><td><asp:TextBox ID="txtPostCode" runat="server" Enabled="True" Text='<%#Bind("PostCode") %>'></asp:TextBox></td></tr>
+                            <tr><td>Status:</td><td><asp:TextBox ID="txtStatus" runat="server" Enabled="True" Text='<%#Bind("Status") %>'></asp:TextBox></td></tr>
+
+                            <tr><td></td><td><asp:LinkButton ID="btnUpdate" runat="server" CommandName="Update" Text="Save" CssClass="btn btn-primary"/></td></tr>
+                        </table>
+                    </section>
+                </section>
+
             </EditItemTemplate>
 
             <InsertItemTemplate>
@@ -58,10 +91,30 @@
                     </h3>
                 </section>
 
+                <section class="row">
+                    <section class="col-xs-12">
+                        <table>
+                            <tr><td>Site ID:</td><td><asp:TextBox ID="txtSiteID" runat="server" Enabled="True" Text='<%#Bind("SiteID") %>'></asp:TextBox></td></tr>
+                            <tr><td>Site Name:</td><td><asp:TextBox ID="txtSiteName" runat="server" Enabled="True" Text='<%#Bind("SiteName") %>'></asp:TextBox></td></tr>
+                            <tr><td>Address Line 1:</td><td><asp:TextBox ID="txtAddress1" runat="server" Enabled="True" Text='<%#Bind("[Address 1]") %>'></asp:TextBox></td></tr>
+                            <tr><td>Address Line 2:</td><td><asp:TextBox ID="txtAddress2" runat="server" Enabled="True" Text='<%#Bind("[Address 2]") %>'></asp:TextBox></td></tr>
+                            <tr><td>City:</td><td><asp:TextBox ID="txtCity" runat="server" Enabled="True" Text='<%#Bind("City") %>'></asp:TextBox></td></tr>
+                            <tr><td>Post Code:</td><td><asp:TextBox ID="txtPostCode" runat="server" Enabled="True" Text='<%#Bind("PostCode") %>'></asp:TextBox></td></tr>
+                            <tr><td>Status:</td><td><asp:TextBox ID="txtStatus" runat="server" Enabled="True" Text='<%#Bind("Status") %>'></asp:TextBox></td></tr>
+
+                            <tr><td></td><td><asp:LinkButton ID="btnInsert" runat="server" CommandName="Insert" Text="Submit" CssClass="btn btn-primary"/></td></tr>
+                    </table>
+                    </section>
+                </section>
+
             </InsertItemTemplate>
 
             <EmptyDataTemplate>
-                <h3>(No record found.)</h3>
+                <section class="row">
+                    <section class="col-xs-12">
+                        <h3>(No record found.)</h3>
+                    </section>
+                </section>
             </EmptyDataTemplate>
 
         </asp:FormView>

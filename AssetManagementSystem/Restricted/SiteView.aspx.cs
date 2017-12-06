@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -44,7 +45,6 @@ namespace AssetManagementSystem.Restricted
 		/* *************************************
 		* ******** FormView Subroutines ********
 		* ************************************* */
-
 		protected void FvSiteView_DataBound(object sender, EventArgs e)
 		{
 			if (FvSiteView.DataItemCount == 0)
@@ -57,25 +57,156 @@ namespace AssetManagementSystem.Restricted
 			}
 		}
 
-
         protected void FvSiteView_ItemCommand(object sender, FormViewCommandEventArgs e)
         {
-
+            switch (e.CommandName)
+            {
+                case "New":
+                    Response.Redirect("~/Restricted/SiteView.aspx?id=0");
+                    break;
+                case "Cancel":
+                    FvSiteView.ChangeMode(FormViewMode.ReadOnly);
+                    PageDataRefresh();
+                    break;
+                case "ListView":
+                    Response.Redirect("~/Restricted/SiteView.aspx");
+                    break;
+            }
         }
 
         protected void FvSiteView_ModeChanging(object sender, FormViewModeEventArgs e)
         {
+            // Enable a FormView mode change (Read-Only, Edit/Update, New/Insert, Empty)
+            FvSiteView.ChangeMode((FormViewMode)e.NewMode);
+            PageDataRefresh();
+        }
 
+        protected void FvSiteView_CallInsertOrUpdate(string CallCommand)
+        {
+            // Code versions of all controls
+            TextBox siteID_txt = (TextBox)FvSiteView.FindControl("txtSiteID");
+            TextBox siteName_txt = (TextBox)FvSiteView.FindControl("txtSiteName");
+            TextBox address1_txt = (TextBox)FvSiteView.FindControl("txtAddress1");
+            TextBox address2_txt = (TextBox)FvSiteView.FindControl("txtAddress2");
+            TextBox city_txt = (TextBox)FvSiteView.FindControl("txtCity");
+            TextBox postCode_txt = (TextBox)FvSiteView.FindControl("txtPostCode");
+            TextBox status_txt = (TextBox)FvSiteView.FindControl("txtStatus");
+
+            // Assign all controls to variables
+            string siteID = siteID_txt.Text;
+            string siteName = siteName_txt.Text;
+            string address1 = address1_txt.Text;
+            string address2 = address2_txt.Text;
+            string city = city_txt.Text;
+            string postCode = postCode_txt.Text;
+            string status = status_txt.Text;
+
+            SiteTableAdapter siteAdapter = new SiteTableAdapter();
+
+            try
+            {
+                if (CallCommand == "Update")
+                {
+                    string originalID = Request.QueryString["id"].ToString();
+
+                    // Conduct Update
+                    //this.Validate();
+                    siteAdapter.UpdateRecord(siteID, siteName, address1, address2, city, postCode, status, originalID);
+
+                    Response.Write("<script LANGUAGE='JavaScript' >alert('Record Edited')</script>");
+
+                    // Return to Read Only mode
+                    FvSiteView.ChangeMode(FormViewMode.ReadOnly);
+                    PageDataRefresh();
+                }
+                else if (CallCommand == "Insert")
+                {
+                    siteAdapter.InsertRecord(siteID, siteName, address1, address2, city, postCode, status);
+                    //string newID = siteAdapter.InsertAndReturnID(siteID, siteName, address1, address2, city, postCode, status).ToString();
+                    Response.Write("<script LANGUAGE='JavaScript' >alert('Record Added')</script>");
+                    // Redirect User
+                    Response.Redirect("~/Restricted/SiteView.aspx?id=" + siteID);
+                }
+            }
+            catch (System.Exception ex)
+            {
+                Response.Write("<script LANGUAGE='JavaScript' >alert('An ERROR occurred connecting to the database.')</script>");
+            }
         }
 
         protected void FvSiteView_ItemInserting(object sender, FormViewInsertEventArgs e)
         {
-
+            FvSiteView_CallInsertOrUpdate("Insert");
         }
 
         protected void FvSiteView_ItemUpdating(object sender, FormViewUpdateEventArgs e)
         {
-
+            FvSiteView_CallInsertOrUpdate("Update");
         }
+
+
+
+
+        /*
+         *  protected void FvSiteView_ItemInserting(object sender, FormViewInsertEventArgs e)
+        {
+            // Code versions of all controls
+            TextBox siteID_txt = (TextBox)FvSiteView.FindControl("txtSiteID");
+            TextBox siteName_txt = (TextBox)FvSiteView.FindControl("txtSiteName");
+            TextBox address1_txt = (TextBox)FvSiteView.FindControl("txtAddress1");
+            TextBox address2_txt = (TextBox)FvSiteView.FindControl("txtAddress2");
+            TextBox city_txt = (TextBox)FvSiteView.FindControl("txtCity");
+            TextBox postCode_txt = (TextBox)FvSiteView.FindControl("txtPostCode");
+            TextBox status_txt = (TextBox)FvSiteView.FindControl("txtStatus");
+
+            // Assign all controls to variables
+            string siteID = siteID_txt.Text;
+            string siteName = siteName_txt.Text;
+            string address1 = address1_txt.Text;
+            string address2 = address2_txt.Text;
+            string city = city_txt.Text;
+            string postCode = postCode_txt.Text;
+            string status = status_txt.Text;
+
+            // Conduct Insert
+            SiteTableAdapter siteAdapter = new SiteTableAdapter();
+            string newID = siteAdapter.InsertAndReturnID(siteID, siteName, address1, address2, city, postCode, status).ToString();
+
+            // Redirect User
+            Response.Redirect("~/Restricted/SiteView.aspx?id=" + newID);
+        }
+
+        protected void FvSiteView_ItemUpdating(object sender, FormViewUpdateEventArgs e)
+        {
+            // Code versions of all controls
+            TextBox siteID_txt = (TextBox)FvSiteView.FindControl("txtSiteID");
+            TextBox siteName_txt = (TextBox)FvSiteView.FindControl("txtSiteName");
+            TextBox address1_txt = (TextBox)FvSiteView.FindControl("txtAddress1");
+            TextBox address2_txt = (TextBox)FvSiteView.FindControl("txtAddress2");
+            TextBox city_txt = (TextBox)FvSiteView.FindControl("txtCity");
+            TextBox postCode_txt = (TextBox)FvSiteView.FindControl("txtPostCode");
+            TextBox status_txt = (TextBox)FvSiteView.FindControl("txtStatus");
+
+            // Assign all controls to variables
+            string siteID = siteID_txt.Text;
+            string siteName = siteName_txt.Text;
+            string address1 = address1_txt.Text;
+            string address2 = address2_txt.Text;
+            string city = city_txt.Text;
+            string postCode = postCode_txt.Text;
+            string status = status_txt.Text;
+
+            string originalID = Request.QueryString["id"].ToString();
+
+            // Conduct Update
+            SiteTableAdapter siteAdapter = new SiteTableAdapter();
+            siteAdapter.UpdateRecord(siteID, siteName, address1, address2, city, postCode, status, originalID);
+
+        // Return to Read Only mode
+        FvSiteView.ChangeMode(FormViewMode.ReadOnly);
+            PageDataRefresh();
+    }
+         */
     }
 }
+ 
