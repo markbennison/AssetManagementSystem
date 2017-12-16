@@ -30,7 +30,6 @@
                         </h3>
                     </section>
                 </section>
-
                 <section class="row">
                     <section class="col-xs-12">
                         <table>
@@ -44,7 +43,6 @@
                         </table>
                     </section>
                 </section>
-
             </ItemTemplate>
 
             <EditItemTemplate>
@@ -60,7 +58,6 @@
                         </h3>
                     </section>
                 </section>
-
                 <section class="row">
                     <section class="col-xs-12">
                         <table>
@@ -76,21 +73,21 @@
                         </table>
                     </section>
                 </section>
-
             </EditItemTemplate>
 
             <InsertItemTemplate>
-                <section class="col-xs-8">
+                <section class="row">
+                    <section class="col-xs-8">
                     <h3>Form View (Insert)</h3>
                 </section>
-                <section class="col-xs-4 text-right">
+                    <section class="col-xs-4 text-right">
                     <h3>
                         <asp:linkbutton id="btnInsertView" CommandName="New" runat="server" CssClass="glyphicon glyphicon-plus btn disabled"/>
                         <asp:linkbutton id="btnEditView" CommandName="Edit" runat="server" CssClass="glyphicon glyphicon-pencil btn disabled"/>
                         <asp:linkbutton id="btnListView" CommandName="ListView" runat="server" CssClass="glyphicon glyphicon-th-list btn"/>
                     </h3>
                 </section>
-
+                </section>
                 <section class="row">
                     <section class="col-xs-12">
                         <table>
@@ -103,10 +100,9 @@
                             <tr><td>Status:</td><td><asp:TextBox ID="txtStatus" runat="server" Enabled="True" Text='<%#Bind("Status") %>'></asp:TextBox></td></tr>
 
                             <tr><td></td><td><asp:LinkButton ID="btnInsert" runat="server" CommandName="Insert" Text="Submit" CssClass="btn btn-primary"/></td></tr>
-                    </table>
+                        </table>
                     </section>
                 </section>
-
             </InsertItemTemplate>
 
             <EmptyDataTemplate>

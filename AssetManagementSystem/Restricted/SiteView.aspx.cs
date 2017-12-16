@@ -69,7 +69,7 @@ namespace AssetManagementSystem.Restricted
                     PageDataRefresh();
                     break;
                 case "ListView":
-                    Response.Redirect("~/Restricted/SiteView.aspx");
+                    Response.Redirect("~/Restricted/SiteList.aspx");
                     break;
             }
         }
@@ -79,6 +79,16 @@ namespace AssetManagementSystem.Restricted
             // Enable a FormView mode change (Read-Only, Edit/Update, New/Insert, Empty)
             FvSiteView.ChangeMode((FormViewMode)e.NewMode);
             PageDataRefresh();
+        }
+
+        protected void FvSiteView_ItemInserting(object sender, FormViewInsertEventArgs e)
+        {
+            FvSiteView_CallInsertOrUpdate("Insert");
+        }
+
+        protected void FvSiteView_ItemUpdating(object sender, FormViewUpdateEventArgs e)
+        {
+            FvSiteView_CallInsertOrUpdate("Update");
         }
 
         protected void FvSiteView_CallInsertOrUpdate(string CallCommand)
@@ -92,7 +102,8 @@ namespace AssetManagementSystem.Restricted
             TextBox postCode_txt = (TextBox)FvSiteView.FindControl("txtPostCode");
             TextBox status_txt = (TextBox)FvSiteView.FindControl("txtStatus");
 
-            // Assign all controls to variables
+            // Assign all text properties of controls to variables
+            // Or skip this and assign straight into INSERT/UPDATE parameters
             string siteID = siteID_txt.Text;
             string siteName = siteName_txt.Text;
             string address1 = address1_txt.Text;
@@ -133,17 +144,6 @@ namespace AssetManagementSystem.Restricted
                 Response.Write("<script LANGUAGE='JavaScript' >alert('An ERROR occurred connecting to the database.')</script>");
             }
         }
-
-        protected void FvSiteView_ItemInserting(object sender, FormViewInsertEventArgs e)
-        {
-            FvSiteView_CallInsertOrUpdate("Insert");
-        }
-
-        protected void FvSiteView_ItemUpdating(object sender, FormViewUpdateEventArgs e)
-        {
-            FvSiteView_CallInsertOrUpdate("Update");
-        }
-
 
 
 
