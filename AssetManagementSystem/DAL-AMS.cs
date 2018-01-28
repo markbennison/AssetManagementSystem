@@ -6,9 +6,9 @@ namespace AssetManagementSystem
 {
 
 
-    public partial class _DAL_AMS
-    {
-    }
+	public partial class _DAL_AMS
+	{
+	}
 }
 namespace AssetManagementSystem {
     

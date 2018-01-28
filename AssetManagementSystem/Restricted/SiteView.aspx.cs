@@ -47,6 +47,8 @@ namespace AssetManagementSystem.Restricted
 		* ************************************* */
 		protected void FvSiteView_DataBound(object sender, EventArgs e)
 		{
+			// DataItemCount checks how many records are returned
+			// If no records are returned, change to Insert View (new record)
 			if (FvSiteView.DataItemCount == 0)
 			{
 				FvSiteView.ChangeMode(FormViewMode.Insert);
