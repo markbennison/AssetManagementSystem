@@ -4536,8 +4536,9 @@ namespace AssetManagementSystem._DAL_AMSTableAdapters {
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@buildingid", global::System.Data.SqlDbType.VarChar, 4, global::System.Data.ParameterDirection.Input, 0, 0, "BuildingID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT        BuildingID, BuildingName, SiteID\r\nFROM            Buildings\r\nWHERE " +
-                "       (SiteID = @siteid)";
+            this._commandCollection[2].CommandText = "SELECT\tBuildingID, BuildingName,\r\n\t(SELECT COUNT (LocationID) AS LocationCount\r\n\t" +
+                "FROM Locations\r\n\tWHERE (BuildingID = Buildings.BuildingID)) AS LocationCount\r\nFR" +
+                "OM\tBuildings\r\nWHERE\t(SiteID = @siteid)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@siteid", global::System.Data.SqlDbType.VarChar, 4, global::System.Data.ParameterDirection.Input, 0, 0, "SiteID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }

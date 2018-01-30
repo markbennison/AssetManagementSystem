@@ -114,15 +114,59 @@
             </EmptyDataTemplate>
 
         </asp:FormView>
-    </section>
 
-    <!-- LIST VIEW      glyphicon glyphicon-th-list
-         FORM VIEW      glyphicon glyphicon-modal-window
-         DELETE         glyphicon glyphicon-trash 
-         ADD NEW        glyphicon glyphicon-plus
-         EDIT           glyphicon glyphicon-pencil
-         SAVE           glyphicon glyphicon-ok-circle
-         CANCEL         glyphicon glyphicon-remove-circle
-        -->
+		<section class="row">
+			<!-- LIST VIEW column -->
+			<section class="col-xs-8">
+				<h3>Building List</h3>
+			</section>
+			<section class="col-xs-4 text-right">
+				<h3><asp:linkbutton id="btnAddNew" PostBackUrl="~/Restricted/SiteView.aspx" CommandName="New" runat="server" CssClass="glyphicon glyphicon-plus"/></h3>
+			</section>
+		</section>
+
+		<section class="row">
+			<section class="col-md-12">
+				<asp:ListView ID="LvBuildingList" runat="server" OnItemCommand="LvBuildingList_ItemCommand">
+
+					<LayoutTemplate>
+						<table runat="server" id="tblBuildings" class="table table-hover">
+							<tr runat="server" >
+								<th>Building ID</th>
+								<th>Building Name</th>
+								<th>Location Count</th>
+								<th>View</th>
+							</tr>
+							<tr runat="server" id="itemPlaceholder" ></tr>
+						</table>
+					</LayoutTemplate>
+
+					<ItemTemplate>
+						<tr runat="server">
+							<td><asp:Label ID="lblBuildingID" runat="server" Text='<%#Eval("[BuildingID]") %>' /></td>
+							<td><asp:Label ID="lblBuildingName" runat="server" Text='<%#Eval("[BuildingName]") %>' /></td>
+							<td><asp:Label ID="lblLocationCount" runat="server" Text='<%#Eval("[LocationCount]") %>' /></td>
+							<td><asp:LinkButton ID="btnView" runat="server" Text="View" CommandName="View" CommandArgument='<%#Eval("BuildingID") %>'/></td>
+						</tr>
+					</ItemTemplate>
+
+					<EmptyDataTemplate>
+						<table runat="server" id="tblBuildings" class="table">
+							<tr runat="server" >
+								<th>Building ID</th>
+								<th>Building Name</th>
+								<th>Location Count</th>
+								<th>View</th>
+							</tr>
+							<tr>
+								<td colspan="4" class="text-center">No buildings listed for this site</td>
+							</tr>
+						</table>
+					</EmptyDataTemplate>
+
+				</asp:ListView>
+			</section>
+		</section>
+    </section>
 
 </asp:Content>

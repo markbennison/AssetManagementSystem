@@ -40,7 +40,11 @@ namespace AssetManagementSystem.Restricted
             FvSiteView.DataSource = siteAdapter.GetByID(sID);
             FvSiteView.DataBind();
 
-        }
+			BuildingsTableAdapter buildingsAdapter = new BuildingsTableAdapter();
+			LvBuildingList.DataSource = buildingsAdapter.GetBySiteID(sID);
+			LvBuildingList.DataBind();
+
+		}
 
 		/* *************************************
 		* ******** FormView Subroutines ********
@@ -147,9 +151,14 @@ namespace AssetManagementSystem.Restricted
             }
         }
 
+		protected void LvBuildingList_ItemCommand(object sender, ListViewCommandEventArgs e)
+		{
+			Response.Redirect("~/Restricted/BuildingView.aspx?id=" + e.CommandArgument.ToString());
+		}
 
 
-        /*
+
+		/*
          *  protected void FvSiteView_ItemInserting(object sender, FormViewInsertEventArgs e)
         {
             // Code versions of all controls
@@ -209,6 +218,6 @@ namespace AssetManagementSystem.Restricted
             PageDataRefresh();
     }
          */
-    }
+	}
 }
  
