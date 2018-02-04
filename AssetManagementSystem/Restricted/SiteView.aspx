@@ -23,10 +23,9 @@
                         <h3>Form View (Read-Only)</h3>
                     </section>
                     <section class="col-xs-4 text-right">
-                        <h3>
-                            <asp:linkbutton id="btnInsertView" CommandName="New" runat="server" CssClass="glyphicon glyphicon-plus btn"/>
-                            <asp:linkbutton id="btnEditView" CommandName="Edit" runat="server" CssClass="glyphicon glyphicon-pencil btn"/>
-                            <asp:linkbutton id="btnListView" CommandName="ListView" runat="server" CssClass="glyphicon glyphicon-th-list btn"/>
+                        <h3><asp:linkbutton id="btnInsertView" CommandName="New" runat="server" CssClass="glyphicon glyphicon-plus btn"/>
+							<asp:linkbutton id="btnEditView" CommandName="Edit" runat="server" CssClass="glyphicon glyphicon-pencil btn"/>
+							<asp:linkbutton id="btnListView" CommandName="ListView" runat="server" CssClass="glyphicon glyphicon-th-list btn"/>
                         </h3>
                     </section>
                 </section>
@@ -81,12 +80,12 @@
                     <h3>Form View (Insert)</h3>
                 </section>
                     <section class="col-xs-4 text-right">
-                    <h3>
-                        <asp:linkbutton id="btnInsertView" CommandName="New" runat="server" CssClass="glyphicon glyphicon-plus btn disabled"/>
-                        <asp:linkbutton id="btnEditView" CommandName="Edit" runat="server" CssClass="glyphicon glyphicon-pencil btn disabled"/>
-                        <asp:linkbutton id="btnListView" CommandName="ListView" runat="server" CssClass="glyphicon glyphicon-th-list btn"/>
-                    </h3>
-                </section>
+						<h3>
+							<asp:linkbutton id="btnInsertView" CommandName="New" runat="server" CssClass="glyphicon glyphicon-plus btn disabled"/>
+							<asp:linkbutton id="btnEditView" CommandName="Edit" runat="server" CssClass="glyphicon glyphicon-pencil btn disabled"/>
+							<asp:linkbutton id="btnListView" CommandName="ListView" runat="server" CssClass="glyphicon glyphicon-th-list btn"/>
+						</h3>
+					</section>
                 </section>
                 <section class="row">
                     <section class="col-xs-12">
@@ -115,13 +114,17 @@
 
         </asp:FormView>
 
+		<%------------------------------------------------------------
+			Building List			
+		  ------------------------------------------------------------%>
+
 		<section class="row">
 			<!-- LIST VIEW column -->
 			<section class="col-xs-8">
 				<h3>Building List</h3>
 			</section>
 			<section class="col-xs-4 text-right">
-				<h3><asp:linkbutton id="btnAddNew" PostBackUrl="~/Restricted/SiteView.aspx" CommandName="New" runat="server" CssClass="glyphicon glyphicon-plus"/></h3>
+				<h3><asp:linkbutton id="btnAddNew" PostBackUrl="~/Restricted/BuildingView.aspx" CommandName="New" runat="server" CssClass="glyphicon glyphicon-plus btn"/></h3>
 			</section>
 		</section>
 

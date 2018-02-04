@@ -224,6 +224,8 @@
       <DependentUpon>DAL-AMS.xsd</DependentUpon>
     </Content>
     <Content Include="Admin\ManageUserList.aspx" />
+    <Content Include="Restricted\BuildingView.aspx" />
+    <Content Include="Restricted\LocationView.aspx" />
     <Content Include="Restricted\SiteView.aspx" />
     <Content Include="Restricted\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -419,6 +421,20 @@
     </Compile>
     <Compile Include="Admin\ManageUserList.aspx.designer.cs">
       <DependentUpon>ManageUserList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restricted\BuildingView.aspx.cs">
+      <DependentUpon>BuildingView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restricted\BuildingView.aspx.designer.cs">
+      <DependentUpon>BuildingView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restricted\LocationView.aspx.cs">
+      <DependentUpon>LocationView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restricted\LocationView.aspx.designer.cs">
+      <DependentUpon>LocationView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Restricted\SiteView.aspx.cs">
       <DependentUpon>SiteView.aspx</DependentUpon>
