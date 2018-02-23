@@ -23,7 +23,7 @@
                         <asp:ListView ID="LvSiteList"  runat="server" OnItemCommand="LvSiteList_ItemCommand">
 
                             <LayoutTemplate>
-                                <table runat="server" id="tblEquipment" class="table table-hover">
+                                <table runat="server" id="tblSites" class="table table-hover">
 							        <tr runat="server" >
                                         <th>Site ID</th>
                                         <th>Site Name</th>

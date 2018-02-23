@@ -225,7 +225,15 @@
     </Content>
     <Content Include="Admin\ManageUserList.aspx" />
     <Content Include="Restricted\BuildingView.aspx" />
+    <Content Include="Restricted\EquipmentList.aspx" />
+    <Content Include="Restricted\EquipmentTypeList.aspx" />
+    <Content Include="Restricted\EquipmentTypeView.aspx" />
+    <Content Include="Restricted\EquipmentView.aspx" />
     <Content Include="Restricted\LocationView.aspx" />
+    <Content Include="Restricted\RequirementList.aspx" />
+    <Content Include="Restricted\RequirementView.aspx" />
+    <Content Include="Restricted\ServiceList.aspx" />
+    <Content Include="Restricted\ServiceView.aspx" />
     <Content Include="Restricted\SiteView.aspx" />
     <Content Include="Restricted\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -429,12 +437,68 @@
     <Compile Include="Restricted\BuildingView.aspx.designer.cs">
       <DependentUpon>BuildingView.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Restricted\EquipmentList.aspx.cs">
+      <DependentUpon>EquipmentList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restricted\EquipmentList.aspx.designer.cs">
+      <DependentUpon>EquipmentList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restricted\EquipmentTypeList.aspx.cs">
+      <DependentUpon>EquipmentTypeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restricted\EquipmentTypeList.aspx.designer.cs">
+      <DependentUpon>EquipmentTypeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restricted\EquipmentTypeView.aspx.cs">
+      <DependentUpon>EquipmentTypeView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restricted\EquipmentTypeView.aspx.designer.cs">
+      <DependentUpon>EquipmentTypeView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restricted\EquipmentView.aspx.cs">
+      <DependentUpon>EquipmentView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restricted\EquipmentView.aspx.designer.cs">
+      <DependentUpon>EquipmentView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Restricted\LocationView.aspx.cs">
       <DependentUpon>LocationView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Restricted\LocationView.aspx.designer.cs">
       <DependentUpon>LocationView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restricted\RequirementList.aspx.cs">
+      <DependentUpon>RequirementList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restricted\RequirementList.aspx.designer.cs">
+      <DependentUpon>RequirementList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restricted\RequirementView.aspx.cs">
+      <DependentUpon>RequirementView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restricted\RequirementView.aspx.designer.cs">
+      <DependentUpon>RequirementView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restricted\ServiceList.aspx.cs">
+      <DependentUpon>ServiceList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restricted\ServiceList.aspx.designer.cs">
+      <DependentUpon>ServiceList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restricted\ServiceView.aspx.cs">
+      <DependentUpon>ServiceView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restricted\ServiceView.aspx.designer.cs">
+      <DependentUpon>ServiceView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Restricted\SiteView.aspx.cs">
       <DependentUpon>SiteView.aspx</DependentUpon>

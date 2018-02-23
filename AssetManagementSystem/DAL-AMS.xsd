@@ -291,7 +291,7 @@ WHERE        (LocationTypeID = @locationtypeid)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertAndReturnID" Modifier="Public" Name="InsertAndReturnID" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="InsertAndReturnID">
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertAndReturnID" Modifier="Public" Name="InsertAndReturnID" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertAndReturnID">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [Locations] ([LocationEasyName], [LocationTypeID], [BuildingID]) VALUES (@LocationEasyName, @LocationTypeID, @BuildingID);
@@ -306,7 +306,7 @@ SELECT SCOPE_IDENTITY()
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertRecord" Modifier="Public" Name="InsertRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertRecord">
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertRecord" Modifier="Public" Name="InsertRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertRecord">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [Locations] ([LocationEasyName], [LocationTypeID], [BuildingID]) VALUES (@LocationEasyName, @LocationTypeID, @BuildingID)</CommandText>
@@ -318,7 +318,7 @@ SELECT SCOPE_IDENTITY()
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateRecord" Modifier="Public" Name="UpdateRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateRecord">
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateRecord" Modifier="Public" Name="UpdateRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateRecord">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE [Locations] SET [LocationEasyName] = @LocationEasyName, [LocationTypeID] = @LocationTypeID, [BuildingID] = @BuildingID WHERE (([LocationID] = @Original_LocationID))</CommandText>
@@ -615,6 +615,682 @@ WHERE	(Id = @id)</CommandText>
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EquipmentInstanceTableAdapter" GeneratorDataComponentClassName="EquipmentInstanceTableAdapter" Name="EquipmentInstance" UserDataComponentName="EquipmentInstanceTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="dbo.EquipmentInstance" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="Get" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="Get" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="Get" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [EquipmentInstance] WHERE (([EquipmentInstanceID] = @Original_EquipmentInstanceID))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_EquipmentInstanceID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EquipmentInstanceID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [EquipmentInstance] ([EquipmentTypeID], [Status], [SerialNumber], [LocationID], [InstallationDate]) VALUES (@EquipmentTypeID, @Status, @SerialNumber, @LocationID, @InstallationDate)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@EquipmentTypeID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EquipmentTypeID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Status" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Status" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SerialNumber" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SerialNumber" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@LocationID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LocationID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@InstallationDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="InstallationDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        EquipmentInstanceID, EquipmentTypeID, Status, SerialNumber, LocationID, InstallationDate
+FROM            EquipmentInstance</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [EquipmentInstance] SET [EquipmentTypeID] = @EquipmentTypeID, [Status] = @Status, [SerialNumber] = @SerialNumber, [LocationID] = @LocationID, [InstallationDate] = @InstallationDate WHERE (([EquipmentInstanceID] = @Original_EquipmentInstanceID))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@EquipmentTypeID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EquipmentTypeID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Status" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Status" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SerialNumber" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SerialNumber" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@LocationID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LocationID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@InstallationDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="InstallationDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_EquipmentInstanceID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EquipmentInstanceID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="EquipmentInstanceID" DataSetColumn="EquipmentInstanceID" />
+              <Mapping SourceColumn="EquipmentTypeID" DataSetColumn="EquipmentTypeID" />
+              <Mapping SourceColumn="Status" DataSetColumn="Status" />
+              <Mapping SourceColumn="SerialNumber" DataSetColumn="SerialNumber" />
+              <Mapping SourceColumn="LocationID" DataSetColumn="LocationID" />
+              <Mapping SourceColumn="InstallationDate" DataSetColumn="InstallationDate" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="dbo.EquipmentInstance" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByID" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetByID" GeneratorSourceName="FillByID" GetMethodModifier="Public" GetMethodName="GetByID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetByID" UserSourceName="FillByID">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT EquipmentInstanceID, EquipmentTypeID, InstallationDate, LocationID, SerialNumber, Status FROM EquipmentInstance WHERE (EquipmentInstanceID = @equipmentInstanceID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="equipmentInstanceID" ColumnName="EquipmentInstanceID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentInstance" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@equipmentInstanceID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="EquipmentInstanceID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="dbo.EquipmentInstance" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByParameters" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetByParameters" GeneratorSourceName="FillByParameters" GetMethodModifier="Public" GetMethodName="GetByParameters" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetByParameters" UserSourceName="FillByParameters">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        EquipmentInstanceID, EquipmentTypeID, Status, SerialNumber, LocationID, InstallationDate
+FROM            EquipmentInstance
+WHERE        (@equipmentInstanceID IS NULL OR
+                         @equipmentInstanceID = 0 OR
+                         EquipmentInstanceID = @equipmentInstanceID) AND (@equipmentTypeID IS NULL OR
+                         @equipmentTypeID = 0 OR
+                         EquipmentTypeID = @equipmentTypeID) AND (@status IS NULL OR
+                         Status LIKE '%' + @status + '%') AND (@serialNumber IS NULL OR
+                         SerialNumber LIKE '%' + @serialNumber + '%') AND (@locationID IS NULL OR
+                         @locationID = 0 OR
+                         LocationID = @locationID) AND (@installationStartDate IS NULL OR
+                         InstallationDate &gt;= @installationStartDate) AND (@installationEndDate IS NULL OR
+                         InstallationDate &lt;= @installationEndDate)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="equipmentInstanceID" ColumnName="EquipmentInstanceID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentInstance" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@equipmentInstanceID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="EquipmentInstanceID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="equipmentTypeID" ColumnName="EquipmentTypeID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentInstance" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@equipmentTypeID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="EquipmentTypeID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="status" ColumnName="Status" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentInstance" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@status" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="Status" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="serialNumber" ColumnName="SerialNumber" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentInstance" DataTypeServer="nvarchar(60)" DbType="AnsiString" Direction="Input" ParameterName="@serialNumber" Precision="0" ProviderType="NVarChar" Scale="0" Size="60" SourceColumn="SerialNumber" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="locationID" ColumnName="LocationID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentInstance" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@locationID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="LocationID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="installationStartDate" ColumnName="InstallationDate" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentInstance" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="@installationStartDate" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="InstallationDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="installationEndDate" ColumnName="InstallationDate" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentInstance" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="@installationEndDate" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="InstallationDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertRecord" Modifier="Public" Name="InsertRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertRecord">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO EquipmentInstance
+                         (EquipmentTypeID, Status, SerialNumber, LocationID, InstallationDate)
+VALUES        (@EquipmentTypeID,@Status,@SerialNumber,@LocationID,@InstallationDate)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="EquipmentTypeID" ColumnName="EquipmentTypeID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentInstance" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@EquipmentTypeID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="EquipmentTypeID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Status" ColumnName="Status" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentInstance" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@Status" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="Status" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="SerialNumber" ColumnName="SerialNumber" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentInstance" DataTypeServer="nvarchar(60)" DbType="String" Direction="Input" ParameterName="@SerialNumber" Precision="0" ProviderType="NVarChar" Scale="0" Size="60" SourceColumn="SerialNumber" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="LocationID" ColumnName="LocationID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentInstance" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@LocationID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="LocationID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="InstallationDate" ColumnName="InstallationDate" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentInstance" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@InstallationDate" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="InstallationDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateRecord" Modifier="Public" Name="UpdateRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateRecord">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       EquipmentInstance
+SET                EquipmentTypeID = @EquipmentTypeID, Status = @Status, SerialNumber = @SerialNumber, LocationID = @LocationID, InstallationDate = @InstallationDate 
+WHERE        (EquipmentInstanceID = @Original_EquipmentInstanceID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="EquipmentTypeID" ColumnName="EquipmentTypeID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentInstance" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@EquipmentTypeID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="EquipmentTypeID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Status" ColumnName="Status" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentInstance" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@Status" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="Status" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="SerialNumber" ColumnName="SerialNumber" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentInstance" DataTypeServer="nvarchar(60)" DbType="String" Direction="Input" ParameterName="@SerialNumber" Precision="0" ProviderType="NVarChar" Scale="0" Size="60" SourceColumn="SerialNumber" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="LocationID" ColumnName="LocationID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentInstance" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@LocationID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="LocationID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="InstallationDate" ColumnName="InstallationDate" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentInstance" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@InstallationDate" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="InstallationDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Original_EquipmentInstanceID" ColumnName="EquipmentInstanceID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentInstance" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Original_EquipmentInstanceID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="EquipmentInstanceID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EquipmentTypesTableAdapter" GeneratorDataComponentClassName="EquipmentTypesTableAdapter" Name="EquipmentTypes" UserDataComponentName="EquipmentTypesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="dbo.EquipmentTypes" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="Get" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="Get" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="Get" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [EquipmentTypes] WHERE (([EquipmentTypeID] = @Original_EquipmentTypeID))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_EquipmentTypeID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EquipmentTypeID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [EquipmentTypes] ([EquipmentTypeDesc], [EquipmentModelNo], [SupplierID]) VALUES (@EquipmentTypeDesc, @EquipmentModelNo, @SupplierID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@EquipmentTypeDesc" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="EquipmentTypeDesc" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@EquipmentModelNo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="EquipmentModelNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@SupplierID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="SupplierID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        EquipmentTypeID, EquipmentTypeDesc, EquipmentModelNo, SupplierID
+FROM            EquipmentTypes</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [EquipmentTypes] SET [EquipmentTypeDesc] = @EquipmentTypeDesc, [EquipmentModelNo] = @EquipmentModelNo, [SupplierID] = @SupplierID WHERE (([EquipmentTypeID] = @Original_EquipmentTypeID))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@EquipmentTypeDesc" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="EquipmentTypeDesc" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@EquipmentModelNo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="EquipmentModelNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@SupplierID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="SupplierID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_EquipmentTypeID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EquipmentTypeID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="EquipmentTypeID" DataSetColumn="EquipmentTypeID" />
+              <Mapping SourceColumn="EquipmentTypeDesc" DataSetColumn="EquipmentTypeDesc" />
+              <Mapping SourceColumn="EquipmentModelNo" DataSetColumn="EquipmentModelNo" />
+              <Mapping SourceColumn="SupplierID" DataSetColumn="SupplierID" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="dbo.EquipmentTypes" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByID" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetByID" GeneratorSourceName="FillByID" GetMethodModifier="Public" GetMethodName="GetByID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetByID" UserSourceName="FillByID">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT EquipmentModelNo, EquipmentTypeDesc, EquipmentTypeID, SupplierID FROM EquipmentTypes WHERE (EquipmentTypeID = @equipmentTypeID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="equipmentTypeID" ColumnName="EquipmentTypeID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentTypes" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@equipmentTypeID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="EquipmentTypeID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="dbo.EquipmentTypes" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByParameters" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetByParameters" GeneratorSourceName="FillByParameters" GetMethodModifier="Public" GetMethodName="GetByParameters" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetByParameters" UserSourceName="FillByParameters">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT EquipmentModelNo, EquipmentTypeDesc, EquipmentTypeID, SupplierID FROM EquipmentTypes WHERE (EquipmentTypeID = @equipmentTypeID) AND (EquipmentTypeDesc = @equipmentTypeDesc) AND (EquipmentModelNo = @equipmentModelNo) AND (SupplierID = @supplierID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="equipmentTypeID" ColumnName="EquipmentTypeID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentTypes" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@equipmentTypeID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="EquipmentTypeID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="equipmentTypeDesc" ColumnName="EquipmentTypeDesc" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentTypes" DataTypeServer="varchar(200)" DbType="AnsiString" Direction="Input" ParameterName="@equipmentTypeDesc" Precision="0" ProviderType="VarChar" Scale="0" Size="200" SourceColumn="EquipmentTypeDesc" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="equipmentModelNo" ColumnName="EquipmentModelNo" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentTypes" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@equipmentModelNo" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="EquipmentModelNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="supplierID" ColumnName="SupplierID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentTypes" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@supplierID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="SupplierID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertRecord" Modifier="Public" Name="InsertRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertRecord">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO [EquipmentTypes] ([EquipmentTypeDesc], [EquipmentModelNo], [SupplierID]) VALUES (@EquipmentTypeDesc, @EquipmentModelNo, @SupplierID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="EquipmentTypeDesc" ColumnName="EquipmentTypeDesc" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentTypes" DataTypeServer="varchar(100)" DbType="AnsiString" Direction="Input" ParameterName="@EquipmentTypeDesc" Precision="0" ProviderType="VarChar" Scale="0" Size="100" SourceColumn="EquipmentTypeDesc" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="EquipmentModelNo" ColumnName="EquipmentModelNo" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentTypes" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@EquipmentModelNo" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="EquipmentModelNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="SupplierID" ColumnName="SupplierID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentTypes" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@SupplierID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="SupplierID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateRecord" Modifier="Public" Name="UpdateRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateRecord">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE [EquipmentTypes] SET [EquipmentTypeDesc] = @EquipmentTypeDesc, [EquipmentModelNo] = @EquipmentModelNo, [SupplierID] = @SupplierID WHERE (([EquipmentTypeID] = @Original_EquipmentTypeID))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="EquipmentTypeDesc" ColumnName="EquipmentTypeDesc" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentTypes" DataTypeServer="varchar(100)" DbType="AnsiString" Direction="Input" ParameterName="@EquipmentTypeDesc" Precision="0" ProviderType="VarChar" Scale="0" Size="100" SourceColumn="EquipmentTypeDesc" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="EquipmentModelNo" ColumnName="EquipmentModelNo" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentTypes" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@EquipmentModelNo" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="EquipmentModelNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="SupplierID" ColumnName="SupplierID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentTypes" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@SupplierID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="SupplierID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Original_EquipmentTypeID" ColumnName="EquipmentTypeID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentTypes" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Original_EquipmentTypeID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="EquipmentTypeID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RequirementsTableAdapter" GeneratorDataComponentClassName="RequirementsTableAdapter" Name="Requirements" UserDataComponentName="RequirementsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="dbo.Requirements" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="Get" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="Get" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="Get" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [Requirements] WHERE (([RequirementID] = @Original_RequirementID))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_RequirementID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="RequirementID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [Requirements] ([EquipmentTypeID], [Priority], [Frequency], [MaterialsNote], [LegislationURL]) VALUES (@EquipmentTypeID, @Priority, @Frequency, @MaterialsNote, @LegislationURL)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@EquipmentTypeID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EquipmentTypeID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Priority" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Priority" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Frequency" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Frequency" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@MaterialsNote" Precision="0" ProviderType="Text" Scale="0" Size="0" SourceColumn="MaterialsNote" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@LegislationURL" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="LegislationURL" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Requirements.*
+FROM            Requirements</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [Requirements] SET [EquipmentTypeID] = @EquipmentTypeID, [Priority] = @Priority, [Frequency] = @Frequency, [MaterialsNote] = @MaterialsNote, [LegislationURL] = @LegislationURL WHERE (([RequirementID] = @Original_RequirementID))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@EquipmentTypeID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EquipmentTypeID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Priority" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Priority" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Frequency" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Frequency" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@MaterialsNote" Precision="0" ProviderType="Text" Scale="0" Size="0" SourceColumn="MaterialsNote" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@LegislationURL" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="LegislationURL" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_RequirementID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="RequirementID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="RequirementID" DataSetColumn="RequirementID" />
+              <Mapping SourceColumn="EquipmentTypeID" DataSetColumn="EquipmentTypeID" />
+              <Mapping SourceColumn="Priority" DataSetColumn="Priority" />
+              <Mapping SourceColumn="Frequency" DataSetColumn="Frequency" />
+              <Mapping SourceColumn="MaterialsNote" DataSetColumn="MaterialsNote" />
+              <Mapping SourceColumn="LegislationURL" DataSetColumn="LegislationURL" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByDueDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetByDueDate" GeneratorSourceName="FillByDueDate" GetMethodModifier="Public" GetMethodName="GetByDueDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetByDueDate" UserSourceName="FillByDueDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        EquipmentInstance.EquipmentInstanceID, EquipmentInstance.InstallationDate, Requirements.RequirementID, Requirements.RequirementDesc, Requirements.EquipmentTypeID, Requirements.Priority, 
+                         Requirements.FirstImplementation, Requirements.Frequency, Requirements.MaterialsNote, Requirements.LegislationURL,
+                             (SELECT        MAX(ActionedDateTime) AS MAXActionedDateTime
+                               FROM            Services
+                               WHERE        (RequirementID = Requirements.RequirementID) AND (EquipmentInstanceID = EquipmentInstance.EquipmentInstanceID)) AS LastActioned, CASE WHEN
+                             (SELECT        MAX(ActionedDateTime) AS MAXActionedDateTime
+                               FROM            Services
+                               WHERE        (Services.RequirementID = Requirements.RequirementID) AND (Services.EquipmentInstanceID = EquipmentInstance.EquipmentInstanceID)) IS NULL THEN
+                             (SELECT        DATEADD(month, Requirements.FirstImplementation, EquipmentInstance.InstallationDate)) ELSE (CASE WHEN Requirements.Frequency &gt; 0 THEN
+                             (SELECT        DATEADD(month, Requirements.Frequency,
+                                                             (SELECT        MAX(ActionedDateTime) AS MAXActionedDateTime
+                                                               FROM            Services
+                                                               WHERE        (Services.RequirementID = Requirements.RequirementID) AND (Services.EquipmentInstanceID = EquipmentInstance.EquipmentInstanceID)))) END) END AS NextDue
+FROM            Requirements INNER JOIN
+                         EquipmentInstance ON Requirements.EquipmentTypeID = EquipmentInstance.EquipmentTypeID
+WHERE        (CASE WHEN
+                             (SELECT        MAX(ActionedDateTime) AS MAXActionedDateTime
+                               FROM            Services
+                               WHERE        (Services.RequirementID = Requirements.RequirementID) AND (Services.EquipmentInstanceID = EquipmentInstance.EquipmentInstanceID)) IS NULL THEN
+                             (SELECT        DATEADD(month, Requirements.FirstImplementation, EquipmentInstance.InstallationDate)) ELSE (CASE WHEN Requirements.Frequency &gt; 0 THEN
+                             (SELECT        DATEADD(month, Requirements.Frequency,
+                                                             (SELECT        MAX(ActionedDateTime) AS MAXActionedDateTime
+                                                               FROM            Services
+                                                               WHERE        (Services.RequirementID = Requirements.RequirementID) AND (Services.EquipmentInstanceID = EquipmentInstance.EquipmentInstanceID)))) END) END IS NOT NULL)
+ORDER BY NextDue, EquipmentInstance.InstallationDate, EquipmentInstance.EquipmentInstanceID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="dbo.Requirements" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByEquipmentInstance" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetByEquipmentInstance" GeneratorSourceName="FillByEquipmentInstance" GetMethodModifier="Public" GetMethodName="GetByEquipmentInstance" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetByEquipmentInstance" UserSourceName="FillByEquipmentInstance">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Requirements.RequirementID, Requirements.RequirementDesc, Requirements.EquipmentTypeID, Requirements.Priority, Requirements.FirstImplementation, Requirements.Frequency, Requirements.MaterialsNote, 
+                         Requirements.LegislationURL,
+                             (SELECT        MAX(ActionedDateTime) AS MAXActionedDateTime
+                               FROM            Services
+                               WHERE        (RequirementID = Requirements.RequirementID) AND (EquipmentInstanceID = @equipmentInstanceID)) AS LastActioned, CASE WHEN
+                             (SELECT        MAX(ActionedDateTime) AS MAXActionedDateTime
+                               FROM            Services
+                               WHERE        (RequirementID = Requirements.RequirementID) AND (EquipmentInstanceID = @equipmentInstanceID)) IS NULL THEN
+                             (SELECT        DATEADD(month, Requirements.FirstImplementation,
+                                                             (SELECT        InstallationDate
+                                                               FROM            EquipmentInstance
+                                                               WHERE        (EquipmentInstanceID = @equipmentInstanceID)))) ELSE (CASE WHEN Requirements.Frequency &gt; 0 THEN
+                             (SELECT        DATEADD(month, Requirements.Frequency,
+                                                             (SELECT        MAX(ActionedDateTime) AS MAXActionedDateTime
+                                                               FROM            Services
+                                                               WHERE        (RequirementID = Requirements.RequirementID) AND (EquipmentInstanceID = @equipmentInstanceID)))) END) END AS NextDue
+FROM            Requirements INNER JOIN
+                         EquipmentInstance AS EquipmentInstance ON Requirements.EquipmentTypeID = EquipmentInstance.EquipmentTypeID
+WHERE        (EquipmentInstance.EquipmentInstanceID = @equipmentInstanceID) AND (CASE WHEN
+                             (SELECT        MAX(ActionedDateTime) AS MAXActionedDateTime
+                               FROM            Services
+                               WHERE        (RequirementID = Requirements.RequirementID) AND (EquipmentInstanceID = @equipmentInstanceID)) IS NULL THEN
+                             (SELECT        DATEADD(month, Requirements.FirstImplementation,
+                                                             (SELECT        InstallationDate
+                                                               FROM            EquipmentInstance
+                                                               WHERE        (EquipmentInstanceID = @equipmentInstanceID)))) ELSE (CASE WHEN Requirements.Frequency &gt; 0 THEN
+                             (SELECT        DATEADD(month, Requirements.Frequency,
+                                                             (SELECT        MAX(ActionedDateTime) AS MAXActionedDateTime
+                                                               FROM            Services
+                                                               WHERE        (RequirementID = Requirements.RequirementID) AND (EquipmentInstanceID = @equipmentInstanceID)))) END) END IS NOT NULL)
+ORDER BY NextDue</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="equipmentInstanceID" ColumnName="EquipmentInstanceID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.EquipmentInstance" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@equipmentInstanceID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="EquipmentInstanceID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="dbo.Requirements" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByEquipmentTypeID" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetByEquipmentTypeID" GeneratorSourceName="FillByEquipmentTypeID" GetMethodModifier="Public" GetMethodName="GetByEquipmentTypeID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetByEquipmentTypeID" UserSourceName="FillByEquipmentTypeID">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        RequirementID, RequirementDesc, EquipmentTypeID, Priority, FirstImplementation, Frequency, MaterialsNote, LegislationURL
+FROM            Requirements
+WHERE (EquipmentTypeID = @EquipmentTypeID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="EquipmentTypeID" ColumnName="EquipmentTypeID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Requirements" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@EquipmentTypeID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="EquipmentTypeID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="dbo.Requirements" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByID" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetByID" GeneratorSourceName="FillByID" GetMethodModifier="Public" GetMethodName="GetByID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetByID" UserSourceName="FillByID">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        RequirementID, RequirementDesc, EquipmentTypeID, Priority, FirstImplementation, Frequency, MaterialsNote, LegislationURL
+FROM            Requirements
+WHERE        (RequirementID = @requirementID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="requirementID" ColumnName="RequirementID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Requirements" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@requirementID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="RequirementID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="dbo.Requirements" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByParameters" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetByParameters" GeneratorSourceName="FillByParameters" GetMethodModifier="Public" GetMethodName="GetByParameters" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetByParameters" UserSourceName="FillByParameters">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        RequirementID, RequirementDesc, EquipmentTypeID, Priority, FirstImplementation, Frequency, MaterialsNote, LegislationURL
+FROM            Requirements
+WHERE        (RequirementID = @requirementID) AND (RequirementDesc = @requirementDesc) AND (EquipmentTypeID = @equipmentID) AND (Priority = @proirity) AND (FirstImplementation = @firstImplementation) AND 
+                         (Frequency = @frequency)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="requirementID" ColumnName="RequirementID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Requirements" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@requirementID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="RequirementID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="requirementDesc" ColumnName="RequirementDesc" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Requirements" DataTypeServer="varchar(200)" DbType="AnsiString" Direction="Input" ParameterName="@requirementDesc" Precision="0" ProviderType="VarChar" Scale="0" Size="200" SourceColumn="RequirementDesc" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="equipmentID" ColumnName="EquipmentTypeID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Requirements" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@equipmentID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="EquipmentTypeID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="proirity" ColumnName="Priority" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Requirements" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@proirity" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="Priority" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="firstImplementation" ColumnName="FirstImplementation" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Requirements" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@firstImplementation" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="FirstImplementation" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="frequency" ColumnName="Frequency" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Requirements" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@frequency" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Frequency" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertRecord" Modifier="Public" Name="InsertRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertRecord">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO [Requirements] ([EquipmentTypeID], [Priority], [Frequency], [MaterialsNote], [LegislationURL]) VALUES (@EquipmentTypeID, @Priority, @Frequency, @MaterialsNote, @LegislationURL)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="EquipmentTypeID" ColumnName="EquipmentTypeID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Requirements" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@EquipmentTypeID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="EquipmentTypeID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Priority" ColumnName="Priority" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Requirements" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@Priority" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="Priority" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Frequency" ColumnName="Frequency" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Requirements" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Frequency" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Frequency" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="MaterialsNote" ColumnName="MaterialsNote" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Requirements" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="@MaterialsNote" Precision="0" ProviderType="Text" Scale="0" Size="2147483647" SourceColumn="MaterialsNote" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="LegislationURL" ColumnName="LegislationURL" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Requirements" DataTypeServer="nvarchar(200)" DbType="String" Direction="Input" ParameterName="@LegislationURL" Precision="0" ProviderType="NVarChar" Scale="0" Size="200" SourceColumn="LegislationURL" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateRecord" Modifier="Public" Name="UpdateRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateRecord">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE [Requirements] SET [EquipmentTypeID] = @EquipmentTypeID, [Priority] = @Priority, [Frequency] = @Frequency, [MaterialsNote] = @MaterialsNote, [LegislationURL] = @LegislationURL WHERE (([RequirementID] = @Original_RequirementID))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="EquipmentTypeID" ColumnName="EquipmentTypeID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Requirements" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@EquipmentTypeID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="EquipmentTypeID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Priority" ColumnName="Priority" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Requirements" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@Priority" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="Priority" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Frequency" ColumnName="Frequency" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Requirements" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Frequency" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Frequency" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="MaterialsNote" ColumnName="MaterialsNote" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Requirements" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="@MaterialsNote" Precision="0" ProviderType="Text" Scale="0" Size="2147483647" SourceColumn="MaterialsNote" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="LegislationURL" ColumnName="LegislationURL" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Requirements" DataTypeServer="nvarchar(200)" DbType="String" Direction="Input" ParameterName="@LegislationURL" Precision="0" ProviderType="NVarChar" Scale="0" Size="200" SourceColumn="LegislationURL" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Original_RequirementID" ColumnName="RequirementID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Requirements" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Original_RequirementID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="RequirementID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ServicesTableAdapter" GeneratorDataComponentClassName="ServicesTableAdapter" Name="Services" UserDataComponentName="ServicesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="dbo.Services" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="Get" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="Get" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="Get" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [Services] WHERE (([ServiceID] = @Original_ServiceID))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ServiceID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ServiceID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [Services] ([RequirementID], [EquipmentInstanceID], [ContractorID], [ActionedBy], [ActionedDateTime], [Status], [Charge], [CostCode], [ExpCode], [Notes]) VALUES (@RequirementID, @EquipmentInstanceID, @ContractorID, @ActionedBy, @ActionedDateTime, @Status, @Charge, @CostCode, @ExpCode, @Notes)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@RequirementID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="RequirementID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@EquipmentInstanceID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EquipmentInstanceID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ContractorID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ContractorID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@ActionedBy" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="ActionedBy" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@ActionedDateTime" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="ActionedDateTime" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Status" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Status" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Charge" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="Charge" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@CostCode" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CostCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ExpCode" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ExpCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Notes" Precision="0" ProviderType="Text" Scale="0" Size="0" SourceColumn="Notes" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ServiceID, RequirementID, EquipmentInstanceID, ContractorID, ActionedBy, ActionedDateTime, Status, Charge, CostCode, ExpCode, Notes
+FROM            Services</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [Services] SET [RequirementID] = @RequirementID, [EquipmentInstanceID] = @EquipmentInstanceID, [ContractorID] = @ContractorID, [ActionedBy] = @ActionedBy, [ActionedDateTime] = @ActionedDateTime, [Status] = @Status, [Charge] = @Charge, [CostCode] = @CostCode, [ExpCode] = @ExpCode, [Notes] = @Notes WHERE (([ServiceID] = @Original_ServiceID))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@RequirementID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="RequirementID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@EquipmentInstanceID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EquipmentInstanceID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ContractorID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ContractorID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@ActionedBy" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="ActionedBy" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@ActionedDateTime" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="ActionedDateTime" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Status" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Status" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Charge" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="Charge" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@CostCode" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CostCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ExpCode" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ExpCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Notes" Precision="0" ProviderType="Text" Scale="0" Size="0" SourceColumn="Notes" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ServiceID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ServiceID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ServiceID" DataSetColumn="ServiceID" />
+              <Mapping SourceColumn="RequirementID" DataSetColumn="RequirementID" />
+              <Mapping SourceColumn="EquipmentInstanceID" DataSetColumn="EquipmentInstanceID" />
+              <Mapping SourceColumn="ContractorID" DataSetColumn="ContractorID" />
+              <Mapping SourceColumn="ActionedBy" DataSetColumn="ActionedBy" />
+              <Mapping SourceColumn="ActionedDateTime" DataSetColumn="ActionedDateTime" />
+              <Mapping SourceColumn="Status" DataSetColumn="Status" />
+              <Mapping SourceColumn="Charge" DataSetColumn="Charge" />
+              <Mapping SourceColumn="CostCode" DataSetColumn="CostCode" />
+              <Mapping SourceColumn="ExpCode" DataSetColumn="ExpCode" />
+              <Mapping SourceColumn="Notes" DataSetColumn="Notes" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="dbo.Services" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByEquipmentInstanceID" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetByEquipmentInstanceID" GeneratorSourceName="FillByEquipmentInstanceID" GetMethodModifier="Public" GetMethodName="GetByEquipmentInstanceID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetByEquipmentInstanceID" UserSourceName="FillByEquipmentInstanceID">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ServiceID, RequirementID, EquipmentInstanceID, ContractorID, ActionedBy, ActionedDateTime, Status, Charge, CostCode, ExpCode, Notes
+FROM            Services
+WHERE (EquipmentInstanceID = @EquipmentInstanceID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="EquipmentInstanceID" ColumnName="EquipmentInstanceID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@EquipmentInstanceID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="EquipmentInstanceID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="dbo.Services" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByID" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetByID" GeneratorSourceName="FillByID" GetMethodModifier="Public" GetMethodName="GetByID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetByID" UserSourceName="FillByID">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ServiceID, RequirementID, EquipmentInstanceID, ContractorID, ActionedBy, ActionedDateTime, Status, Charge, CostCode, ExpCode, Notes
+FROM            Services
+WHERE        (ServiceID = ServiceID)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="dbo.Services" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByParameters" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetByParameters" GeneratorSourceName="FillByParameters" GetMethodModifier="Public" GetMethodName="GetByParameters" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetByParameters" UserSourceName="FillByParameters">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT ActionedBy, ActionedDateTime, Charge, ContractorID, CostCode, EquipmentInstanceID, ExpCode, Notes, RequirementID, ServiceID, Status FROM Services WHERE (ServiceID = @serviceID) OR (RequirementID = @requirementID) OR (EquipmentInstanceID = @equipmentInstanceID) OR (ContractorID = @contractorID) OR (ActionedBy = @actionedBy) OR (ActionedDateTime = @actionedDateTime) OR (Status = @status) OR (Charge = @charge) OR (CostCode = @costCode) OR (ExpCode = @expCode)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="serviceID" ColumnName="ServiceID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@serviceID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ServiceID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="requirementID" ColumnName="RequirementID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@requirementID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="RequirementID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="equipmentInstanceID" ColumnName="EquipmentInstanceID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@equipmentInstanceID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="EquipmentInstanceID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="contractorID" ColumnName="ContractorID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@contractorID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ContractorID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="actionedBy" ColumnName="ActionedBy" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="nvarchar(128)" DbType="String" Direction="Input" ParameterName="@actionedBy" Precision="0" ProviderType="NVarChar" Scale="0" Size="128" SourceColumn="ActionedBy" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="actionedDateTime" ColumnName="ActionedDateTime" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@actionedDateTime" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="ActionedDateTime" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="status" ColumnName="Status" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@status" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="Status" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="charge" ColumnName="Charge" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="money" DbType="Currency" Direction="Input" ParameterName="@charge" Precision="0" ProviderType="Money" Scale="0" Size="8" SourceColumn="Charge" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="costCode" ColumnName="CostCode" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@costCode" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="CostCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="expCode" ColumnName="ExpCode" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@expCode" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="ExpCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertRecord" Modifier="Public" Name="InsertRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertRecord">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO [Services] ([RequirementID], [EquipmentInstanceID], [ContractorID], [ActionedBy], [ActionedDateTime], [Status], [Charge], [CostCode], [ExpCode], [Notes]) VALUES (@RequirementID, @EquipmentInstanceID, @ContractorID, @ActionedBy, @ActionedDateTime, @Status, @Charge, @CostCode, @ExpCode, @Notes)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="RequirementID" ColumnName="RequirementID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@RequirementID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="RequirementID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="EquipmentInstanceID" ColumnName="EquipmentInstanceID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@EquipmentInstanceID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="EquipmentInstanceID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="ContractorID" ColumnName="ContractorID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@ContractorID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ContractorID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="ActionedBy" ColumnName="ActionedBy" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="nvarchar(128)" DbType="String" Direction="Input" ParameterName="@ActionedBy" Precision="0" ProviderType="NVarChar" Scale="0" Size="128" SourceColumn="ActionedBy" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="ActionedDateTime" ColumnName="ActionedDateTime" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@ActionedDateTime" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="ActionedDateTime" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Status" ColumnName="Status" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@Status" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="Status" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Charge" ColumnName="Charge" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="money" DbType="Currency" Direction="Input" ParameterName="@Charge" Precision="0" ProviderType="Money" Scale="0" Size="8" SourceColumn="Charge" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="CostCode" ColumnName="CostCode" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@CostCode" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="CostCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="ExpCode" ColumnName="ExpCode" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@ExpCode" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="ExpCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Notes" ColumnName="Notes" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="@Notes" Precision="0" ProviderType="Text" Scale="0" Size="2147483647" SourceColumn="Notes" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateRecord" Modifier="Public" Name="UpdateRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateRecord">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE [Services] SET [RequirementID] = @RequirementID, [EquipmentInstanceID] = @EquipmentInstanceID, [ContractorID] = @ContractorID, [ActionedBy] = @ActionedBy, [ActionedDateTime] = @ActionedDateTime, [Status] = @Status, [Charge] = @Charge, [CostCode] = @CostCode, [ExpCode] = @ExpCode, [Notes] = @Notes WHERE (([ServiceID] = @Original_ServiceID))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="RequirementID" ColumnName="RequirementID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@RequirementID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="RequirementID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="EquipmentInstanceID" ColumnName="EquipmentInstanceID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@EquipmentInstanceID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="EquipmentInstanceID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="ContractorID" ColumnName="ContractorID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@ContractorID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ContractorID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="ActionedBy" ColumnName="ActionedBy" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="nvarchar(128)" DbType="String" Direction="Input" ParameterName="@ActionedBy" Precision="0" ProviderType="NVarChar" Scale="0" Size="128" SourceColumn="ActionedBy" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="ActionedDateTime" ColumnName="ActionedDateTime" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@ActionedDateTime" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="ActionedDateTime" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Status" ColumnName="Status" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@Status" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="Status" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Charge" ColumnName="Charge" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="money" DbType="Currency" Direction="Input" ParameterName="@Charge" Precision="0" ProviderType="Money" Scale="0" Size="8" SourceColumn="Charge" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="CostCode" ColumnName="CostCode" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@CostCode" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="CostCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="ExpCode" ColumnName="ExpCode" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@ExpCode" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="ExpCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Notes" ColumnName="Notes" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="@Notes" Precision="0" ProviderType="Text" Scale="0" Size="2147483647" SourceColumn="Notes" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Original_ServiceID" ColumnName="ServiceID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Services" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Original_ServiceID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ServiceID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ContractorsTableAdapter" GeneratorDataComponentClassName="ContractorsTableAdapter" Name="Contractors" UserDataComponentName="ContractorsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="dbo.Contractors" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="Get" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="Get" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="Get" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [Contractors] WHERE (([ContractorID] = @Original_ContractorID))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ContractorID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ContractorID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [Contractors] ([ContractorName], [BusinessUse], [AccountNo], [AccountManager], [ContactName], [ContactNo], [ContactMobile], [ContactEmail], [Notes]) VALUES (@ContractorName, @BusinessUse, @AccountNo, @AccountManager, @ContactName, @ContactNo, @ContactMobile, @ContactEmail, @Notes)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ContractorName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ContractorName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@BusinessUse" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="BusinessUse" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@AccountNo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="AccountNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AccountManager" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="AccountManager" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ContactName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ContactName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ContactNo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ContactNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ContactMobile" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ContactMobile" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ContactEmail" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ContactEmail" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Notes" Precision="0" ProviderType="Text" Scale="0" Size="0" SourceColumn="Notes" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Contractors.*
+FROM            Contractors</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [Contractors] SET [ContractorName] = @ContractorName, [BusinessUse] = @BusinessUse, [AccountNo] = @AccountNo, [AccountManager] = @AccountManager, [ContactName] = @ContactName, [ContactNo] = @ContactNo, [ContactMobile] = @ContactMobile, [ContactEmail] = @ContactEmail, [Notes] = @Notes WHERE (([ContractorID] = @Original_ContractorID))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ContractorName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ContractorName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@BusinessUse" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="BusinessUse" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@AccountNo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="AccountNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AccountManager" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="AccountManager" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ContactName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ContactName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ContactNo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ContactNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ContactMobile" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ContactMobile" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ContactEmail" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ContactEmail" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Notes" Precision="0" ProviderType="Text" Scale="0" Size="0" SourceColumn="Notes" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ContractorID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ContractorID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ContractorID" DataSetColumn="ContractorID" />
+              <Mapping SourceColumn="ContractorName" DataSetColumn="ContractorName" />
+              <Mapping SourceColumn="BusinessUse" DataSetColumn="BusinessUse" />
+              <Mapping SourceColumn="AccountNo" DataSetColumn="AccountNo" />
+              <Mapping SourceColumn="AccountManager" DataSetColumn="AccountManager" />
+              <Mapping SourceColumn="ContactName" DataSetColumn="ContactName" />
+              <Mapping SourceColumn="ContactNo" DataSetColumn="ContactNo" />
+              <Mapping SourceColumn="ContactMobile" DataSetColumn="ContactMobile" />
+              <Mapping SourceColumn="ContactEmail" DataSetColumn="ContactEmail" />
+              <Mapping SourceColumn="Notes" DataSetColumn="Notes" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="dbo.Contractors" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByID" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetByID" GeneratorSourceName="FillByID" GetMethodModifier="Public" GetMethodName="GetByID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetByID" UserSourceName="FillByID">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ContractorID, ContractorName, BusinessUse, AccountNo, AccountManager, ContactName, ContactNo, ContactMobile, ContactEmail, Notes
+FROM            Contractors
+WHERE        (ContractorID = @contractorID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="contractorID" ColumnName="ContractorID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Contractors" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@contractorID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ContractorID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="dbo.Contractors" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByParameters" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetByParameters" GeneratorSourceName="FillByParameters" GetMethodModifier="Public" GetMethodName="GetByParameters" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetByParameters" UserSourceName="FillByParameters">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ContractorID, ContractorName, BusinessUse, AccountNo, AccountManager, ContactName, ContactNo, ContactMobile, ContactEmail, Notes
+FROM            Contractors
+WHERE        (ContractorID = @contractorID) AND (ContractorName = @contractorName) AND (BusinessUse = @businessName) AND (AccountNo = @accountNo) AND (AccountManager = @accountManager) AND 
+                         (ContactName = @contactName) AND (ContactNo = @contactNo) AND (ContactMobile = @contactMobile) AND (ContactEmail = @contactEmail)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="contractorID" ColumnName="ContractorID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Contractors" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@contractorID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ContractorID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="contractorName" ColumnName="ContractorName" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Contractors" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@contractorName" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="ContractorName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="businessName" ColumnName="BusinessUse" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Contractors" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@businessName" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="BusinessUse" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="accountNo" ColumnName="AccountNo" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Contractors" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@accountNo" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="AccountNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="accountManager" ColumnName="AccountManager" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Contractors" DataTypeServer="nvarchar(128)" DbType="String" Direction="Input" ParameterName="@accountManager" Precision="0" ProviderType="NVarChar" Scale="0" Size="128" SourceColumn="AccountManager" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="contactName" ColumnName="ContactName" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Contractors" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@contactName" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="ContactName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="contactNo" ColumnName="ContactNo" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Contractors" DataTypeServer="varchar(20)" DbType="AnsiString" Direction="Input" ParameterName="@contactNo" Precision="0" ProviderType="VarChar" Scale="0" Size="20" SourceColumn="ContactNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="contactMobile" ColumnName="ContactMobile" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Contractors" DataTypeServer="varchar(20)" DbType="AnsiString" Direction="Input" ParameterName="@contactMobile" Precision="0" ProviderType="VarChar" Scale="0" Size="20" SourceColumn="ContactMobile" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="contactEmail" ColumnName="ContactEmail" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Contractors" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@contactEmail" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="ContactEmail" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -805,6 +1481,205 @@ WHERE	(Id = @id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="EquipmentInstance" msprop:Generator_TableClassName="EquipmentInstanceDataTable" msprop:Generator_TableVarName="tableEquipmentInstance" msprop:Generator_RowChangedName="EquipmentInstanceRowChanged" msprop:Generator_TablePropName="EquipmentInstance" msprop:Generator_RowDeletingName="EquipmentInstanceRowDeleting" msprop:Generator_RowChangingName="EquipmentInstanceRowChanging" msprop:Generator_RowEvHandlerName="EquipmentInstanceRowChangeEventHandler" msprop:Generator_RowDeletedName="EquipmentInstanceRowDeleted" msprop:Generator_RowClassName="EquipmentInstanceRow" msprop:Generator_UserTableName="EquipmentInstance" msprop:Generator_RowEvArgName="EquipmentInstanceRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="EquipmentInstanceID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnEquipmentInstanceID" msprop:Generator_ColumnPropNameInRow="EquipmentInstanceID" msprop:Generator_ColumnPropNameInTable="EquipmentInstanceIDColumn" msprop:Generator_UserColumnName="EquipmentInstanceID" type="xs:int" />
+              <xs:element name="EquipmentTypeID" msprop:Generator_ColumnVarNameInTable="columnEquipmentTypeID" msprop:Generator_ColumnPropNameInRow="EquipmentTypeID" msprop:Generator_ColumnPropNameInTable="EquipmentTypeIDColumn" msprop:Generator_UserColumnName="EquipmentTypeID" type="xs:int" minOccurs="0" />
+              <xs:element name="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" msprop:Generator_UserColumnName="Status" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SerialNumber" msprop:Generator_ColumnVarNameInTable="columnSerialNumber" msprop:Generator_ColumnPropNameInRow="SerialNumber" msprop:Generator_ColumnPropNameInTable="SerialNumberColumn" msprop:Generator_UserColumnName="SerialNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LocationID" msprop:Generator_ColumnVarNameInTable="columnLocationID" msprop:Generator_ColumnPropNameInRow="LocationID" msprop:Generator_ColumnPropNameInTable="LocationIDColumn" msprop:Generator_UserColumnName="LocationID" type="xs:int" minOccurs="0" />
+              <xs:element name="InstallationDate" msprop:Generator_ColumnVarNameInTable="columnInstallationDate" msprop:Generator_ColumnPropNameInRow="InstallationDate" msprop:Generator_ColumnPropNameInTable="InstallationDateColumn" msprop:Generator_UserColumnName="InstallationDate" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EquipmentTypes" msprop:Generator_TableClassName="EquipmentTypesDataTable" msprop:Generator_TableVarName="tableEquipmentTypes" msprop:Generator_RowChangedName="EquipmentTypesRowChanged" msprop:Generator_TablePropName="EquipmentTypes" msprop:Generator_RowDeletingName="EquipmentTypesRowDeleting" msprop:Generator_RowChangingName="EquipmentTypesRowChanging" msprop:Generator_RowEvHandlerName="EquipmentTypesRowChangeEventHandler" msprop:Generator_RowDeletedName="EquipmentTypesRowDeleted" msprop:Generator_RowClassName="EquipmentTypesRow" msprop:Generator_UserTableName="EquipmentTypes" msprop:Generator_RowEvArgName="EquipmentTypesRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="EquipmentTypeID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnEquipmentTypeID" msprop:Generator_ColumnPropNameInRow="EquipmentTypeID" msprop:Generator_ColumnPropNameInTable="EquipmentTypeIDColumn" msprop:Generator_UserColumnName="EquipmentTypeID" type="xs:int" />
+              <xs:element name="EquipmentTypeDesc" msprop:Generator_ColumnVarNameInTable="columnEquipmentTypeDesc" msprop:Generator_ColumnPropNameInRow="EquipmentTypeDesc" msprop:Generator_ColumnPropNameInTable="EquipmentTypeDescColumn" msprop:Generator_UserColumnName="EquipmentTypeDesc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EquipmentModelNo" msprop:Generator_ColumnVarNameInTable="columnEquipmentModelNo" msprop:Generator_ColumnPropNameInRow="EquipmentModelNo" msprop:Generator_ColumnPropNameInTable="EquipmentModelNoColumn" msprop:Generator_UserColumnName="EquipmentModelNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SupplierID" msprop:Generator_ColumnVarNameInTable="columnSupplierID" msprop:Generator_ColumnPropNameInRow="SupplierID" msprop:Generator_ColumnPropNameInTable="SupplierIDColumn" msprop:Generator_UserColumnName="SupplierID" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Requirements" msprop:Generator_TableClassName="RequirementsDataTable" msprop:Generator_TableVarName="tableRequirements" msprop:Generator_RowChangedName="RequirementsRowChanged" msprop:Generator_TablePropName="Requirements" msprop:Generator_RowDeletingName="RequirementsRowDeleting" msprop:Generator_RowChangingName="RequirementsRowChanging" msprop:Generator_RowEvHandlerName="RequirementsRowChangeEventHandler" msprop:Generator_RowDeletedName="RequirementsRowDeleted" msprop:Generator_RowClassName="RequirementsRow" msprop:Generator_UserTableName="Requirements" msprop:Generator_RowEvArgName="RequirementsRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RequirementID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnRequirementID" msprop:Generator_ColumnPropNameInRow="RequirementID" msprop:Generator_ColumnPropNameInTable="RequirementIDColumn" msprop:Generator_UserColumnName="RequirementID" type="xs:int" />
+              <xs:element name="EquipmentTypeID" msprop:Generator_ColumnVarNameInTable="columnEquipmentTypeID" msprop:Generator_ColumnPropNameInRow="EquipmentTypeID" msprop:Generator_ColumnPropNameInTable="EquipmentTypeIDColumn" msprop:Generator_UserColumnName="EquipmentTypeID" type="xs:int" minOccurs="0" />
+              <xs:element name="Priority" msprop:Generator_ColumnVarNameInTable="columnPriority" msprop:Generator_ColumnPropNameInRow="Priority" msprop:Generator_ColumnPropNameInTable="PriorityColumn" msprop:Generator_UserColumnName="Priority" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Frequency" msprop:Generator_ColumnVarNameInTable="columnFrequency" msprop:Generator_ColumnPropNameInRow="Frequency" msprop:Generator_ColumnPropNameInTable="FrequencyColumn" msprop:Generator_UserColumnName="Frequency" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaterialsNote" msprop:Generator_ColumnVarNameInTable="columnMaterialsNote" msprop:Generator_ColumnPropNameInRow="MaterialsNote" msprop:Generator_ColumnPropNameInTable="MaterialsNoteColumn" msprop:Generator_UserColumnName="MaterialsNote" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LegislationURL" msprop:Generator_ColumnVarNameInTable="columnLegislationURL" msprop:Generator_ColumnPropNameInRow="LegislationURL" msprop:Generator_ColumnPropNameInTable="LegislationURLColumn" msprop:Generator_UserColumnName="LegislationURL" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Services" msprop:Generator_TableClassName="ServicesDataTable" msprop:Generator_TableVarName="tableServices" msprop:Generator_RowChangedName="ServicesRowChanged" msprop:Generator_TablePropName="Services" msprop:Generator_RowDeletingName="ServicesRowDeleting" msprop:Generator_RowChangingName="ServicesRowChanging" msprop:Generator_RowEvHandlerName="ServicesRowChangeEventHandler" msprop:Generator_RowDeletedName="ServicesRowDeleted" msprop:Generator_RowClassName="ServicesRow" msprop:Generator_UserTableName="Services" msprop:Generator_RowEvArgName="ServicesRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ServiceID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnServiceID" msprop:Generator_ColumnPropNameInRow="ServiceID" msprop:Generator_ColumnPropNameInTable="ServiceIDColumn" msprop:Generator_UserColumnName="ServiceID" type="xs:int" />
+              <xs:element name="RequirementID" msprop:Generator_ColumnVarNameInTable="columnRequirementID" msprop:Generator_ColumnPropNameInRow="RequirementID" msprop:Generator_ColumnPropNameInTable="RequirementIDColumn" msprop:Generator_UserColumnName="RequirementID" type="xs:int" minOccurs="0" />
+              <xs:element name="EquipmentInstanceID" msprop:Generator_ColumnVarNameInTable="columnEquipmentInstanceID" msprop:Generator_ColumnPropNameInRow="EquipmentInstanceID" msprop:Generator_ColumnPropNameInTable="EquipmentInstanceIDColumn" msprop:Generator_UserColumnName="EquipmentInstanceID" type="xs:int" minOccurs="0" />
+              <xs:element name="ContractorID" msprop:Generator_ColumnVarNameInTable="columnContractorID" msprop:Generator_ColumnPropNameInRow="ContractorID" msprop:Generator_ColumnPropNameInTable="ContractorIDColumn" msprop:Generator_UserColumnName="ContractorID" type="xs:int" minOccurs="0" />
+              <xs:element name="ActionedBy" msprop:Generator_ColumnVarNameInTable="columnActionedBy" msprop:Generator_ColumnPropNameInRow="ActionedBy" msprop:Generator_ColumnPropNameInTable="ActionedByColumn" msprop:Generator_UserColumnName="ActionedBy" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="128" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ActionedDateTime" msprop:Generator_ColumnVarNameInTable="columnActionedDateTime" msprop:Generator_ColumnPropNameInRow="ActionedDateTime" msprop:Generator_ColumnPropNameInTable="ActionedDateTimeColumn" msprop:Generator_UserColumnName="ActionedDateTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" msprop:Generator_UserColumnName="Status" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Charge" msprop:Generator_ColumnVarNameInTable="columnCharge" msprop:Generator_ColumnPropNameInRow="Charge" msprop:Generator_ColumnPropNameInTable="ChargeColumn" msprop:Generator_UserColumnName="Charge" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CostCode" msprop:Generator_ColumnVarNameInTable="columnCostCode" msprop:Generator_ColumnPropNameInRow="CostCode" msprop:Generator_ColumnPropNameInTable="CostCodeColumn" msprop:Generator_UserColumnName="CostCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ExpCode" msprop:Generator_ColumnVarNameInTable="columnExpCode" msprop:Generator_ColumnPropNameInRow="ExpCode" msprop:Generator_ColumnPropNameInTable="ExpCodeColumn" msprop:Generator_UserColumnName="ExpCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Notes" msprop:Generator_ColumnVarNameInTable="columnNotes" msprop:Generator_ColumnPropNameInRow="Notes" msprop:Generator_ColumnPropNameInTable="NotesColumn" msprop:Generator_UserColumnName="Notes" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Contractors" msprop:Generator_TableClassName="ContractorsDataTable" msprop:Generator_TableVarName="tableContractors" msprop:Generator_RowChangedName="ContractorsRowChanged" msprop:Generator_TablePropName="Contractors" msprop:Generator_RowDeletingName="ContractorsRowDeleting" msprop:Generator_RowChangingName="ContractorsRowChanging" msprop:Generator_RowEvHandlerName="ContractorsRowChangeEventHandler" msprop:Generator_RowDeletedName="ContractorsRowDeleted" msprop:Generator_RowClassName="ContractorsRow" msprop:Generator_UserTableName="Contractors" msprop:Generator_RowEvArgName="ContractorsRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ContractorID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnContractorID" msprop:Generator_ColumnPropNameInRow="ContractorID" msprop:Generator_ColumnPropNameInTable="ContractorIDColumn" msprop:Generator_UserColumnName="ContractorID" type="xs:int" />
+              <xs:element name="ContractorName" msprop:Generator_ColumnVarNameInTable="columnContractorName" msprop:Generator_ColumnPropNameInRow="ContractorName" msprop:Generator_ColumnPropNameInTable="ContractorNameColumn" msprop:Generator_UserColumnName="ContractorName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BusinessUse" msprop:Generator_ColumnVarNameInTable="columnBusinessUse" msprop:Generator_ColumnPropNameInRow="BusinessUse" msprop:Generator_ColumnPropNameInTable="BusinessUseColumn" msprop:Generator_UserColumnName="BusinessUse" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AccountNo" msprop:Generator_ColumnVarNameInTable="columnAccountNo" msprop:Generator_ColumnPropNameInRow="AccountNo" msprop:Generator_ColumnPropNameInTable="AccountNoColumn" msprop:Generator_UserColumnName="AccountNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AccountManager" msprop:Generator_ColumnVarNameInTable="columnAccountManager" msprop:Generator_ColumnPropNameInRow="AccountManager" msprop:Generator_ColumnPropNameInTable="AccountManagerColumn" msprop:Generator_UserColumnName="AccountManager" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="128" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ContactName" msprop:Generator_ColumnVarNameInTable="columnContactName" msprop:Generator_ColumnPropNameInRow="ContactName" msprop:Generator_ColumnPropNameInTable="ContactNameColumn" msprop:Generator_UserColumnName="ContactName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ContactNo" msprop:Generator_ColumnVarNameInTable="columnContactNo" msprop:Generator_ColumnPropNameInRow="ContactNo" msprop:Generator_ColumnPropNameInTable="ContactNoColumn" msprop:Generator_UserColumnName="ContactNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ContactMobile" msprop:Generator_ColumnVarNameInTable="columnContactMobile" msprop:Generator_ColumnPropNameInRow="ContactMobile" msprop:Generator_ColumnPropNameInTable="ContactMobileColumn" msprop:Generator_UserColumnName="ContactMobile" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ContactEmail" msprop:Generator_ColumnVarNameInTable="columnContactEmail" msprop:Generator_ColumnPropNameInRow="ContactEmail" msprop:Generator_ColumnPropNameInTable="ContactEmailColumn" msprop:Generator_UserColumnName="ContactEmail" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Notes" msprop:Generator_ColumnVarNameInTable="columnNotes" msprop:Generator_ColumnPropNameInRow="Notes" msprop:Generator_ColumnPropNameInTable="NotesColumn" msprop:Generator_UserColumnName="Notes" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -823,12 +1698,38 @@ WHERE	(Id = @id)</CommandText>
       <xs:selector xpath=".//mstns:Buildings" />
       <xs:field xpath="mstns:BuildingID" />
     </xs:unique>
+    <xs:unique name="EquipmentInstance_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:EquipmentInstance" />
+      <xs:field xpath="mstns:EquipmentInstanceID" />
+    </xs:unique>
+    <xs:unique name="EquipmentTypes_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:EquipmentTypes" />
+      <xs:field xpath="mstns:EquipmentTypeID" />
+    </xs:unique>
+    <xs:unique name="Requirements_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Requirements" />
+      <xs:field xpath="mstns:RequirementID" />
+    </xs:unique>
+    <xs:unique name="Services_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Services" />
+      <xs:field xpath="mstns:ServiceID" />
+    </xs:unique>
+    <xs:unique name="Contractors_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Contractors" />
+      <xs:field xpath="mstns:ContractorID" />
+    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
       <msdata:Relationship name="FK_Locations_LocationTypes" msdata:parent="LocationTypes" msdata:child="Locations" msdata:parentkey="LocationTypeID" msdata:childkey="LocationTypeID" msprop:Generator_UserChildTable="Locations" msprop:Generator_ChildPropName="GetLocationsRows" msprop:Generator_UserRelationName="FK_Locations_LocationTypes" msprop:Generator_ParentPropName="LocationTypesRow" msprop:Generator_RelationVarName="relationFK_Locations_LocationTypes" msprop:Generator_UserParentTable="LocationTypes" />
       <msdata:Relationship name="FK_Locations_Buildings" msdata:parent="Buildings" msdata:child="Locations" msdata:parentkey="BuildingID" msdata:childkey="BuildingID" msprop:Generator_UserChildTable="Locations" msprop:Generator_ChildPropName="GetLocationsRows" msprop:Generator_UserRelationName="FK_Locations_Buildings" msprop:Generator_ParentPropName="BuildingsRow" msprop:Generator_RelationVarName="relationFK_Locations_Buildings" msprop:Generator_UserParentTable="Buildings" />
       <msdata:Relationship name="FK_Buildings_Site" msdata:parent="Site" msdata:child="Buildings" msdata:parentkey="SiteID" msdata:childkey="SiteID" msprop:Generator_UserChildTable="Buildings" msprop:Generator_ChildPropName="GetBuildingsRows" msprop:Generator_UserRelationName="FK_Buildings_Site" msprop:Generator_RelationVarName="relationFK_Buildings_Site" msprop:Generator_UserParentTable="Site" msprop:Generator_ParentPropName="SiteRow" />
+      <msdata:Relationship name="FK_EquipmentInstance_Locations" msdata:parent="Locations" msdata:child="EquipmentInstance" msdata:parentkey="LocationID" msdata:childkey="LocationID" msprop:Generator_UserChildTable="EquipmentInstance" msprop:Generator_ChildPropName="GetEquipmentInstanceRows" msprop:Generator_UserRelationName="FK_EquipmentInstance_Locations" msprop:Generator_RelationVarName="relationFK_EquipmentInstance_Locations" msprop:Generator_UserParentTable="Locations" msprop:Generator_ParentPropName="LocationsRow" />
+      <msdata:Relationship name="FK_EquipmentInstance_EquipmentTypes" msdata:parent="EquipmentTypes" msdata:child="EquipmentInstance" msdata:parentkey="EquipmentTypeID" msdata:childkey="EquipmentTypeID" msprop:Generator_UserChildTable="EquipmentInstance" msprop:Generator_ChildPropName="GetEquipmentInstanceRows" msprop:Generator_UserRelationName="FK_EquipmentInstance_EquipmentTypes" msprop:Generator_ParentPropName="EquipmentTypesRow" msprop:Generator_RelationVarName="relationFK_EquipmentInstance_EquipmentTypes" msprop:Generator_UserParentTable="EquipmentTypes" />
+      <msdata:Relationship name="FK_Requirements_EquipmentTypes" msdata:parent="EquipmentTypes" msdata:child="Requirements" msdata:parentkey="EquipmentTypeID" msdata:childkey="EquipmentTypeID" msprop:Generator_UserChildTable="Requirements" msprop:Generator_ChildPropName="GetRequirementsRows" msprop:Generator_UserRelationName="FK_Requirements_EquipmentTypes" msprop:Generator_RelationVarName="relationFK_Requirements_EquipmentTypes" msprop:Generator_UserParentTable="EquipmentTypes" msprop:Generator_ParentPropName="EquipmentTypesRow" />
+      <msdata:Relationship name="FK_Services_EquipmentInstances" msdata:parent="EquipmentInstance" msdata:child="Services" msdata:parentkey="EquipmentInstanceID" msdata:childkey="EquipmentInstanceID" msprop:Generator_UserChildTable="Services" msprop:Generator_ChildPropName="GetServicesRows" msprop:Generator_UserRelationName="FK_Services_EquipmentInstances" msprop:Generator_RelationVarName="relationFK_Services_EquipmentInstances" msprop:Generator_UserParentTable="EquipmentInstance" msprop:Generator_ParentPropName="EquipmentInstanceRow" />
+      <msdata:Relationship name="FK_Services_Requirements" msdata:parent="Requirements" msdata:child="Services" msdata:parentkey="RequirementID" msdata:childkey="RequirementID" msprop:Generator_UserChildTable="Services" msprop:Generator_ChildPropName="GetServicesRows" msprop:Generator_UserRelationName="FK_Services_Requirements" msprop:Generator_RelationVarName="relationFK_Services_Requirements" msprop:Generator_UserParentTable="Requirements" msprop:Generator_ParentPropName="RequirementsRow" />
+      <msdata:Relationship name="FK_Services_Contractors" msdata:parent="Contractors" msdata:child="Services" msdata:parentkey="ContractorID" msdata:childkey="ContractorID" msprop:Generator_UserChildTable="Services" msprop:Generator_ChildPropName="GetServicesRows" msprop:Generator_UserRelationName="FK_Services_Contractors" msprop:Generator_ParentPropName="ContractorsRow" msprop:Generator_RelationVarName="relationFK_Services_Contractors" msprop:Generator_UserParentTable="Contractors" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
