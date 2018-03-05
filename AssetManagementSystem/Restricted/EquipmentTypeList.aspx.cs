@@ -12,13 +12,18 @@ namespace AssetManagementSystem.Restricted
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			//string etID = txtSearchEquipmentTypeID.Text.ToString();
-			//string erDesc = txtSearchEquipmentTypeDesc.Text.ToString();
-			//string etModelNo = txtSearchEquipmentModelNo.Text.ToString();
-			//string etSupplerID = txtSearchSupplierID.Text.ToString();
+			int etID = 0;
+			int etSupplerID = 0;
+
+			bool valid_eID = Int32.TryParse(txtSearchEquipmentTypeID.Text.Trim(), out etID);
+			bool valid_eTypeID = Int32.TryParse(txtSearchSupplierID.Text.Trim(), out etSupplerID);
+
+			string etDesc = txtSearchEquipmentTypeDesc.Text.Trim();
+			string etModelNo = txtSearchEquipmentModelNo.Text.Trim();
+			
 
 			EquipmentTypesTableAdapter eTypeAdapter = new EquipmentTypesTableAdapter();
-			LvEquipmentTypeList.DataSource = eTypeAdapter.Get();
+			LvEquipmentTypeList.DataSource = eTypeAdapter.GetByParameters(etID, etDesc, etModelNo, etSupplerID);
 			LvEquipmentTypeList.DataBind();
 		}
 

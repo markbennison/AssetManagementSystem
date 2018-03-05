@@ -13,5 +13,30 @@ namespace AssetManagementSystem.Restricted
 		{
 
 		}
+
+		protected void FvServiceView_ItemCommand(object sender, FormViewCommandEventArgs e)
+		{
+
+		}
+
+		protected void FvServiceView_ModeChanging(object sender, FormViewModeEventArgs e)
+		{
+
+		}
+
+		protected void FvServiceView_ItemInserting(object sender, FormViewInsertEventArgs e)
+		{
+
+		}
+
+		protected void FvServiceView_ItemUpdating(object sender, FormViewUpdateEventArgs e)
+		{
+
+		}
+
+		protected void FvServiceView_DataBound(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

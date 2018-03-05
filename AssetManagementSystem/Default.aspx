@@ -3,38 +3,37 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+        <h1>Locatum</h1>
+        <p class="lead">Manage your estate's assets, store details of contractors and suppliers, and track equipment service-history.</p>
+        <p><a href="http://www.markbennison.com" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
     </div>
 
     <div class="row">
         <div class="col-md-4">
-            <h2>Getting started</h2>
+            <h2>Equipment</h2>
             <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi efficitur laoreet ligula, eget facilisis mauris. Ut consectetur at nibh ut dapibus. Sed id orci et est dapibus pharetra. Curabitur ac enim vestibulum, dignissim erat sed, bibendum leo. Suspendisse dictum massa mauris, a commodo neque scelerisque vitae.
             </p>
             <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
+                <a class="btn btn-default" href="Restricted/EquipmentList">View Equipment &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">
-            <h2>Web Hosting</h2>
+            <h2>Contractors</h2>
             <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
+                Suspendisse id fermentum nunc. Donec tincidunt malesuada odio, id bibendum ipsum bibendum at. Proin fermentum mi blandit felis bibendum fermentum at ut libero. Proin eleifend, orci et tempus consequat, mauris dui porta nisi, nec condimentum nunc tortor at lorem.
             </p>
             <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
+                <a class="btn btn-default" href="Restricted/ContractorsList"">View Contractors &raquo;</a>
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h2>Reports</h2>
+            <p>
+                Vivamus ornare nisl ac est finibus faucibus. Morbi tempor ultricies lacus eu placerat. Fusce vel nisl suscipit, sollicitudin urna sit amet, tempus ante. Phasellus ac tristique nisl, in blandit odio. Aliquam vel felis a eros tristique ornare.
+            </p>
+            <p>
+                <a class="btn btn-default" href="Admin/ManageUserList"">View Reports &raquo;</a>
             </p>
         </div>
     </div>

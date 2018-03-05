@@ -52,14 +52,14 @@
 			</section>
 
             <!-- SEARCH container -->
-<%--			<section class="col-md-4">
+			<section class="col-md-4">
 			    <h3>Search</h3>
 				<p><asp:TextBox ID="txtSearchEquipmentTypeID" runat="server" placeholder="Equipment Type ID"></asp:TextBox></p>
 				<p><asp:TextBox ID="txtSearchEquipmentTypeDesc" runat="server" placeholder="Equipment Type Description"></asp:TextBox></p>
 				<p><asp:TextBox ID="txtSearchEquipmentModelNo" runat="server" placeholder="Equipment Model Number"></asp:TextBox></p>
 				<p><asp:TextBox ID="txtSearchSupplierID" runat="server" placeholder="Supplier ID"></asp:TextBox></p>
 				<p><asp:Button ID="btnSearchEquipmentType" runat="server" Text="Search" CssClass="btn btn-primary"/></p>
-			</section>--%>
+			</section>
 
 		</section>
 	</section>

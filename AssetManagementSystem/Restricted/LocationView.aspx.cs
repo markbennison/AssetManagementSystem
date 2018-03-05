@@ -34,7 +34,7 @@ namespace AssetManagementSystem.Restricted
 
 			/* ****** Refresh Drop Down Lists ****** */
 			ddlBuildingsRefresh();
-			ddlTypesRefresh();
+			ddlEquipmentTypeIDRefresh();
 
 		}
 
@@ -117,7 +117,7 @@ namespace AssetManagementSystem.Restricted
 				}
 				else if (CallCommand == "Insert")
 				{
-					int newID = locationsAdapter.InsertAndReturnID(locationEasyName, locationTypeID, buildingID);
+					string newID = locationsAdapter.InsertAndReturnID(locationEasyName, locationTypeID, buildingID).ToString();
 					Response.Write("<script LANGUAGE='JavaScript' >alert('Record Added')</script>");
 					// Redirect User
 					Response.Redirect("~/Restricted/BuildingView.aspx?id=" + newID);
@@ -155,7 +155,7 @@ namespace AssetManagementSystem.Restricted
 			building_ddl.DataBind();
 		}
 
-		private void ddlTypesRefresh()
+		private void ddlEquipmentTypeIDRefresh()
 		{
 			LocationTypesTableAdapter locationTypeAdapter = new LocationTypesTableAdapter();
 

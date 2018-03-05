@@ -29,5 +29,50 @@ namespace AssetManagementSystem.Restricted {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView LvEquipmentTypeList;
+        
+        /// <summary>
+        /// txtSearchEquipmentTypeID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSearchEquipmentTypeID;
+        
+        /// <summary>
+        /// txtSearchEquipmentTypeDesc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSearchEquipmentTypeDesc;
+        
+        /// <summary>
+        /// txtSearchEquipmentModelNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSearchEquipmentModelNo;
+        
+        /// <summary>
+        /// txtSearchSupplierID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSearchSupplierID;
+        
+        /// <summary>
+        /// btnSearchEquipmentType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSearchEquipmentType;
     }
 }

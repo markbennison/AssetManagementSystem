@@ -20,7 +20,7 @@ namespace AssetManagementSystem.Restricted
 
 		private void PageDataRefresh()
 		{
-			string queryID = Request.QueryString["id"].ToString();
+			string queryID = Request.QueryString["id"];
 			int etID = 0;
 			bool idValid = Int32.TryParse(queryID, out etID);
 			if (etID == 0)
@@ -36,6 +36,12 @@ namespace AssetManagementSystem.Restricted
 			RequirementsTableAdapter requirementAdapter = new RequirementsTableAdapter();
 			LvRequirementList.DataSource = requirementAdapter.GetByEquipmentTypeID(etID);
 			LvRequirementList.DataBind();
+
+			int etTypeID = Convert.ToInt32(Request.QueryString["id"]);
+			EquipmentInstanceTableAdapter equipmentAdapter = new EquipmentInstanceTableAdapter();
+			LvEquipmentList.DataSource = equipmentAdapter.GetByEquipmentType(etTypeID);
+			LvEquipmentList.DataBind();
+
 		}
 
 		protected void FvEquipmentTypeView_ItemCommand(object sender, FormViewCommandEventArgs e)
@@ -133,6 +139,11 @@ namespace AssetManagementSystem.Restricted
 		protected void LvRequirementList_ItemCommand(object sender, ListViewCommandEventArgs e)
 		{
 			Response.Redirect("~/Restricted/RequirementView.aspx?id=" + e.CommandArgument.ToString());
+		}
+
+		protected void LvEquipmentList_ItemCommand(object sender, ListViewCommandEventArgs e)
+		{
+			Response.Redirect("~/Restricted/EquipmentView.aspx?id=" + e.CommandArgument.ToString());
 		}
 	}
 }

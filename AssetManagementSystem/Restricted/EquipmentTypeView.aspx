@@ -115,7 +115,7 @@
 				<h3>Requirement List</h3>
 			</section>
 			<section class="col-xs-4 text-right">
-				<h3><asp:linkbutton id="btnAddNew" PostBackUrl="~/Restricted/RequirementView.aspx" CommandName="New" runat="server" CssClass="glyphicon glyphicon-plus btn"/></h3>
+				<h3><asp:linkbutton id="btnAddNewRequirement" PostBackUrl="~/Restricted/RequirementView.aspx" CommandName="New" runat="server" CssClass="glyphicon glyphicon-plus btn"/></h3>
 			</section>
 		</section>
 
@@ -157,7 +157,7 @@
 					</ItemTemplate>
 
 					<EmptyDataTemplate>
-						<table runat="server" id="tblBuildings" class="table">
+						<table runat="server" id="tblRequirements" class="table">
 							<tr runat="server" >
 								<th>Requirement ID</th>
 								<th>Description</th>
@@ -175,10 +175,80 @@
 							</tr>
 						</table>
 					</EmptyDataTemplate>
-
 				</asp:ListView>
 			</section>
 		</section>
+
+		<%------------------------------------------------------------
+			Equipment Instance List	By Type ID
+		  ------------------------------------------------------------%>
+
+		<section class="row">
+			<!-- LIST VIEW column -->
+			<section class="col-xs-8">
+				<h3>Equipment List</h3>
+			</section>
+			<section class="col-xs-4 text-right">
+				<h3><asp:linkbutton id="btnAddNewEquipment" PostBackUrl="~/Restricted/EquipmentView.aspx" CommandName="New" runat="server" CssClass="glyphicon glyphicon-plus btn"/></h3>
+			</section>
+		</section>
+
+		<section class="row">
+			<section class="col-md-12">
+				<asp:ListView ID="LvEquipmentList" runat="server" OnItemCommand="LvEquipmentList_ItemCommand">
+
+					 <LayoutTemplate>
+                        <table runat="server" id="tblEquipment" class="table table-hover">
+							<tr runat="server" >
+                                <th>Equipment ID</th>
+                                <th>Equipment Type ID</th>
+                                <th>Status</th>
+                                <th>Serial Number</th>
+                                <th>Location ID</th>
+                                <th>Installation Date</th>
+                                <th>View</th>
+							</tr>
+                            <tr runat="server" id="itemPlaceholder" ></tr>
+                        </table>
+                    </LayoutTemplate>
+
+                    <ItemTemplate>
+                        <tr runat="server">
+							<td><asp:Label ID="lblEquipmentInstanceID" runat="server" Text='<%#Eval("[EquipmentInstanceID]") %>' /></td>
+							<td><asp:Label ID="lblEquipmentTypeID" runat="server" Text='<%#Eval("[EquipmentTypeID]") %>' /></td>
+                            <td><asp:Label ID="lblStatus" runat="server" Text='<%#Eval("[Status]") %>' /></td>
+							<td><asp:Label ID="lblSerialNumber" runat="server" Text='<%#Eval("[SerialNumber]") %>' /></td>
+							<td><asp:Label ID="lblLocationID" runat="server" Text='<%#Eval("[LocationID]") %>' /></td>
+							<td><asp:Label ID="lblInstallationDate" runat="server" Text='<%#Eval("[InstallationDate]", "{0:dd/MM/yyyy}") %>' /></td>
+
+							<td><asp:LinkButton ID="btnView" runat="server" Text="View" CommandName="View" CommandArgument='<%#Eval("EquipmentInstanceID") %>'/></td>
+						</tr>
+                    </ItemTemplate>
+
+					<EmptyDataTemplate>
+						<table runat="server" id="tblEquipment" class="table">
+							<tr runat="server" >
+								<th>Equipment ID</th>
+                                <th>Equipment Type ID</th>
+                                <th>Status</th>
+                                <th>Serial Number</th>
+                                <th>Location ID</th>
+                                <th>Installation Date</th>
+
+								<th>View</th>
+							</tr>
+							<tr>
+								<td colspan="9" class="text-center">No equipment exists of this type</td>
+							</tr>
+						</table>
+					</EmptyDataTemplate>
+				</asp:ListView>
+			</section>
+		</section>
+
+
+
+
     </section>
 
 </asp:Content>

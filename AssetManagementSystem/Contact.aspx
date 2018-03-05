@@ -2,16 +2,16 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %>.</h2>
-    <h3>Your contact page.</h3>
+    <h3>Sunderland College</h3>
     <address>
-        One Microsoft Way<br />
-        Redmond, WA 98052-6399<br />
+        Durham Road<br />
+        Sunderland<br />
+        SR3 4AH<br />
         <abbr title="Phone">P:</abbr>
-        425.555.0100
+        0191 511 6000
     </address>
 
     <address>
-        <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-        <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+        <strong>Mark Bennison:</strong>   <a href="mailto:mark.bennison@sunderlandcollege.ac.uk">mark.bennison@sunderlandcollege.ac.uk</a><br />
     </address>
 </asp:Content>

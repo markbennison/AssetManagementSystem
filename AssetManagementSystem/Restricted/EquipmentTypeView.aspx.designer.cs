@@ -22,13 +22,13 @@ namespace AssetManagementSystem.Restricted {
         protected global::System.Web.UI.WebControls.FormView FvEquipmentTypeView;
         
         /// <summary>
-        /// btnAddNew control.
+        /// btnAddNewRequirement control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnAddNew;
+        protected global::System.Web.UI.WebControls.LinkButton btnAddNewRequirement;
         
         /// <summary>
         /// LvRequirementList control.
@@ -38,5 +38,23 @@ namespace AssetManagementSystem.Restricted {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView LvRequirementList;
+        
+        /// <summary>
+        /// btnAddNewEquipment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnAddNewEquipment;
+        
+        /// <summary>
+        /// LvEquipmentList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView LvEquipmentList;
     }
 }
