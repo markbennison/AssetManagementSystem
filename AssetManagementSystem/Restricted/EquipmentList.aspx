@@ -3,7 +3,7 @@
 
 	<h2><%: Title %>.</h2>
 
-	 <section class="container">
+	<section class="container">
 		<section class="row">
             <!-- LIST VIEW column -->
 			<section class="col-md-8">

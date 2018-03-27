@@ -2,7 +2,7 @@
 <xs:schema id="DAL-AMS" targetNamespace="http://tempuri.org/DAL-AMS.xsd" xmlns:mstns="http://tempuri.org/DAL-AMS.xsd" xmlns="http://tempuri.org/DAL-AMS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="DefaultConnection" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DefaultConnection (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.DefaultConnection.ConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
@@ -203,7 +203,7 @@ WHERE        (LocationTypeID = @locationtypeid)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertAndReturnID" Modifier="Public" Name="InsertAndReturnID" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertAndReturnID">
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertAndReturnID" Modifier="Public" Name="InsertAndReturnID" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertAndReturnID">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [LocationTypes] ([LocationTypeID], [LocationTypeCaption]) VALUES (@LocationTypeID, @LocationTypeCaption);
@@ -216,7 +216,7 @@ SELECT SCOPE_IDENTITY()</CommandText>
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertRecord" Modifier="Public" Name="InsertRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertRecord">
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertRecord" Modifier="Public" Name="InsertRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertRecord">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [LocationTypes] ([LocationTypeID], [LocationTypeCaption]) VALUES (@LocationTypeID, @LocationTypeCaption)</CommandText>
@@ -443,7 +443,7 @@ WHERE	(SiteID = @siteid)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertAndReturnID" Modifier="Public" Name="InsertAndReturnID" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="InsertAndReturnID">
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertAndReturnID" Modifier="Public" Name="InsertAndReturnID" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertAndReturnID">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [Buildings] ([BuildingID], [BuildingName], [SiteID]) VALUES (@BuildingID, @BuildingName, @SiteID);
@@ -458,7 +458,7 @@ SELECT SCOPE_IDENTITY()</CommandText>
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertRecord" Modifier="Public" Name="InsertRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertRecord">
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertRecord" Modifier="Public" Name="InsertRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertRecord">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [Buildings] ([BuildingID], [BuildingName], [SiteID]) VALUES (@BuildingID, @BuildingName, @SiteID);
@@ -471,7 +471,7 @@ SELECT BuildingID, BuildingName, SiteID FROM Buildings WHERE (BuildingID = @Buil
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateRecord" Modifier="Public" Name="UpdateRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateRecord">
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateRecord" Modifier="Public" Name="UpdateRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateRecord">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE [Buildings] SET [BuildingID] = @BuildingID, [BuildingName] = @BuildingName, [SiteID] = @SiteID WHERE (([BuildingID] = @Original_BuildingID))</CommandText>
@@ -776,7 +776,7 @@ WHERE        (@equipmentInstanceID IS NULL OR
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertAndReturnID" Modifier="Public" Name="InsertAndReturnID" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="InsertAndReturnID">
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertAndReturnID" Modifier="Public" Name="InsertAndReturnID" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertAndReturnID">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>INSERT INTO EquipmentInstance
@@ -793,7 +793,7 @@ SELECT SCOPE_IDENTITY()</CommandText>
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertRecord" Modifier="Public" Name="InsertRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertRecord">
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertRecord" Modifier="Public" Name="InsertRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertRecord">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO EquipmentInstance
@@ -809,7 +809,7 @@ VALUES        (@EquipmentTypeID,@Status,@SerialNumber,@LocationID,@InstallationD
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateRecord" Modifier="Public" Name="UpdateRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateRecord">
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateRecord" Modifier="Public" Name="UpdateRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateRecord">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       EquipmentInstance
@@ -903,7 +903,7 @@ AND (@supplierID IS NULL OR @supplierID = 0 OR SupplierID = @supplierID)</Comman
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertAndReturnID" Modifier="Public" Name="InsertAndReturnID" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="InsertAndReturnID">
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertAndReturnID" Modifier="Public" Name="InsertAndReturnID" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertAndReturnID">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [EquipmentTypes] ([EquipmentTypeDesc], [EquipmentModelNo], [SupplierID]) VALUES (@EquipmentTypeDesc, @EquipmentModelNo, @SupplierID);
@@ -917,7 +917,7 @@ SELECT SCOPE_IDENTITY()</CommandText>
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertRecord" Modifier="Public" Name="InsertRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertRecord">
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertRecord" Modifier="Public" Name="InsertRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertRecord">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [EquipmentTypes] ([EquipmentTypeDesc], [EquipmentModelNo], [SupplierID]) VALUES (@EquipmentTypeDesc, @EquipmentModelNo, @SupplierID)</CommandText>
@@ -929,7 +929,7 @@ SELECT SCOPE_IDENTITY()</CommandText>
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateRecord" Modifier="Public" Name="UpdateRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateRecord">
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateRecord" Modifier="Public" Name="UpdateRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateRecord">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE [EquipmentTypes] SET [EquipmentTypeDesc] = @EquipmentTypeDesc, [EquipmentModelNo] = @EquipmentModelNo, [SupplierID] = @SupplierID WHERE (([EquipmentTypeID] = @Original_EquipmentTypeID))</CommandText>
@@ -998,6 +998,32 @@ FROM            Requirements</CommandText>
               <Mapping SourceColumn="LegislationURL" DataSetColumn="LegislationURL" />
             </Mappings>
             <Sources>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillActiveRequirements" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetActiveRequirements" GeneratorSourceName="FillActiveRequirements" GetMethodModifier="Public" GetMethodName="GetActiveRequirements" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetActiveRequirements" UserSourceName="FillActiveRequirements">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        EquipmentInstance.EquipmentInstanceID, Requirements.RequirementID, Requirements.RequirementDesc, Requirements.EquipmentTypeID, Requirements.Priority, Requirements.FirstImplementation, Requirements.Frequency, 
+                         Requirements.MaterialsNote, Requirements.LegislationURL,
+                             (SELECT        MAX(ActionedDateTime) AS MAXActionedDateTime
+                               FROM            Services
+                               WHERE        (RequirementID = Requirements.RequirementID) AND (EquipmentInstanceID = EquipmentInstance.EquipmentInstanceID)) AS LastActioned, CASE WHEN
+                             (SELECT        MAX(ActionedDateTime) AS MAXActionedDateTime
+                               FROM            Services
+                               WHERE        (RequirementID = Requirements.RequirementID) AND (EquipmentInstanceID = EquipmentInstance.EquipmentInstanceID)) IS NULL THEN
+                             (SELECT        DATEADD(month, Requirements.FirstImplementation,
+                                                             (SELECT        InstallationDate
+                                                               FROM            EquipmentInstance AS EquipmentInstance_1
+                                                               WHERE        (EquipmentInstanceID = EquipmentInstance.EquipmentInstanceID)))) ELSE (CASE WHEN Requirements.Frequency &gt; 0 THEN
+                             (SELECT        DATEADD(month, Requirements.Frequency,
+                                                             (SELECT        MAX(ActionedDateTime) AS MAXActionedDateTime
+                                                               FROM            Services
+                                                               WHERE        (RequirementID = Requirements.RequirementID) AND (EquipmentInstanceID = EquipmentInstance.EquipmentInstanceID)))) END) END AS NextDue
+FROM            Requirements INNER JOIN
+                         EquipmentInstance AS EquipmentInstance ON Requirements.EquipmentTypeID = EquipmentInstance.EquipmentTypeID
+ORDER BY NextDue</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
               <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByDueDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetByDueDate" GeneratorSourceName="FillByDueDate" GetMethodModifier="Public" GetMethodName="GetByDueDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetByDueDate" UserSourceName="FillByDueDate">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
@@ -1099,20 +1125,57 @@ WHERE        (RequirementID = @requirementID)</CommandText>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        RequirementID, RequirementDesc, EquipmentTypeID, Priority, FirstImplementation, Frequency, MaterialsNote, LegislationURL
 FROM            Requirements
-WHERE        (RequirementID = @requirementID) AND (RequirementDesc = @requirementDesc) AND (EquipmentTypeID = @equipmentID) AND (Priority = @proirity) AND (FirstImplementation = @firstImplementation) AND 
-                         (Frequency = @frequency)</CommandText>
+WHERE        (RequirementID = @requirementID OR
+                         @requirementID = 0 OR
+                         @requirementID IS NULL) AND (RequirementDesc = @requirementDesc OR
+                         @requirementDesc IS NULL OR
+                         @requirementDesc = '') AND (EquipmentTypeID = @equipmentID OR
+                         @equipmentID = 0 OR
+                         @equipmentID IS NULL) AND (Priority = @priority OR
+                         @priority IS NULL OR
+                         @priority = '') AND (FirstImplementation = @firstImplementation OR
+                         @firstImplementation = 0 OR
+                         @firstImplementation IS NULL) AND (Frequency = @frequency OR
+                         @frequency = 0 OR
+                         @frequency IS NULL)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="requirementID" ColumnName="RequirementID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Requirements" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@requirementID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="RequirementID" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="requirementDesc" ColumnName="RequirementDesc" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Requirements" DataTypeServer="varchar(200)" DbType="AnsiString" Direction="Input" ParameterName="@requirementDesc" Precision="0" ProviderType="VarChar" Scale="0" Size="200" SourceColumn="RequirementDesc" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="equipmentID" ColumnName="EquipmentTypeID" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Requirements" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@equipmentID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="EquipmentTypeID" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="proirity" ColumnName="Priority" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Requirements" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@proirity" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="Priority" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="priority" ColumnName="Priority" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Requirements" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@priority" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="Priority" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="firstImplementation" ColumnName="FirstImplementation" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Requirements" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@firstImplementation" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="FirstImplementation" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="frequency" ColumnName="Frequency" DataSourceName="[aspnet-AssetManagementSystem-20170417072435].dbo.Requirements" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@frequency" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Frequency" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertAndReturnID" Modifier="Public" Name="InsertAndReturnID" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="InsertAndReturnID">
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByTest" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetByTest" GeneratorSourceName="FillByTest" GetMethodModifier="Public" GetMethodName="GetByTest" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetByTest" UserSourceName="FillByTest">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        EquipmentInstance.EquipmentInstanceID, Requirements.RequirementID, Requirements.RequirementDesc, Requirements.EquipmentTypeID, Requirements.Priority, Requirements.FirstImplementation, Requirements.Frequency, 
+                         Requirements.MaterialsNote, Requirements.LegislationURL,
+                             (SELECT        MAX(ActionedDateTime) AS MAXActionedDateTime
+                               FROM            Services
+                               WHERE        (RequirementID = Requirements.RequirementID) AND (EquipmentInstanceID = EquipmentInstance.EquipmentInstanceID)) AS LastActioned, CASE WHEN
+                             (SELECT        MAX(ActionedDateTime) AS MAXActionedDateTime
+                               FROM            Services
+                               WHERE        (RequirementID = Requirements.RequirementID) AND (EquipmentInstanceID = EquipmentInstance.EquipmentInstanceID)) IS NULL THEN
+                             (SELECT        DATEADD(month, Requirements.FirstImplementation,
+                                                             (SELECT        InstallationDate
+                                                               FROM            EquipmentInstance AS EquipmentInstance_1
+                                                               WHERE        (EquipmentInstanceID = EquipmentInstance.EquipmentInstanceID)))) ELSE (CASE WHEN Requirements.Frequency &gt; 0 THEN
+                             (SELECT        DATEADD(month, Requirements.Frequency,
+                                                             (SELECT        MAX(ActionedDateTime) AS MAXActionedDateTime
+                                                               FROM            Services
+                                                               WHERE        (RequirementID = Requirements.RequirementID) AND (EquipmentInstanceID = EquipmentInstance.EquipmentInstanceID)))) END) END AS NextDue
+FROM            Requirements INNER JOIN
+                         EquipmentInstance AS EquipmentInstance ON Requirements.EquipmentTypeID = EquipmentInstance.EquipmentTypeID
+ORDER BY NextDue</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertAndReturnID" Modifier="Public" Name="InsertAndReturnID" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertAndReturnID">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [Requirements] ([EquipmentTypeID], [Priority], [Frequency], [MaterialsNote], [LegislationURL]) VALUES (@EquipmentTypeID, @Priority, @Frequency, @MaterialsNote, @LegislationURL);
@@ -1128,7 +1191,7 @@ SELECT SCOPE_IDENTITY()</CommandText>
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertRecord" Modifier="Public" Name="InsertRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertRecord">
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertRecord" Modifier="Public" Name="InsertRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertRecord">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [Requirements] ([EquipmentTypeID], [Priority], [Frequency], [MaterialsNote], [LegislationURL]) VALUES (@EquipmentTypeID, @Priority, @Frequency, @MaterialsNote, @LegislationURL)</CommandText>
@@ -1142,7 +1205,7 @@ SELECT SCOPE_IDENTITY()</CommandText>
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateRecord" Modifier="Public" Name="UpdateRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateRecord">
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateRecord" Modifier="Public" Name="UpdateRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateRecord">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE [Requirements] SET [EquipmentTypeID] = @EquipmentTypeID, [Priority] = @Priority, [Frequency] = @Frequency, [MaterialsNote] = @MaterialsNote, [LegislationURL] = @LegislationURL WHERE (([RequirementID] = @Original_RequirementID))</CommandText>
@@ -1271,7 +1334,7 @@ WHERE        (ServiceID = ServiceID)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertAndReturnID" Modifier="Public" Name="InsertAndReturnID" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="InsertAndReturnID">
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertAndReturnID" Modifier="Public" Name="InsertAndReturnID" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertAndReturnID">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [Services] ([RequirementID], [EquipmentInstanceID], [ContractorID], [ActionedBy], [ActionedDateTime], [Status], [Charge], [CostCode], [ExpCode], [Notes]) VALUES (@RequirementID, @EquipmentInstanceID, @ContractorID, @ActionedBy, @ActionedDateTime, @Status, @Charge, @CostCode, @ExpCode, @Notes);
@@ -1292,7 +1355,7 @@ SELECT SCOPE_IDENTITY()</CommandText>
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertRecord" Modifier="Public" Name="InsertRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertRecord">
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertRecord" Modifier="Public" Name="InsertRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertRecord">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [Services] ([RequirementID], [EquipmentInstanceID], [ContractorID], [ActionedBy], [ActionedDateTime], [Status], [Charge], [CostCode], [ExpCode], [Notes]) VALUES (@RequirementID, @EquipmentInstanceID, @ContractorID, @ActionedBy, @ActionedDateTime, @Status, @Charge, @CostCode, @ExpCode, @Notes)</CommandText>
@@ -1311,7 +1374,7 @@ SELECT SCOPE_IDENTITY()</CommandText>
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateRecord" Modifier="Public" Name="UpdateRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateRecord">
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateRecord" Modifier="Public" Name="UpdateRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateRecord">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE [Services] SET [RequirementID] = @RequirementID, [EquipmentInstanceID] = @EquipmentInstanceID, [ContractorID] = @ContractorID, [ActionedBy] = @ActionedBy, [ActionedDateTime] = @ActionedDateTime, [Status] = @Status, [Charge] = @Charge, [CostCode] = @CostCode, [ExpCode] = @ExpCode, [Notes] = @Notes WHERE (([ServiceID] = @Original_ServiceID))</CommandText>
@@ -1432,7 +1495,7 @@ WHERE        (ContractorID = @contractorID) AND (ContractorName = @contractorNam
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertAndReturnID" Modifier="Public" Name="InsertAndReturnID" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertAndReturnID">
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertAndReturnID" Modifier="Public" Name="InsertAndReturnID" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertAndReturnID">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [Contractors] ([ContractorName], [BusinessUse], [AccountNo], [AccountManager], [ContactName], [ContactNo], [ContactMobile], [ContactEmail], [Notes]) VALUES (@ContractorName, @BusinessUse, @AccountNo, @AccountManager, @ContactName, @ContactNo, @ContactMobile, @ContactEmail, @Notes);
@@ -1452,7 +1515,7 @@ SELECT SCOPE_IDENTITY()</CommandText>
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertRecord" Modifier="Public" Name="InsertRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertRecord">
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertRecord" Modifier="Public" Name="InsertRecord" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertRecord">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [Contractors] ([ContractorName], [BusinessUse], [AccountNo], [AccountManager], [ContactName], [ContactNo], [ContactMobile], [ContactEmail], [Notes]) VALUES (@ContractorName, @BusinessUse, @AccountNo, @AccountManager, @ContactName, @ContactNo, @ContactMobile, @ContactEmail, @Notes)</CommandText>
@@ -1491,6 +1554,34 @@ SELECT SCOPE_IDENTITY()</CommandText>
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ActiveRequirementsTableAdapter" GeneratorDataComponentClassName="ActiveRequirementsTableAdapter" Name="ActiveRequirements" UserDataComponentName="ActiveRequirementsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DefaultConnection (Web.config)" DbObjectName="[aspnet-AssetManagementSystem-20170417072435].dbo.ActiveRequirements" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="Get" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="Get" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="Get" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.ActiveRequirements</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="EquipmentInstanceID" DataSetColumn="EquipmentInstanceID" />
+              <Mapping SourceColumn="RequirementID" DataSetColumn="RequirementID" />
+              <Mapping SourceColumn="RequirementDesc" DataSetColumn="RequirementDesc" />
+              <Mapping SourceColumn="EquipmentTypeID" DataSetColumn="EquipmentTypeID" />
+              <Mapping SourceColumn="Priority" DataSetColumn="Priority" />
+              <Mapping SourceColumn="FirstImplementation" DataSetColumn="FirstImplementation" />
+              <Mapping SourceColumn="Frequency" DataSetColumn="Frequency" />
+              <Mapping SourceColumn="MaterialsNote" DataSetColumn="MaterialsNote" />
+              <Mapping SourceColumn="LegislationURL" DataSetColumn="LegislationURL" />
+              <Mapping SourceColumn="LastActioned" DataSetColumn="LastActioned" />
+              <Mapping SourceColumn="NextDue" DataSetColumn="NextDue" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -1499,7 +1590,7 @@ SELECT SCOPE_IDENTITY()</CommandText>
   <xs:element name="DAL-AMS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="_DAL_AMS" msprop:Generator_UserDSName="DAL-AMS">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Site" msprop:Generator_TableClassName="SiteDataTable" msprop:Generator_TableVarName="tableSite" msprop:Generator_TablePropName="Site" msprop:Generator_RowDeletingName="SiteRowDeleting" msprop:Generator_RowChangingName="SiteRowChanging" msprop:Generator_RowEvHandlerName="SiteRowChangeEventHandler" msprop:Generator_RowDeletedName="SiteRowDeleted" msprop:Generator_UserTableName="Site" msprop:Generator_RowChangedName="SiteRowChanged" msprop:Generator_RowEvArgName="SiteRowChangeEvent" msprop:Generator_RowClassName="SiteRow">
+        <xs:element name="Site" msprop:Generator_TableClassName="SiteDataTable" msprop:Generator_TableVarName="tableSite" msprop:Generator_RowChangedName="SiteRowChanged" msprop:Generator_TablePropName="Site" msprop:Generator_RowDeletingName="SiteRowDeleting" msprop:Generator_RowChangingName="SiteRowChanging" msprop:Generator_RowEvHandlerName="SiteRowChangeEventHandler" msprop:Generator_RowDeletedName="SiteRowDeleted" msprop:Generator_RowClassName="SiteRow" msprop:Generator_UserTableName="Site" msprop:Generator_RowEvArgName="SiteRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="SiteID" msprop:Generator_ColumnVarNameInTable="columnSiteID" msprop:Generator_ColumnPropNameInRow="SiteID" msprop:Generator_ColumnPropNameInTable="SiteIDColumn" msprop:Generator_UserColumnName="SiteID">
@@ -1554,7 +1645,7 @@ SELECT SCOPE_IDENTITY()</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="LocationTypes" msprop:Generator_TableClassName="LocationTypesDataTable" msprop:Generator_TableVarName="tableLocationTypes" msprop:Generator_TablePropName="LocationTypes" msprop:Generator_RowDeletingName="LocationTypesRowDeleting" msprop:Generator_RowChangingName="LocationTypesRowChanging" msprop:Generator_RowEvHandlerName="LocationTypesRowChangeEventHandler" msprop:Generator_RowDeletedName="LocationTypesRowDeleted" msprop:Generator_UserTableName="LocationTypes" msprop:Generator_RowChangedName="LocationTypesRowChanged" msprop:Generator_RowEvArgName="LocationTypesRowChangeEvent" msprop:Generator_RowClassName="LocationTypesRow">
+        <xs:element name="LocationTypes" msprop:Generator_TableClassName="LocationTypesDataTable" msprop:Generator_TableVarName="tableLocationTypes" msprop:Generator_RowChangedName="LocationTypesRowChanged" msprop:Generator_TablePropName="LocationTypes" msprop:Generator_RowDeletingName="LocationTypesRowDeleting" msprop:Generator_RowChangingName="LocationTypesRowChanging" msprop:Generator_RowEvHandlerName="LocationTypesRowChangeEventHandler" msprop:Generator_RowDeletedName="LocationTypesRowDeleted" msprop:Generator_RowClassName="LocationTypesRow" msprop:Generator_UserTableName="LocationTypes" msprop:Generator_RowEvArgName="LocationTypesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="LocationTypeID" msprop:Generator_ColumnVarNameInTable="columnLocationTypeID" msprop:Generator_ColumnPropNameInRow="LocationTypeID" msprop:Generator_ColumnPropNameInTable="LocationTypeIDColumn" msprop:Generator_UserColumnName="LocationTypeID">
@@ -1574,7 +1665,7 @@ SELECT SCOPE_IDENTITY()</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Locations" msprop:Generator_TableClassName="LocationsDataTable" msprop:Generator_TableVarName="tableLocations" msprop:Generator_TablePropName="Locations" msprop:Generator_RowDeletingName="LocationsRowDeleting" msprop:Generator_RowChangingName="LocationsRowChanging" msprop:Generator_RowEvHandlerName="LocationsRowChangeEventHandler" msprop:Generator_RowDeletedName="LocationsRowDeleted" msprop:Generator_UserTableName="Locations" msprop:Generator_RowChangedName="LocationsRowChanged" msprop:Generator_RowEvArgName="LocationsRowChangeEvent" msprop:Generator_RowClassName="LocationsRow">
+        <xs:element name="Locations" msprop:Generator_TableClassName="LocationsDataTable" msprop:Generator_TableVarName="tableLocations" msprop:Generator_RowChangedName="LocationsRowChanged" msprop:Generator_TablePropName="Locations" msprop:Generator_RowDeletingName="LocationsRowDeleting" msprop:Generator_RowChangingName="LocationsRowChanging" msprop:Generator_RowEvHandlerName="LocationsRowChangeEventHandler" msprop:Generator_RowDeletedName="LocationsRowDeleted" msprop:Generator_RowClassName="LocationsRow" msprop:Generator_UserTableName="Locations" msprop:Generator_RowEvArgName="LocationsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="LocationID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnLocationID" msprop:Generator_ColumnPropNameInRow="LocationID" msprop:Generator_ColumnPropNameInTable="LocationIDColumn" msprop:Generator_UserColumnName="LocationID" type="xs:int" />
@@ -1602,7 +1693,7 @@ SELECT SCOPE_IDENTITY()</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Buildings" msprop:Generator_TableClassName="BuildingsDataTable" msprop:Generator_TableVarName="tableBuildings" msprop:Generator_RowChangedName="BuildingsRowChanged" msprop:Generator_TablePropName="Buildings" msprop:Generator_RowDeletingName="BuildingsRowDeleting" msprop:Generator_RowChangingName="BuildingsRowChanging" msprop:Generator_RowEvHandlerName="BuildingsRowChangeEventHandler" msprop:Generator_RowDeletedName="BuildingsRowDeleted" msprop:Generator_RowClassName="BuildingsRow" msprop:Generator_UserTableName="Buildings" msprop:Generator_RowEvArgName="BuildingsRowChangeEvent">
+        <xs:element name="Buildings" msprop:Generator_TableClassName="BuildingsDataTable" msprop:Generator_TableVarName="tableBuildings" msprop:Generator_TablePropName="Buildings" msprop:Generator_RowDeletingName="BuildingsRowDeleting" msprop:Generator_RowChangingName="BuildingsRowChanging" msprop:Generator_RowEvHandlerName="BuildingsRowChangeEventHandler" msprop:Generator_RowDeletedName="BuildingsRowDeleted" msprop:Generator_UserTableName="Buildings" msprop:Generator_RowChangedName="BuildingsRowChanged" msprop:Generator_RowEvArgName="BuildingsRowChangeEvent" msprop:Generator_RowClassName="BuildingsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="BuildingID" msprop:Generator_ColumnVarNameInTable="columnBuildingID" msprop:Generator_ColumnPropNameInRow="BuildingID" msprop:Generator_ColumnPropNameInTable="BuildingIDColumn" msprop:Generator_UserColumnName="BuildingID">
@@ -1629,7 +1720,7 @@ SELECT SCOPE_IDENTITY()</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="UsersAndRoles" msprop:Generator_TableClassName="UsersAndRolesDataTable" msprop:Generator_TableVarName="tableUsersAndRoles" msprop:Generator_RowChangedName="UsersAndRolesRowChanged" msprop:Generator_TablePropName="UsersAndRoles" msprop:Generator_RowDeletingName="UsersAndRolesRowDeleting" msprop:Generator_RowChangingName="UsersAndRolesRowChanging" msprop:Generator_RowEvHandlerName="UsersAndRolesRowChangeEventHandler" msprop:Generator_RowDeletedName="UsersAndRolesRowDeleted" msprop:Generator_RowClassName="UsersAndRolesRow" msprop:Generator_UserTableName="UsersAndRoles" msprop:Generator_RowEvArgName="UsersAndRolesRowChangeEvent">
+        <xs:element name="UsersAndRoles" msprop:Generator_TableClassName="UsersAndRolesDataTable" msprop:Generator_TableVarName="tableUsersAndRoles" msprop:Generator_TablePropName="UsersAndRoles" msprop:Generator_RowDeletingName="UsersAndRolesRowDeleting" msprop:Generator_RowChangingName="UsersAndRolesRowChanging" msprop:Generator_RowEvHandlerName="UsersAndRolesRowChangeEventHandler" msprop:Generator_RowDeletedName="UsersAndRolesRowDeleted" msprop:Generator_UserTableName="UsersAndRoles" msprop:Generator_RowChangedName="UsersAndRolesRowChanged" msprop:Generator_RowEvArgName="UsersAndRolesRowChangeEvent" msprop:Generator_RowClassName="UsersAndRolesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="UserID" msprop:Generator_ColumnVarNameInTable="columnUserID" msprop:Generator_ColumnPropNameInRow="UserID" msprop:Generator_ColumnPropNameInTable="UserIDColumn" msprop:Generator_UserColumnName="UserID">
@@ -1681,7 +1772,7 @@ SELECT SCOPE_IDENTITY()</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="EquipmentInstance" msprop:Generator_TableClassName="EquipmentInstanceDataTable" msprop:Generator_TableVarName="tableEquipmentInstance" msprop:Generator_RowChangedName="EquipmentInstanceRowChanged" msprop:Generator_TablePropName="EquipmentInstance" msprop:Generator_RowDeletingName="EquipmentInstanceRowDeleting" msprop:Generator_RowChangingName="EquipmentInstanceRowChanging" msprop:Generator_RowEvHandlerName="EquipmentInstanceRowChangeEventHandler" msprop:Generator_RowDeletedName="EquipmentInstanceRowDeleted" msprop:Generator_RowClassName="EquipmentInstanceRow" msprop:Generator_UserTableName="EquipmentInstance" msprop:Generator_RowEvArgName="EquipmentInstanceRowChangeEvent">
+        <xs:element name="EquipmentInstance" msprop:Generator_TableClassName="EquipmentInstanceDataTable" msprop:Generator_TableVarName="tableEquipmentInstance" msprop:Generator_TablePropName="EquipmentInstance" msprop:Generator_RowDeletingName="EquipmentInstanceRowDeleting" msprop:Generator_RowChangingName="EquipmentInstanceRowChanging" msprop:Generator_RowEvHandlerName="EquipmentInstanceRowChangeEventHandler" msprop:Generator_RowDeletedName="EquipmentInstanceRowDeleted" msprop:Generator_UserTableName="EquipmentInstance" msprop:Generator_RowChangedName="EquipmentInstanceRowChanged" msprop:Generator_RowEvArgName="EquipmentInstanceRowChangeEvent" msprop:Generator_RowClassName="EquipmentInstanceRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="EquipmentInstanceID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnEquipmentInstanceID" msprop:Generator_ColumnPropNameInRow="EquipmentInstanceID" msprop:Generator_ColumnPropNameInTable="EquipmentInstanceIDColumn" msprop:Generator_UserColumnName="EquipmentInstanceID" type="xs:int" />
@@ -1705,7 +1796,7 @@ SELECT SCOPE_IDENTITY()</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="EquipmentTypes" msprop:Generator_TableClassName="EquipmentTypesDataTable" msprop:Generator_TableVarName="tableEquipmentTypes" msprop:Generator_RowChangedName="EquipmentTypesRowChanged" msprop:Generator_TablePropName="EquipmentTypes" msprop:Generator_RowDeletingName="EquipmentTypesRowDeleting" msprop:Generator_RowChangingName="EquipmentTypesRowChanging" msprop:Generator_RowEvHandlerName="EquipmentTypesRowChangeEventHandler" msprop:Generator_RowDeletedName="EquipmentTypesRowDeleted" msprop:Generator_RowClassName="EquipmentTypesRow" msprop:Generator_UserTableName="EquipmentTypes" msprop:Generator_RowEvArgName="EquipmentTypesRowChangeEvent">
+        <xs:element name="EquipmentTypes" msprop:Generator_TableClassName="EquipmentTypesDataTable" msprop:Generator_TableVarName="tableEquipmentTypes" msprop:Generator_TablePropName="EquipmentTypes" msprop:Generator_RowDeletingName="EquipmentTypesRowDeleting" msprop:Generator_RowChangingName="EquipmentTypesRowChanging" msprop:Generator_RowEvHandlerName="EquipmentTypesRowChangeEventHandler" msprop:Generator_RowDeletedName="EquipmentTypesRowDeleted" msprop:Generator_UserTableName="EquipmentTypes" msprop:Generator_RowChangedName="EquipmentTypesRowChanged" msprop:Generator_RowEvArgName="EquipmentTypesRowChangeEvent" msprop:Generator_RowClassName="EquipmentTypesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="EquipmentTypeID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnEquipmentTypeID" msprop:Generator_ColumnPropNameInRow="EquipmentTypeID" msprop:Generator_ColumnPropNameInTable="EquipmentTypeIDColumn" msprop:Generator_UserColumnName="EquipmentTypeID" type="xs:int" />
@@ -1727,7 +1818,7 @@ SELECT SCOPE_IDENTITY()</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Requirements" msprop:Generator_TableClassName="RequirementsDataTable" msprop:Generator_TableVarName="tableRequirements" msprop:Generator_RowChangedName="RequirementsRowChanged" msprop:Generator_TablePropName="Requirements" msprop:Generator_RowDeletingName="RequirementsRowDeleting" msprop:Generator_RowChangingName="RequirementsRowChanging" msprop:Generator_RowEvHandlerName="RequirementsRowChangeEventHandler" msprop:Generator_RowDeletedName="RequirementsRowDeleted" msprop:Generator_RowClassName="RequirementsRow" msprop:Generator_UserTableName="Requirements" msprop:Generator_RowEvArgName="RequirementsRowChangeEvent">
+        <xs:element name="Requirements" msprop:Generator_TableClassName="RequirementsDataTable" msprop:Generator_TableVarName="tableRequirements" msprop:Generator_TablePropName="Requirements" msprop:Generator_RowDeletingName="RequirementsRowDeleting" msprop:Generator_RowChangingName="RequirementsRowChanging" msprop:Generator_RowEvHandlerName="RequirementsRowChangeEventHandler" msprop:Generator_RowDeletedName="RequirementsRowDeleted" msprop:Generator_UserTableName="Requirements" msprop:Generator_RowChangedName="RequirementsRowChanged" msprop:Generator_RowEvArgName="RequirementsRowChangeEvent" msprop:Generator_RowClassName="RequirementsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="RequirementID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnRequirementID" msprop:Generator_ColumnPropNameInRow="RequirementID" msprop:Generator_ColumnPropNameInTable="RequirementIDColumn" msprop:Generator_UserColumnName="RequirementID" type="xs:int" />
@@ -1763,7 +1854,7 @@ SELECT SCOPE_IDENTITY()</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Services" msprop:Generator_TableClassName="ServicesDataTable" msprop:Generator_TableVarName="tableServices" msprop:Generator_RowChangedName="ServicesRowChanged" msprop:Generator_TablePropName="Services" msprop:Generator_RowDeletingName="ServicesRowDeleting" msprop:Generator_RowChangingName="ServicesRowChanging" msprop:Generator_RowEvHandlerName="ServicesRowChangeEventHandler" msprop:Generator_RowDeletedName="ServicesRowDeleted" msprop:Generator_RowClassName="ServicesRow" msprop:Generator_UserTableName="Services" msprop:Generator_RowEvArgName="ServicesRowChangeEvent">
+        <xs:element name="Services" msprop:Generator_TableClassName="ServicesDataTable" msprop:Generator_TableVarName="tableServices" msprop:Generator_TablePropName="Services" msprop:Generator_RowDeletingName="ServicesRowDeleting" msprop:Generator_RowChangingName="ServicesRowChanging" msprop:Generator_RowEvHandlerName="ServicesRowChangeEventHandler" msprop:Generator_RowDeletedName="ServicesRowDeleted" msprop:Generator_UserTableName="Services" msprop:Generator_RowChangedName="ServicesRowChanged" msprop:Generator_RowEvArgName="ServicesRowChangeEvent" msprop:Generator_RowClassName="ServicesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ServiceID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnServiceID" msprop:Generator_ColumnPropNameInRow="ServiceID" msprop:Generator_ColumnPropNameInTable="ServiceIDColumn" msprop:Generator_UserColumnName="ServiceID" type="xs:int" />
@@ -1810,7 +1901,7 @@ SELECT SCOPE_IDENTITY()</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Contractors" msprop:Generator_TableClassName="ContractorsDataTable" msprop:Generator_TableVarName="tableContractors" msprop:Generator_RowChangedName="ContractorsRowChanged" msprop:Generator_TablePropName="Contractors" msprop:Generator_RowDeletingName="ContractorsRowDeleting" msprop:Generator_RowChangingName="ContractorsRowChanging" msprop:Generator_RowEvHandlerName="ContractorsRowChangeEventHandler" msprop:Generator_RowDeletedName="ContractorsRowDeleted" msprop:Generator_RowClassName="ContractorsRow" msprop:Generator_UserTableName="Contractors" msprop:Generator_RowEvArgName="ContractorsRowChangeEvent">
+        <xs:element name="Contractors" msprop:Generator_TableClassName="ContractorsDataTable" msprop:Generator_TableVarName="tableContractors" msprop:Generator_TablePropName="Contractors" msprop:Generator_RowDeletingName="ContractorsRowDeleting" msprop:Generator_RowChangingName="ContractorsRowChanging" msprop:Generator_RowEvHandlerName="ContractorsRowChangeEventHandler" msprop:Generator_RowDeletedName="ContractorsRowDeleted" msprop:Generator_UserTableName="Contractors" msprop:Generator_RowChangedName="ContractorsRowChanged" msprop:Generator_RowEvArgName="ContractorsRowChangeEvent" msprop:Generator_RowClassName="ContractorsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ContractorID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnContractorID" msprop:Generator_ColumnPropNameInRow="ContractorID" msprop:Generator_ColumnPropNameInTable="ContractorIDColumn" msprop:Generator_UserColumnName="ContractorID" type="xs:int" />
@@ -1880,6 +1971,47 @@ SELECT SCOPE_IDENTITY()</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="ActiveRequirements" msprop:Generator_TableClassName="ActiveRequirementsDataTable" msprop:Generator_TableVarName="tableActiveRequirements" msprop:Generator_TablePropName="ActiveRequirements" msprop:Generator_RowDeletingName="ActiveRequirementsRowDeleting" msprop:Generator_RowChangingName="ActiveRequirementsRowChanging" msprop:Generator_RowEvHandlerName="ActiveRequirementsRowChangeEventHandler" msprop:Generator_RowDeletedName="ActiveRequirementsRowDeleted" msprop:Generator_UserTableName="ActiveRequirements" msprop:Generator_RowChangedName="ActiveRequirementsRowChanged" msprop:Generator_RowEvArgName="ActiveRequirementsRowChangeEvent" msprop:Generator_RowClassName="ActiveRequirementsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="EquipmentInstanceID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnEquipmentInstanceID" msprop:Generator_ColumnPropNameInRow="EquipmentInstanceID" msprop:Generator_ColumnPropNameInTable="EquipmentInstanceIDColumn" msprop:Generator_UserColumnName="EquipmentInstanceID" type="xs:int" />
+              <xs:element name="RequirementID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnRequirementID" msprop:Generator_ColumnPropNameInRow="RequirementID" msprop:Generator_ColumnPropNameInTable="RequirementIDColumn" msprop:Generator_UserColumnName="RequirementID" type="xs:int" />
+              <xs:element name="RequirementDesc" msprop:Generator_ColumnVarNameInTable="columnRequirementDesc" msprop:Generator_ColumnPropNameInRow="RequirementDesc" msprop:Generator_ColumnPropNameInTable="RequirementDescColumn" msprop:Generator_UserColumnName="RequirementDesc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EquipmentTypeID" msprop:Generator_ColumnVarNameInTable="columnEquipmentTypeID" msprop:Generator_ColumnPropNameInRow="EquipmentTypeID" msprop:Generator_ColumnPropNameInTable="EquipmentTypeIDColumn" msprop:Generator_UserColumnName="EquipmentTypeID" type="xs:int" minOccurs="0" />
+              <xs:element name="Priority" msprop:Generator_ColumnVarNameInTable="columnPriority" msprop:Generator_ColumnPropNameInRow="Priority" msprop:Generator_ColumnPropNameInTable="PriorityColumn" msprop:Generator_UserColumnName="Priority" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FirstImplementation" msprop:Generator_ColumnVarNameInTable="columnFirstImplementation" msprop:Generator_ColumnPropNameInRow="FirstImplementation" msprop:Generator_ColumnPropNameInTable="FirstImplementationColumn" msprop:Generator_UserColumnName="FirstImplementation" type="xs:int" minOccurs="0" />
+              <xs:element name="Frequency" msprop:Generator_ColumnVarNameInTable="columnFrequency" msprop:Generator_ColumnPropNameInRow="Frequency" msprop:Generator_ColumnPropNameInTable="FrequencyColumn" msprop:Generator_UserColumnName="Frequency" type="xs:int" minOccurs="0" />
+              <xs:element name="MaterialsNote" msprop:Generator_ColumnVarNameInTable="columnMaterialsNote" msprop:Generator_ColumnPropNameInRow="MaterialsNote" msprop:Generator_ColumnPropNameInTable="MaterialsNoteColumn" msprop:Generator_UserColumnName="MaterialsNote" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LegislationURL" msprop:Generator_ColumnVarNameInTable="columnLegislationURL" msprop:Generator_ColumnPropNameInRow="LegislationURL" msprop:Generator_ColumnPropNameInTable="LegislationURLColumn" msprop:Generator_UserColumnName="LegislationURL" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LastActioned" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLastActioned" msprop:Generator_ColumnPropNameInRow="LastActioned" msprop:Generator_ColumnPropNameInTable="LastActionedColumn" msprop:Generator_UserColumnName="LastActioned" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="NextDue" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNextDue" msprop:Generator_ColumnPropNameInRow="NextDue" msprop:Generator_ColumnPropNameInTable="NextDueColumn" msprop:Generator_UserColumnName="NextDue" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -1918,18 +2050,23 @@ SELECT SCOPE_IDENTITY()</CommandText>
       <xs:selector xpath=".//mstns:Contractors" />
       <xs:field xpath="mstns:ContractorID" />
     </xs:unique>
+    <xs:unique name="ActiveRequirements_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ActiveRequirements" />
+      <xs:field xpath="mstns:EquipmentInstanceID" />
+      <xs:field xpath="mstns:RequirementID" />
+    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_Locations_LocationTypes" msdata:parent="LocationTypes" msdata:child="Locations" msdata:parentkey="LocationTypeID" msdata:childkey="LocationTypeID" msprop:Generator_UserChildTable="Locations" msprop:Generator_ChildPropName="GetLocationsRows" msprop:Generator_UserRelationName="FK_Locations_LocationTypes" msprop:Generator_ParentPropName="LocationTypesRow" msprop:Generator_RelationVarName="relationFK_Locations_LocationTypes" msprop:Generator_UserParentTable="LocationTypes" />
-      <msdata:Relationship name="FK_Locations_Buildings" msdata:parent="Buildings" msdata:child="Locations" msdata:parentkey="BuildingID" msdata:childkey="BuildingID" msprop:Generator_UserChildTable="Locations" msprop:Generator_ChildPropName="GetLocationsRows" msprop:Generator_UserRelationName="FK_Locations_Buildings" msprop:Generator_ParentPropName="BuildingsRow" msprop:Generator_RelationVarName="relationFK_Locations_Buildings" msprop:Generator_UserParentTable="Buildings" />
-      <msdata:Relationship name="FK_Buildings_Site" msdata:parent="Site" msdata:child="Buildings" msdata:parentkey="SiteID" msdata:childkey="SiteID" msprop:Generator_UserChildTable="Buildings" msprop:Generator_ChildPropName="GetBuildingsRows" msprop:Generator_UserRelationName="FK_Buildings_Site" msprop:Generator_RelationVarName="relationFK_Buildings_Site" msprop:Generator_UserParentTable="Site" msprop:Generator_ParentPropName="SiteRow" />
-      <msdata:Relationship name="FK_EquipmentInstance_Locations" msdata:parent="Locations" msdata:child="EquipmentInstance" msdata:parentkey="LocationID" msdata:childkey="LocationID" msprop:Generator_UserChildTable="EquipmentInstance" msprop:Generator_ChildPropName="GetEquipmentInstanceRows" msprop:Generator_UserRelationName="FK_EquipmentInstance_Locations" msprop:Generator_RelationVarName="relationFK_EquipmentInstance_Locations" msprop:Generator_UserParentTable="Locations" msprop:Generator_ParentPropName="LocationsRow" />
-      <msdata:Relationship name="FK_EquipmentInstance_EquipmentTypes" msdata:parent="EquipmentTypes" msdata:child="EquipmentInstance" msdata:parentkey="EquipmentTypeID" msdata:childkey="EquipmentTypeID" msprop:Generator_UserChildTable="EquipmentInstance" msprop:Generator_ChildPropName="GetEquipmentInstanceRows" msprop:Generator_UserRelationName="FK_EquipmentInstance_EquipmentTypes" msprop:Generator_ParentPropName="EquipmentTypesRow" msprop:Generator_RelationVarName="relationFK_EquipmentInstance_EquipmentTypes" msprop:Generator_UserParentTable="EquipmentTypes" />
-      <msdata:Relationship name="FK_Requirements_EquipmentTypes" msdata:parent="EquipmentTypes" msdata:child="Requirements" msdata:parentkey="EquipmentTypeID" msdata:childkey="EquipmentTypeID" msprop:Generator_UserChildTable="Requirements" msprop:Generator_ChildPropName="GetRequirementsRows" msprop:Generator_UserRelationName="FK_Requirements_EquipmentTypes" msprop:Generator_RelationVarName="relationFK_Requirements_EquipmentTypes" msprop:Generator_UserParentTable="EquipmentTypes" msprop:Generator_ParentPropName="EquipmentTypesRow" />
-      <msdata:Relationship name="FK_Services_EquipmentInstances" msdata:parent="EquipmentInstance" msdata:child="Services" msdata:parentkey="EquipmentInstanceID" msdata:childkey="EquipmentInstanceID" msprop:Generator_UserChildTable="Services" msprop:Generator_ChildPropName="GetServicesRows" msprop:Generator_UserRelationName="FK_Services_EquipmentInstances" msprop:Generator_RelationVarName="relationFK_Services_EquipmentInstances" msprop:Generator_UserParentTable="EquipmentInstance" msprop:Generator_ParentPropName="EquipmentInstanceRow" />
-      <msdata:Relationship name="FK_Services_Requirements" msdata:parent="Requirements" msdata:child="Services" msdata:parentkey="RequirementID" msdata:childkey="RequirementID" msprop:Generator_UserChildTable="Services" msprop:Generator_ChildPropName="GetServicesRows" msprop:Generator_UserRelationName="FK_Services_Requirements" msprop:Generator_RelationVarName="relationFK_Services_Requirements" msprop:Generator_UserParentTable="Requirements" msprop:Generator_ParentPropName="RequirementsRow" />
-      <msdata:Relationship name="FK_Services_Contractors" msdata:parent="Contractors" msdata:child="Services" msdata:parentkey="ContractorID" msdata:childkey="ContractorID" msprop:Generator_UserChildTable="Services" msprop:Generator_ChildPropName="GetServicesRows" msprop:Generator_UserRelationName="FK_Services_Contractors" msprop:Generator_ParentPropName="ContractorsRow" msprop:Generator_RelationVarName="relationFK_Services_Contractors" msprop:Generator_UserParentTable="Contractors" />
+      <msdata:Relationship name="FK_Locations_LocationTypes" msdata:parent="LocationTypes" msdata:child="Locations" msdata:parentkey="LocationTypeID" msdata:childkey="LocationTypeID" msprop:Generator_UserChildTable="Locations" msprop:Generator_ChildPropName="GetLocationsRows" msprop:Generator_UserRelationName="FK_Locations_LocationTypes" msprop:Generator_RelationVarName="relationFK_Locations_LocationTypes" msprop:Generator_UserParentTable="LocationTypes" msprop:Generator_ParentPropName="LocationTypesRow" />
+      <msdata:Relationship name="FK_Locations_Buildings" msdata:parent="Buildings" msdata:child="Locations" msdata:parentkey="BuildingID" msdata:childkey="BuildingID" msprop:Generator_UserChildTable="Locations" msprop:Generator_ChildPropName="GetLocationsRows" msprop:Generator_UserRelationName="FK_Locations_Buildings" msprop:Generator_RelationVarName="relationFK_Locations_Buildings" msprop:Generator_UserParentTable="Buildings" msprop:Generator_ParentPropName="BuildingsRow" />
+      <msdata:Relationship name="FK_Buildings_Site" msdata:parent="Site" msdata:child="Buildings" msdata:parentkey="SiteID" msdata:childkey="SiteID" msprop:Generator_UserChildTable="Buildings" msprop:Generator_ChildPropName="GetBuildingsRows" msprop:Generator_UserRelationName="FK_Buildings_Site" msprop:Generator_ParentPropName="SiteRow" msprop:Generator_RelationVarName="relationFK_Buildings_Site" msprop:Generator_UserParentTable="Site" />
+      <msdata:Relationship name="FK_EquipmentInstance_Locations" msdata:parent="Locations" msdata:child="EquipmentInstance" msdata:parentkey="LocationID" msdata:childkey="LocationID" msprop:Generator_UserChildTable="EquipmentInstance" msprop:Generator_ChildPropName="GetEquipmentInstanceRows" msprop:Generator_UserRelationName="FK_EquipmentInstance_Locations" msprop:Generator_ParentPropName="LocationsRow" msprop:Generator_RelationVarName="relationFK_EquipmentInstance_Locations" msprop:Generator_UserParentTable="Locations" />
+      <msdata:Relationship name="FK_EquipmentInstance_EquipmentTypes" msdata:parent="EquipmentTypes" msdata:child="EquipmentInstance" msdata:parentkey="EquipmentTypeID" msdata:childkey="EquipmentTypeID" msprop:Generator_UserChildTable="EquipmentInstance" msprop:Generator_ChildPropName="GetEquipmentInstanceRows" msprop:Generator_UserRelationName="FK_EquipmentInstance_EquipmentTypes" msprop:Generator_RelationVarName="relationFK_EquipmentInstance_EquipmentTypes" msprop:Generator_UserParentTable="EquipmentTypes" msprop:Generator_ParentPropName="EquipmentTypesRow" />
+      <msdata:Relationship name="FK_Requirements_EquipmentTypes" msdata:parent="EquipmentTypes" msdata:child="Requirements" msdata:parentkey="EquipmentTypeID" msdata:childkey="EquipmentTypeID" msprop:Generator_UserChildTable="Requirements" msprop:Generator_ChildPropName="GetRequirementsRows" msprop:Generator_UserRelationName="FK_Requirements_EquipmentTypes" msprop:Generator_ParentPropName="EquipmentTypesRow" msprop:Generator_RelationVarName="relationFK_Requirements_EquipmentTypes" msprop:Generator_UserParentTable="EquipmentTypes" />
+      <msdata:Relationship name="FK_Services_EquipmentInstances" msdata:parent="EquipmentInstance" msdata:child="Services" msdata:parentkey="EquipmentInstanceID" msdata:childkey="EquipmentInstanceID" msprop:Generator_UserChildTable="Services" msprop:Generator_ChildPropName="GetServicesRows" msprop:Generator_UserRelationName="FK_Services_EquipmentInstances" msprop:Generator_ParentPropName="EquipmentInstanceRow" msprop:Generator_RelationVarName="relationFK_Services_EquipmentInstances" msprop:Generator_UserParentTable="EquipmentInstance" />
+      <msdata:Relationship name="FK_Services_Requirements" msdata:parent="Requirements" msdata:child="Services" msdata:parentkey="RequirementID" msdata:childkey="RequirementID" msprop:Generator_UserChildTable="Services" msprop:Generator_ChildPropName="GetServicesRows" msprop:Generator_UserRelationName="FK_Services_Requirements" msprop:Generator_ParentPropName="RequirementsRow" msprop:Generator_RelationVarName="relationFK_Services_Requirements" msprop:Generator_UserParentTable="Requirements" />
+      <msdata:Relationship name="FK_Services_Contractors" msdata:parent="Contractors" msdata:child="Services" msdata:parentkey="ContractorID" msdata:childkey="ContractorID" msprop:Generator_UserChildTable="Services" msprop:Generator_ChildPropName="GetServicesRows" msprop:Generator_UserRelationName="FK_Services_Contractors" msprop:Generator_RelationVarName="relationFK_Services_Contractors" msprop:Generator_UserParentTable="Contractors" msprop:Generator_ParentPropName="ContractorsRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
