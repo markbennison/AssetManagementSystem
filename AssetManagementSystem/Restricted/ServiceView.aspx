@@ -32,31 +32,21 @@
                 <section class="row">
                     <section class="col-xs-12">
                         <table class="table table-borderless table-condensed">
-                            <tr><td>Equipment Instance ID:</td><td><asp:TextBox ID="txtEquipmentInstanceID" runat="server" Enabled="False" Text='<%#Eval("EquipmentInstanceID") %>'></asp:TextBox></td></tr>
-                            <tr><td>Type ID:</td><td><asp:DropDownList ID="ddlEquipmentTypeID" runat="server" Enabled="False" AutoPostBack="True" OnSelectedIndexChanged="ddlEquipmentTypeID_SelectedIndexChanged"></asp:DropDownList></td></tr>
-							<tr><td>Type Desc:</td><td><asp:DropDownList ID="ddlEquipmentTypeDesc" runat="server" Enabled="False" AutoPostBack="True" OnSelectedIndexChanged="ddlEquipmentTypeDesc_SelectedIndexChanged"></asp:DropDownList></td></tr>
-                            <tr><td>Status:</td><td><asp:DropDownList ID="ddlStatus" runat="server" Enabled="False" SelectedValue='<%# Bind("Status") %>'>
-								<asp:ListItem Text="Active" Value="Active" />
-								<asp:ListItem Text="Pending" Value="Pending" />
-								<asp:ListItem Text="Decommissioned" Value="Decommissioned" /></asp:DropDownList></td></tr>
-                            <tr><td>Serial Number:</td><td><asp:TextBox ID="txtSerialNumber" runat="server" Enabled="False" Text='<%#Eval("SerialNumber") %>'></asp:TextBox></td></tr>
-							<tr><td>Site:</td><td><asp:DropDownList ID="ddlSite" runat="server" OnSelectedIndexChanged="ddlSite_SelectedIndexChanged" AutoPostBack="true" Enabled="false"/></td></tr>
-							<tr><td>Building:</td><td><asp:DropDownList ID="ddlBuilding" runat="server" OnSelectedIndexChanged="ddlBuilding_SelectedIndexChanged" AutoPostBack="true" Enabled="false"/></td></tr>
-							<tr><td>Location:</td><td><asp:DropDownList ID="ddlLocation" runat="server" AutoPostBack="true" Enabled="false"/></td></tr>
-                            <tr><td>Installation Date:</td><td><asp:TextBox ID="txtInstallationDate" runat="server" Enabled="False" Text='<%#Eval("InstallationDate", "{0:dd/MM/yyyy}") %>'></asp:TextBox></td></tr>
-
-							<tr><td>Service ID</td><td> </td></tr>
-							<tr><td>Requirement ID</td><td> </td></tr>
-							<tr><td>Equipment ID</td><td> </td></tr>
-							<tr><td>Contractor ID</td><td> </td></tr>
-							<tr><td>Actioned By</td><td> </td></tr>
-							<tr><td>Actioned On</td><td> </td></tr>
-							<tr><td>Status</td><td> </td></tr>
-							<tr><td>Charge</td><td> </td></tr>
-							<tr><td>Cost Code</td><td> </td></tr>
-							<tr><td>Exp Code</td><td> </td></tr>
-							<tr><td>Notes</td><td> </td></tr>
-
+                            <tr><td>Service ID:</td><td><asp:TextBox ID="txtServiceID" runat="server" Enabled="False" Text='<%#Eval("ServiceID") %>' TextMode="Number"></asp:TextBox></td></tr>
+                            <tr><td>Requirement ID:</td><td><asp:DropDownList ID="ddlRequirementID" runat="server" Enabled="False" AutoPostBack="True" OnSelectedIndexChanged="ddlRequirementID_SelectedIndexChanged"></asp:DropDownList></td></tr>
+							<tr><td>Requirement Desc.:</td><td><asp:DropDownList ID="ddlRequirementDesc" runat="server" Enabled="False" AutoPostBack="True" OnSelectedIndexChanged="ddlRequirementDesc_SelectedIndexChanged"></asp:DropDownList></td></tr>
+                            <tr><td>Equipment ID:</td><td><asp:DropDownList ID="ddlEquipmentID" runat="server" Enabled="False" AutoPostBack="True"></asp:DropDownList></td></tr>
+                            <tr><td>Contractor ID:</td><td><asp:TextBox ID="txtContractorID" runat="server" Enabled="False" Text='<%#Eval("ContractorID") %>' TextMode="Number"></asp:TextBox></td></tr>
+							<tr><td>Actioned By:</td><td><asp:DropDownList ID="ddlActionedBy" runat="server" Enabled="False" AutoPostBack="true"/></td></tr>
+							<tr><td>Actioned On:</td><td><asp:Button ID="btnActionedOn" runat="server" Enabled="False" Text='<%#Eval("ActionedDateTime", "{0:dd/MM/yyyy}") %>' BackColor="#F0F0F0" BorderStyle="Inset"/>
+								<asp:Calendar ID="calActionedOn" runat="server" Visible="False"></asp:Calendar></td></tr>
+							<tr><td>Status:</td><td><asp:DropDownList ID="ddlStatus" runat="server" Enabled="False" SelectedValue='<%# Bind("Status") %>'>
+								<asp:ListItem Text="Raised" Value="Raised" />
+								<asp:ListItem Text="Complete" Value="Complete" /></asp:DropDownList></td></tr>
+							<tr><td>Charge:</td><td><asp:TextBox ID="txtCharge" runat="server" Enabled="False" Text='<%#Eval("Charge") %>' TextMode="Number"></asp:TextBox></td></tr>
+                            <tr><td>Cost Code:</td><td><asp:TextBox ID="txtCostCode" runat="server" Enabled="False" Text='<%#Eval("CostCode") %>'></asp:TextBox></td></tr>
+							<tr><td>Exp Code:</td><td><asp:TextBox ID="txtExpCode" runat="server" Enabled="False" Text='<%#Eval("ExpCode") %>'></asp:TextBox></td></tr>
+							<tr><td>Notes:</td><td><asp:TextBox ID="txtNotes" runat="server" Enabled="False" Text='<%#Eval("Notes") %>'></asp:TextBox></td></tr>
                         </table>
                     </section>
                 </section>
@@ -78,18 +68,21 @@
                 <section class="row">
                     <section class="col-xs-12">
                         <table class="table table-borderless table-condensed">
-                            <tr><td>Equipment ID:</td><td><asp:TextBox ID="txtEquipmentInstanceID" runat="server" Enabled="False" Text='<%#Bind("EquipmentInstanceID") %>'></asp:TextBox></td></tr>
-                            <tr><td>Type ID:</td><td><asp:DropDownList ID="ddlEquipmentTypeID" runat="server" Enabled="True" AutoPostBack="True" OnSelectedIndexChanged="ddlEquipmentTypeID_SelectedIndexChanged"></asp:DropDownList></td></tr>
-							<tr><td>Type Desc:</td><td><asp:DropDownList ID="ddlEquipmentTypeDesc" runat="server" Enabled="True" AutoPostBack="True" OnSelectedIndexChanged="ddlEquipmentTypeDesc_SelectedIndexChanged"></asp:DropDownList></td></tr>
-                            <tr><td>Status:</td><td><asp:DropDownList ID="ddlStatus" runat="server" SelectedValue='<%# Bind("Status") %>'>
-								<asp:ListItem Text="Active" Value="Active" />
-								<asp:ListItem Text="Pending" Value="Pending" />
-								<asp:ListItem Text="Decommissioned" Value="Decommissioned" /></asp:DropDownList></td></tr>
-                            <tr><td>Serial Number:</td><td><asp:TextBox ID="txtSerialNumber" runat="server" Enabled="True" Text='<%#Bind("SerialNumber") %>'></asp:TextBox></td></tr>
-							<tr><td>Site:</td><td><asp:DropDownList ID="ddlSite" runat="server" OnSelectedIndexChanged="ddlSite_SelectedIndexChanged" AutoPostBack="true"/></td></tr>
-							<tr><td>Building:</td><td><asp:DropDownList ID="ddlBuilding" runat="server" OnSelectedIndexChanged="ddlBuilding_SelectedIndexChanged" AutoPostBack="true"/></td></tr>
-							<tr><td>Location:</td><td><asp:DropDownList ID="ddlLocation" runat="server" AutoPostBack="true"/></td></tr>
-                            <tr><td>Installation Date:</td><td><asp:TextBox ID="txtInstallationDate" runat="server" Enabled="True" Text='<%#Bind("InstallationDate", "{0:yyyy-MM-dd}") %>' TextMode="Date"></asp:TextBox></td></tr>
+                            <tr><td>Service ID:</td><td><asp:TextBox ID="txtServiceID" runat="server" Enabled="True" Text='<%#Eval("ServiceID") %>' TextMode="Number"></asp:TextBox></td></tr>
+                            <tr><td>Requirement ID:</td><td><asp:DropDownList ID="ddlRequirementID" runat="server" Enabled="True" AutoPostBack="True" OnSelectedIndexChanged="ddlRequirementID_SelectedIndexChanged"></asp:DropDownList></td></tr>
+							<tr><td>Requirement Desc.:</td><td><asp:DropDownList ID="ddlRequirementDesc" runat="server" Enabled="True" AutoPostBack="True" OnSelectedIndexChanged="ddlRequirementDesc_SelectedIndexChanged"></asp:DropDownList></td></tr>
+                            <tr><td>Equipment ID:</td><td><asp:DropDownList ID="ddlEquipmentID" runat="server" Enabled="True" AutoPostBack="True" ></asp:DropDownList></td></tr>
+                            <tr><td>Contractor ID:</td><td><asp:TextBox ID="txtContractorID" runat="server" Enabled="True" Text='<%#Eval("ContractorID") %>' TextMode="Number"></asp:TextBox></td></tr>
+							<tr><td>Actioned By:</td><td><asp:DropDownList ID="ddlActionedBy" runat="server" Enabled="True" AutoPostBack="true"/></td></tr>
+							<tr><td>Actioned On:</td><td><asp:Button ID="btnActionedOn" runat="server" Enabled="True" Text='<%#Eval("ActionedDateTime", "{0:dd/MM/yyyy}") %>' BackColor="White" BorderStyle="Inset" OnClick="btnActionedOn_Click"/>
+								<asp:Calendar ID="calActionedOn" runat="server" OnSelectionChanged="calActionedOn_SelectionChanged" Visible="False"></asp:Calendar></td></tr>
+							<tr><td>Status:</td><td><asp:DropDownList ID="ddlStatus" runat="server" Enabled="True" SelectedValue='<%# Bind("Status") %>'>
+								<asp:ListItem Text="Raised" Value="Raised" />
+								<asp:ListItem Text="Complete" Value="Complete" /></asp:DropDownList></td></tr>
+							<tr><td>Charge:</td><td><asp:TextBox ID="txtCharge" runat="server" Enabled="True" Text='<%#Eval("Charge") %>' TextMode="Number"></asp:TextBox></td></tr>
+                            <tr><td>Cost Code:</td><td><asp:TextBox ID="txtCostCode" runat="server" Enabled="True" Text='<%#Eval("CostCode") %>'></asp:TextBox></td></tr>
+							<tr><td>Exp Code:</td><td><asp:TextBox ID="txtExpCode" runat="server" Enabled="True" Text='<%#Eval("ExpCode") %>'></asp:TextBox></td></tr>
+							<tr><td>Notes:</td><td><asp:TextBox ID="txtNotes" runat="server" Enabled="True" Text='<%#Eval("Notes") %>'></asp:TextBox></td></tr>
 
                             <tr><td></td><td><asp:LinkButton ID="btnUpdate" runat="server" CommandName="Update" Text="Save" CssClass="btn btn-primary"/></td></tr>
                         </table>
@@ -113,18 +106,22 @@
                 <section class="row">
                     <section class="col-xs-12">
                         <table class="table table-borderless table-condensed">
-                            <tr><td>Equipment Instance ID:</td><td><asp:TextBox ID="txtEquipmentInstanceID" runat="server" Enabled="False" Text='<%#Bind("EquipmentInstanceID") %>'></asp:TextBox></td></tr>
-                            <tr><td>Type ID:</td><td><asp:DropDownList ID="ddlEquipmentTypeID" runat="server" Enabled="True" AutoPostBack="True" OnSelectedIndexChanged="ddlEquipmentTypeID_SelectedIndexChanged"></asp:DropDownList></td></tr>
-							<tr><td>Type Desc:</td><td><asp:DropDownList ID="ddlEquipmentTypeDesc" runat="server" Enabled="True" AutoPostBack="True" OnSelectedIndexChanged="ddlEquipmentTypeDesc_SelectedIndexChanged"></asp:DropDownList></td></tr>
-                            <tr><td>Status:</td><td><asp:DropDownList ID="ddlStatus" runat="server" SelectedValue='<%# Bind("Status") %>'>
-								<asp:ListItem Text="Active" Value="Active" />
-								<asp:ListItem Text="Pending" Value="Pending" />
-								<asp:ListItem Text="Decommissioned" Value="Decommissioned" /></asp:DropDownList></td></tr>
-                            <tr><td>Serial Number:</td><td><asp:TextBox ID="txtSerialNumber" runat="server" Enabled="True" Text='<%#Bind("SerialNumber") %>'></asp:TextBox></td></tr>
-                            <tr><td>Site:</td><td><asp:DropDownList ID="ddlSite" runat="server" OnSelectedIndexChanged="ddlSite_SelectedIndexChanged" AutoPostBack="true"/></td></tr>
-							<tr><td>Building:</td><td><asp:DropDownList ID="ddlBuilding" runat="server" OnSelectedIndexChanged="ddlBuilding_SelectedIndexChanged" AutoPostBack="true" ></asp:DropDownList></td></tr>
-							<tr><td>Location:</td><td><asp:DropDownList ID="ddlLocation" runat="server" AutoPostBack="true"/></td></tr>
-							<tr><td>Installation Date:</td><td><asp:TextBox ID="txtInstallationDate" runat="server" Enabled="True" Text='<%#Bind("InstallationDate", "{0:yyyy-MM-dd}") %>' TextMode="Date"></asp:TextBox></td></tr>
+                            <tr><td>Service ID:</td><td><asp:TextBox ID="txtServiceID" runat="server" Enabled="False" Text='<%#Eval("ServiceID") %>' TextMode="Number"></asp:TextBox></td></tr>
+                            <tr><td>Requirement ID:</td><td><asp:DropDownList ID="ddlRequirementID" runat="server" Enabled="True" AutoPostBack="True" OnSelectedIndexChanged="ddlRequirementID_SelectedIndexChanged"></asp:DropDownList></td></tr>
+							<tr><td>Requirement Desc.:</td><td><asp:DropDownList ID="ddlRequirementDesc" runat="server" Enabled="True" AutoPostBack="True" OnSelectedIndexChanged="ddlRequirementDesc_SelectedIndexChanged"></asp:DropDownList></td></tr>
+                            <tr><td>Equipment ID:</td><td><asp:DropDownList ID="ddlEquipmentID" runat="server" Enabled="True" AutoPostBack="True"></asp:DropDownList></td></tr>
+                            <tr><td>Contractor ID:</td><td><asp:TextBox ID="txtContractorID" runat="server" Enabled="True" Text='<%#Eval("ContractorID") %>' TextMode="Number"></asp:TextBox></td></tr>
+							<tr><td>Actioned By:</td><td><asp:DropDownList ID="ddlActionedBy" runat="server" Enabled="True" AutoPostBack="true"/></td></tr>
+							<tr><td>Actioned On:</td><td><asp:Button ID="btnActionedOn" runat="server" Enabled="True" Text='<%# DateTime.Today.ToString("dd/MM/yyyy") %>' BackColor="White" BorderStyle="Inset" OnClick="btnActionedOn_Click"/>
+								<asp:Calendar ID="calActionedOn" runat="server" OnSelectionChanged="calActionedOn_SelectionChanged" Visible="False"></asp:Calendar></td></tr>
+
+							<tr><td>Status:</td><td><asp:DropDownList ID="ddlStatus" runat="server" Enabled="True" SelectedValue='<%# Bind("Status") %>'>
+								<asp:ListItem Text="Raised" Value="Raised" />
+								<asp:ListItem Text="Complete" Value="Complete" /></asp:DropDownList></td></tr>
+							<tr><td>Charge:</td><td><asp:TextBox ID="txtCharge" runat="server" Enabled="True" Text='<%#Eval("Charge") %>' TextMode="Number"></asp:TextBox></td></tr>
+                            <tr><td>Cost Code:</td><td><asp:TextBox ID="txtCostCode" runat="server" Enabled="True" Text='<%#Eval("CostCode") %>'></asp:TextBox></td></tr>
+							<tr><td>Exp Code:</td><td><asp:TextBox ID="txtExpCode" runat="server" Enabled="True" Text='<%#Eval("ExpCode") %>'></asp:TextBox></td></tr>
+							<tr><td>Notes:</td><td><asp:TextBox ID="txtNotes" runat="server" Enabled="True" Text='<%#Eval("Notes") %>'></asp:TextBox></td></tr>
 
                             <tr><td></td><td><asp:LinkButton ID="btnInsert" runat="server" CommandName="Insert" Text="Submit" CssClass="btn btn-primary"/></td></tr>
                         </table>

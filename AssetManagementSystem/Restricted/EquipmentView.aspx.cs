@@ -49,8 +49,8 @@ namespace AssetManagementSystem.Restricted
 				ddlSiteRefresh();
 
 				/* ****** Hide 'Add New' buttons on sub-lists ****** */
-				btnAddNewRequirement.CssClass = "glyphicon glyphicon-plus btn disabled";
-				btnAddNewService.CssClass = " glyphicon glyphicon-plus btn disabled";
+				//btnAddNewRequirement.CssClass = "glyphicon glyphicon-plus btn disabled";
+				//btnAddNewService.CssClass = " glyphicon glyphicon-plus btn disabled";
 			}
 			else if (FvEquipmentView.CurrentMode == FormViewMode.Edit || FvEquipmentView.CurrentMode == FormViewMode.ReadOnly)
 			{
@@ -63,12 +63,9 @@ namespace AssetManagementSystem.Restricted
 				ddlSiteRefresh(siteID, 0, buildID, locID);
 
 				/* ****** Show 'Add New' buttons on sub-lists ****** */
-				btnAddNewRequirement.CssClass = "glyphicon glyphicon-plus btn";
-				btnAddNewService.CssClass = " glyphicon glyphicon-plus btn";
+				//btnAddNewRequirement.CssClass = "glyphicon glyphicon-plus btn";
+				//btnAddNewService.CssClass = " glyphicon glyphicon-plus btn";
 			}
-
-			
-
 		}
 
 		protected void FvEquipmentView_ItemCommand(object sender, FormViewCommandEventArgs e)
@@ -327,7 +324,18 @@ namespace AssetManagementSystem.Restricted
 
 		protected void LvRequirementList_ItemCommand(object sender, ListViewCommandEventArgs e)
 		{
-			Response.Redirect("~/Restricted/RequirementView.aspx?id=" + e.CommandArgument.ToString());
+			switch (e.CommandName)
+			{
+				case "View":
+					Response.Redirect("~/Restricted/RequirementView.aspx?id=" + e.CommandArgument.ToString());
+					break;
+				case "Service":
+					TextBox EquipmentInstanceID_txt = (TextBox)FvEquipmentView.FindControl("txtEquipmentInstanceID");
+					int equipmentInstanceID = Convert.ToInt32(EquipmentInstanceID_txt.Text);
+
+					Response.Redirect("~/Restricted/ServiceView.aspx?eid=" + equipmentInstanceID + "&rid=" + e.CommandArgument.ToString());
+					break;
+			}
 		}
 
 		protected void LvServiceList_ItemCommand(object sender, ListViewCommandEventArgs e)
@@ -335,21 +343,21 @@ namespace AssetManagementSystem.Restricted
 			Response.Redirect("~/Restricted/ServiceView.aspx?id=" + e.CommandArgument.ToString());
 		}
 
-		protected void btnAddNewRequirement_Click(object sender, EventArgs e)
-		{
-			DropDownList EquipmentTypeID_ddl = (DropDownList)FvEquipmentView.FindControl("ddlEquipmentTypeID");
-			int equipmentTypeID = Convert.ToInt32(EquipmentTypeID_ddl.SelectedValue);
+		//protected void btnAddNewRequirement_Click(object sender, EventArgs e)
+		//{
+		//	DropDownList EquipmentTypeID_ddl = (DropDownList)FvEquipmentView.FindControl("ddlEquipmentTypeID");
+		//	int equipmentTypeID = Convert.ToInt32(EquipmentTypeID_ddl.SelectedValue);
 
-			Response.Redirect("~/Restricted/RequirementView.aspx?tid=" + equipmentTypeID);
-		}
+		//	Response.Redirect("~/Restricted/RequirementView.aspx?tid=" + equipmentTypeID);
+		//}
 
-		protected void btnAddNewService_Click(object sender, EventArgs e)
-		{
-			TextBox EquipmentInstanceID_txt = (TextBox)FvEquipmentView.FindControl("txtEquipmentInstanceID");
-			int equipmentInstanceID = Convert.ToInt32(EquipmentInstanceID_txt.Text);
+		//protected void btnAddNewService_Click(object sender, EventArgs e)
+		//{
+		//	TextBox EquipmentInstanceID_txt = (TextBox)FvEquipmentView.FindControl("txtEquipmentInstanceID");
+		//	int equipmentInstanceID = Convert.ToInt32(EquipmentInstanceID_txt.Text);
 
-			Response.Redirect("~/Restricted/ServiceView.aspx?eid=" + equipmentInstanceID);
-		}
+		//	Response.Redirect("~/Restricted/ServiceView.aspx?eid=" + equipmentInstanceID);
+		//}
 
 	}
 }

@@ -33,7 +33,8 @@
                     <section class="col-xs-12">
                         <table class="table table-borderless table-condensed">
                             <tr><td>Equipment Instance ID:</td><td><asp:TextBox ID="txtEquipmentInstanceID" runat="server" Enabled="False" Text='<%#Eval("EquipmentInstanceID") %>'></asp:TextBox></td></tr>
-                            <tr><td>Type ID:</td><td><asp:DropDownList ID="ddlEquipmentTypeID" runat="server" Enabled="False" AutoPostBack="True" OnSelectedIndexChanged="ddlEquipmentTypeID_SelectedIndexChanged"></asp:DropDownList></td></tr>
+                            <tr><td>Type ID:</td><td><asp:DropDownList ID="ddlEquipmentTypeID" runat="server" Enabled="False" AutoPostBack="True" OnSelectedIndexChanged="ddlEquipmentTypeID_SelectedIndexChanged"></asp:DropDownList>
+								<asp:linkbutton id="btnConfigType" CommandName="ConfigType" runat="server" CssClass="glyphicon glyphicon-cog btn"/></td></tr>
 							<tr><td>Type Desc:</td><td><asp:DropDownList ID="ddlEquipmentTypeDesc" runat="server" Enabled="False" AutoPostBack="True" OnSelectedIndexChanged="ddlEquipmentTypeDesc_SelectedIndexChanged"></asp:DropDownList></td></tr>
                             <tr><td>Status:</td><td><asp:DropDownList ID="ddlStatus" runat="server" Enabled="False" SelectedValue='<%# Bind("Status") %>'>
 								<asp:ListItem Text="Active" Value="Active" />
@@ -66,7 +67,8 @@
                     <section class="col-xs-12">
                         <table class="table table-borderless table-condensed">
                             <tr><td>Equipment ID:</td><td><asp:TextBox ID="txtEquipmentInstanceID" runat="server" Enabled="False" Text='<%#Bind("EquipmentInstanceID") %>'></asp:TextBox></td></tr>
-                            <tr><td>Type ID:</td><td><asp:DropDownList ID="ddlEquipmentTypeID" runat="server" Enabled="True" AutoPostBack="True" OnSelectedIndexChanged="ddlEquipmentTypeID_SelectedIndexChanged"></asp:DropDownList></td></tr>
+                            <tr><td>Type ID:</td><td><asp:DropDownList ID="ddlEquipmentTypeID" runat="server" Enabled="True" AutoPostBack="True" OnSelectedIndexChanged="ddlEquipmentTypeID_SelectedIndexChanged"></asp:DropDownList>
+								<asp:linkbutton id="btnConfigType" CommandName="ConfigType" runat="server" CssClass="glyphicon glyphicon-cog btn"/></td></tr>
 							<tr><td>Type Desc:</td><td><asp:DropDownList ID="ddlEquipmentTypeDesc" runat="server" Enabled="True" AutoPostBack="True" OnSelectedIndexChanged="ddlEquipmentTypeDesc_SelectedIndexChanged"></asp:DropDownList></td></tr>
                             <tr><td>Status:</td><td><asp:DropDownList ID="ddlStatus" runat="server" SelectedValue='<%# Bind("Status") %>'>
 								<asp:ListItem Text="Active" Value="Active" />
@@ -101,7 +103,8 @@
                     <section class="col-xs-12">
                         <table class="table table-borderless table-condensed">
                             <tr><td>Equipment Instance ID:</td><td><asp:TextBox ID="txtEquipmentInstanceID" runat="server" Enabled="False" Text='<%#Bind("EquipmentInstanceID") %>'></asp:TextBox></td></tr>
-                            <tr><td>Type ID:</td><td><asp:DropDownList ID="ddlEquipmentTypeID" runat="server" Enabled="True" AutoPostBack="True" OnSelectedIndexChanged="ddlEquipmentTypeID_SelectedIndexChanged"></asp:DropDownList></td></tr>
+                            <tr><td>Type ID:</td><td><asp:DropDownList ID="ddlEquipmentTypeID" runat="server" Enabled="True" AutoPostBack="True" OnSelectedIndexChanged="ddlEquipmentTypeID_SelectedIndexChanged"></asp:DropDownList>
+								<asp:linkbutton id="btnConfigType" CommandName="ConfigType" runat="server" CssClass="glyphicon glyphicon-cog btn"/></td></tr>
 							<tr><td>Type Desc:</td><td><asp:DropDownList ID="ddlEquipmentTypeDesc" runat="server" Enabled="True" AutoPostBack="True" OnSelectedIndexChanged="ddlEquipmentTypeDesc_SelectedIndexChanged"></asp:DropDownList></td></tr>
                             <tr><td>Status:</td><td><asp:DropDownList ID="ddlStatus" runat="server" SelectedValue='<%# Bind("Status") %>'>
 								<asp:ListItem Text="Active" Value="Active" />
@@ -140,7 +143,7 @@
 				<h3>Service Requirements</h3>
 			</section>
 			<section class="col-xs-4 text-right">
-				<h3><asp:linkbutton id="btnAddNewRequirement" OnClick="btnAddNewRequirement_Click" CommandName="New" runat="server" CssClass="glyphicon glyphicon-plus btn"/></h3>
+				<%--<h3><asp:linkbutton id="btnAddNewRequirement" OnClick="btnAddNewRequirement_Click" CommandName="NewRequirement" runat="server" CssClass="glyphicon glyphicon-plus btn"/></h3>--%>
 				<%--<h3><asp:linkbutton id="btnAddNewRequirement" PostBackUrl="~/Restricted/RequirementView.aspx" CommandName="New" runat="server" CssClass="glyphicon glyphicon-plus btn"/></h3>--%>
 			</section>
 		</section>
@@ -161,6 +164,7 @@
 								<th>Next Due</th>
 
 								<th>View</th>
+								<th>Service</th>
 							</tr>
 							<tr runat="server" id="itemPlaceholder"></tr>
 						</table>
@@ -177,7 +181,8 @@
 							<td><asp:Label ID="lblLastActioned" runat="server" Text='<%#Eval("[LastActioned]", "{0:dd/MM/yyyy}") %>' /></td>
 							<td><asp:Label ID="lblNextDue" runat="server" Text='<%#Eval("[NextDue]", "{0:dd/MM/yyyy}") %>' /></td>
 							
-							<td><asp:LinkButton ID="btnView" runat="server" Text="View" CommandName="View" CommandArgument='<%#Eval("RequirementID") %>'/></td>
+							<td><asp:LinkButton ID="btnView" runat="server" CssClass="glyphicon glyphicon-eye-open btn" CommandName="View" CommandArgument='<%#Eval("RequirementID") %>'/></td>
+							<td><asp:LinkButton ID="btnService" runat="server" CssClass="glyphicon glyphicon-check btn" CommandName="Service" CommandArgument='<%#Eval("RequirementID") %>'/></td>
 						</tr>
 					</ItemTemplate>
 
@@ -194,6 +199,7 @@
 								<th>Next Due</th>
 
 								<th>View</th>
+								<th>Service</th>
 							</tr>
 							<tr>
 								<td colspan="11" class="text-center">No service requirements listed for this item of equipment</td>
@@ -216,7 +222,7 @@
 				<h3>Service History</h3>
 			</section>
 			<section class="col-xs-4 text-right">
-				<h3><asp:linkbutton id="btnAddNewService" OnClick="btnAddNewService_Click" CommandName="New" runat="server" CssClass="glyphicon glyphicon-plus btn"/></h3>
+				<%--<h3><asp:linkbutton id="btnAddNewService" OnClick="btnAddNewService_Click" CommandName="New" runat="server" CssClass="glyphicon glyphicon-plus btn"/></h3>--%>
 				<%--<h3><asp:linkbutton id="btnAddNewService" PostBackUrl="~/Restricted/ServiceView.aspx" CommandName="New" runat="server" CssClass="glyphicon glyphicon-plus btn"/></h3>--%>
 			</section>
 		</section>
@@ -256,7 +262,7 @@
 							<td><asp:Label ID="lblCostCode" runat="server" Text='<%#Eval("[CostCode]") %>' /></td>
 							<td><asp:Label ID="lblExpCode" runat="server" Text='<%#Eval("[ExpCode]") %>' /></td>
 
-							<td><asp:LinkButton ID="btnView" runat="server" Text="View" CommandName="View" CommandArgument='<%#Eval("ServiceID") %>' /></td>
+							<td><asp:LinkButton ID="btnView" runat="server" CssClass="glyphicon glyphicon-eye-open btn" CommandName="View" CommandArgument='<%#Eval("ServiceID") %>' /></td>
 						</tr>
 					</ItemTemplate>
 

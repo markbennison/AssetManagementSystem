@@ -33,14 +33,9 @@ namespace AssetManagementSystem.Restricted
 
 		}
 
-		protected void LvRequirementList_ItemCommand(object sender, ListViewCommandEventArgs e)
-		{
-
-		}
-
 		protected void LvActiveRequirementList_ItemCommand(object sender, ListViewCommandEventArgs e)
 		{
-
+			Response.Redirect("~/Restricted/EquipmentView.aspx?id=" + e.CommandArgument.ToString());
 		}
 
 		protected void DataPager_LvActiveRequirementList_PreRender(object sender, EventArgs e)
@@ -48,6 +43,11 @@ namespace AssetManagementSystem.Restricted
 			ActiveRequirementsTableAdapter activeRequirementAdapter = new ActiveRequirementsTableAdapter();
 			LvActiveRequirementList.DataSource = activeRequirementAdapter.Get();
 			LvActiveRequirementList.DataBind();
+		}
+
+		protected void LvRequirementList_ItemCommand(object sender, ListViewCommandEventArgs e)
+		{
+			Response.Redirect("~/Restricted/RequirementView.aspx?id=" + e.CommandArgument.ToString());
 		}
 	}
 }

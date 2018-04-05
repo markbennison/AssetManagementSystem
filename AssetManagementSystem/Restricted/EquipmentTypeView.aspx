@@ -115,7 +115,7 @@
 				<h3>Requirement List</h3>
 			</section>
 			<section class="col-xs-4 text-right">
-				<h3><asp:linkbutton id="btnAddNewRequirement" PostBackUrl="~/Restricted/RequirementView.aspx" CommandName="New" runat="server" CssClass="glyphicon glyphicon-plus btn"/></h3>
+				<h3><asp:linkbutton id="btnAddNewRequirement" OnClick="btnAddNewRequirement_Click" CommandName="New" runat="server" CssClass="glyphicon glyphicon-plus btn"/></h3>
 			</section>
 		</section>
 

@@ -119,7 +119,7 @@ namespace AssetManagementSystem.Restricted
 			}
 			catch (System.Exception ex)
 			{
-				Response.Write("<script LANGUAGE='JavaScript' >alert('An ERROR occurred connecting to the database. " + ex.Message + "')</script>");
+				Response.Write("<script LANGUAGE='JavaScript' >alert('An ERROR (" + ex.Message + ") occurred connecting to the database. " + ex.Message + "')</script>");
 			}
 		}
 
@@ -144,6 +144,15 @@ namespace AssetManagementSystem.Restricted
 		protected void LvEquipmentList_ItemCommand(object sender, ListViewCommandEventArgs e)
 		{
 			Response.Redirect("~/Restricted/EquipmentView.aspx?id=" + e.CommandArgument.ToString());
+		}
+
+		protected void btnAddNewRequirement_Click(object sender, EventArgs e)
+		{
+			TextBox EquipmentTypeID_txt = (TextBox)FvEquipmentTypeView.FindControl("txtEquipmentTypeID");
+			int equipmentTypeID = 0;
+			bool validTypeID = Int32.TryParse(EquipmentTypeID_txt.Text, out equipmentTypeID);
+
+			Response.Redirect("~/Restricted/RequirementView.aspx?id=0&tid=" + equipmentTypeID);
 		}
 	}
 }

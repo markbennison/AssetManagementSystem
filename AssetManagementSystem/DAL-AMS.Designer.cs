@@ -1937,10 +1937,6 @@ namespace AssetManagementSystem {
             
             private global::System.Data.DataColumn columnUserName;
             
-            private global::System.Data.DataColumn columnName;
-            
-            private global::System.Data.DataColumn columnRoleID;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public UsersAndRolesDataTable() {
@@ -2040,22 +2036,6 @@ namespace AssetManagementSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn NameColumn {
-                get {
-                    return this.columnName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn RoleIDColumn {
-                get {
-                    return this.columnRoleID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2091,7 +2071,7 @@ namespace AssetManagementSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public UsersAndRolesRow AddUsersAndRolesRow(string UserID, string Email, string PhoneNumber, bool TwoFactorEnabled, System.DateTime LockoutEndDateUtc, bool LockoutEnabled, int AccessFailedCount, string UserName, string Name, string RoleID) {
+            public UsersAndRolesRow AddUsersAndRolesRow(string UserID, string Email, string PhoneNumber, bool TwoFactorEnabled, System.DateTime LockoutEndDateUtc, bool LockoutEnabled, int AccessFailedCount, string UserName) {
                 UsersAndRolesRow rowUsersAndRolesRow = ((UsersAndRolesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         UserID,
@@ -2101,12 +2081,17 @@ namespace AssetManagementSystem {
                         LockoutEndDateUtc,
                         LockoutEnabled,
                         AccessFailedCount,
-                        UserName,
-                        Name,
-                        RoleID};
+                        UserName};
                 rowUsersAndRolesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUsersAndRolesRow);
                 return rowUsersAndRolesRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public UsersAndRolesRow FindByUserID(string UserID) {
+                return ((UsersAndRolesRow)(this.Rows.Find(new object[] {
+                            UserID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2134,8 +2119,6 @@ namespace AssetManagementSystem {
                 this.columnLockoutEnabled = base.Columns["LockoutEnabled"];
                 this.columnAccessFailedCount = base.Columns["AccessFailedCount"];
                 this.columnUserName = base.Columns["UserName"];
-                this.columnName = base.Columns["Name"];
-                this.columnRoleID = base.Columns["RoleID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2157,11 +2140,10 @@ namespace AssetManagementSystem {
                 base.Columns.Add(this.columnAccessFailedCount);
                 this.columnUserName = new global::System.Data.DataColumn("UserName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUserName);
-                this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnName);
-                this.columnRoleID = new global::System.Data.DataColumn("RoleID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRoleID);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnUserID}, true));
                 this.columnUserID.AllowDBNull = false;
+                this.columnUserID.Unique = true;
                 this.columnUserID.MaxLength = 128;
                 this.columnEmail.MaxLength = 256;
                 this.columnPhoneNumber.MaxLength = 2147483647;
@@ -2170,8 +2152,6 @@ namespace AssetManagementSystem {
                 this.columnAccessFailedCount.AllowDBNull = false;
                 this.columnUserName.AllowDBNull = false;
                 this.columnUserName.MaxLength = 256;
-                this.columnName.MaxLength = 256;
-                this.columnRoleID.MaxLength = 128;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2957,11 +2937,15 @@ namespace AssetManagementSystem {
             
             private global::System.Data.DataColumn columnPriority;
             
-            private global::System.Data.DataColumn columnFrequency;
-            
             private global::System.Data.DataColumn columnMaterialsNote;
             
             private global::System.Data.DataColumn columnLegislationURL;
+            
+            private global::System.Data.DataColumn columnRequirementDesc;
+            
+            private global::System.Data.DataColumn columnFirstImplementation;
+            
+            private global::System.Data.DataColumn columnFrequency;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -3022,14 +3006,6 @@ namespace AssetManagementSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn FrequencyColumn {
-                get {
-                    return this.columnFrequency;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn MaterialsNoteColumn {
                 get {
                     return this.columnMaterialsNote;
@@ -3041,6 +3017,30 @@ namespace AssetManagementSystem {
             public global::System.Data.DataColumn LegislationURLColumn {
                 get {
                     return this.columnLegislationURL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn RequirementDescColumn {
+                get {
+                    return this.columnRequirementDesc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn FirstImplementationColumn {
+                get {
+                    return this.columnFirstImplementation;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn FrequencyColumn {
+                get {
+                    return this.columnFrequency;
                 }
             }
             
@@ -3081,15 +3081,17 @@ namespace AssetManagementSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public RequirementsRow AddRequirementsRow(EquipmentTypesRow parentEquipmentTypesRowByFK_Requirements_EquipmentTypes, string Priority, string Frequency, string MaterialsNote, string LegislationURL) {
+            public RequirementsRow AddRequirementsRow(EquipmentTypesRow parentEquipmentTypesRowByFK_Requirements_EquipmentTypes, string Priority, string MaterialsNote, string LegislationURL, string RequirementDesc, int FirstImplementation, int Frequency) {
                 RequirementsRow rowRequirementsRow = ((RequirementsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         Priority,
-                        Frequency,
                         MaterialsNote,
-                        LegislationURL};
+                        LegislationURL,
+                        RequirementDesc,
+                        FirstImplementation,
+                        Frequency};
                 if ((parentEquipmentTypesRowByFK_Requirements_EquipmentTypes != null)) {
                     columnValuesArray[1] = parentEquipmentTypesRowByFK_Requirements_EquipmentTypes[0];
                 }
@@ -3125,9 +3127,11 @@ namespace AssetManagementSystem {
                 this.columnRequirementID = base.Columns["RequirementID"];
                 this.columnEquipmentTypeID = base.Columns["EquipmentTypeID"];
                 this.columnPriority = base.Columns["Priority"];
-                this.columnFrequency = base.Columns["Frequency"];
                 this.columnMaterialsNote = base.Columns["MaterialsNote"];
                 this.columnLegislationURL = base.Columns["LegislationURL"];
+                this.columnRequirementDesc = base.Columns["RequirementDesc"];
+                this.columnFirstImplementation = base.Columns["FirstImplementation"];
+                this.columnFrequency = base.Columns["Frequency"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3139,12 +3143,16 @@ namespace AssetManagementSystem {
                 base.Columns.Add(this.columnEquipmentTypeID);
                 this.columnPriority = new global::System.Data.DataColumn("Priority", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPriority);
-                this.columnFrequency = new global::System.Data.DataColumn("Frequency", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFrequency);
                 this.columnMaterialsNote = new global::System.Data.DataColumn("MaterialsNote", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMaterialsNote);
                 this.columnLegislationURL = new global::System.Data.DataColumn("LegislationURL", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLegislationURL);
+                this.columnRequirementDesc = new global::System.Data.DataColumn("RequirementDesc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRequirementDesc);
+                this.columnFirstImplementation = new global::System.Data.DataColumn("FirstImplementation", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFirstImplementation);
+                this.columnFrequency = new global::System.Data.DataColumn("Frequency", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFrequency);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnRequirementID}, true));
                 this.columnRequirementID.AutoIncrement = true;
@@ -3154,9 +3162,9 @@ namespace AssetManagementSystem {
                 this.columnRequirementID.ReadOnly = true;
                 this.columnRequirementID.Unique = true;
                 this.columnPriority.MaxLength = 30;
-                this.columnFrequency.MaxLength = 30;
                 this.columnMaterialsNote.MaxLength = 2147483647;
                 this.columnLegislationURL.MaxLength = 200;
+                this.columnRequirementDesc.MaxLength = 200;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5129,38 +5137,6 @@ namespace AssetManagementSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Name {
-                get {
-                    try {
-                        return ((string)(this[this.tableUsersAndRoles.NameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Name\' in table \'UsersAndRoles\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableUsersAndRoles.NameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string RoleID {
-                get {
-                    try {
-                        return ((string)(this[this.tableUsersAndRoles.RoleIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'RoleID\' in table \'UsersAndRoles\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableUsersAndRoles.RoleIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsEmailNull() {
                 return this.IsNull(this.tableUsersAndRoles.EmailColumn);
             }
@@ -5193,30 +5169,6 @@ namespace AssetManagementSystem {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetLockoutEndDateUtcNull() {
                 this[this.tableUsersAndRoles.LockoutEndDateUtcColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsNameNull() {
-                return this.IsNull(this.tableUsersAndRoles.NameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetNameNull() {
-                this[this.tableUsersAndRoles.NameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsRoleIDNull() {
-                return this.IsNull(this.tableUsersAndRoles.RoleIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetRoleIDNull() {
-                this[this.tableUsersAndRoles.RoleIDColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5610,22 +5562,6 @@ namespace AssetManagementSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Frequency {
-                get {
-                    try {
-                        return ((string)(this[this.tableRequirements.FrequencyColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Frequency\' in table \'Requirements\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableRequirements.FrequencyColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string MaterialsNote {
                 get {
                     try {
@@ -5653,6 +5589,54 @@ namespace AssetManagementSystem {
                 }
                 set {
                     this[this.tableRequirements.LegislationURLColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string RequirementDesc {
+                get {
+                    try {
+                        return ((string)(this[this.tableRequirements.RequirementDescColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RequirementDesc\' in table \'Requirements\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRequirements.RequirementDescColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int FirstImplementation {
+                get {
+                    try {
+                        return ((int)(this[this.tableRequirements.FirstImplementationColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FirstImplementation\' in table \'Requirements\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRequirements.FirstImplementationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int Frequency {
+                get {
+                    try {
+                        return ((int)(this[this.tableRequirements.FrequencyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Frequency\' in table \'Requirements\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRequirements.FrequencyColumn] = value;
                 }
             }
             
@@ -5693,18 +5677,6 @@ namespace AssetManagementSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsFrequencyNull() {
-                return this.IsNull(this.tableRequirements.FrequencyColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetFrequencyNull() {
-                this[this.tableRequirements.FrequencyColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsMaterialsNoteNull() {
                 return this.IsNull(this.tableRequirements.MaterialsNoteColumn);
             }
@@ -5725,6 +5697,42 @@ namespace AssetManagementSystem {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetLegislationURLNull() {
                 this[this.tableRequirements.LegislationURLColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsRequirementDescNull() {
+                return this.IsNull(this.tableRequirements.RequirementDescColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetRequirementDescNull() {
+                this[this.tableRequirements.RequirementDescColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsFirstImplementationNull() {
+                return this.IsNull(this.tableRequirements.FirstImplementationColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetFirstImplementationNull() {
+                this[this.tableRequirements.FirstImplementationColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsFrequencyNull() {
+                return this.IsNull(this.tableRequirements.FrequencyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetFrequencyNull() {
+                this[this.tableRequirements.FrequencyColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9501,8 +9509,6 @@ WHERE	(Locations.BuildingID = @buildingid)";
             tableMapping.ColumnMappings.Add("LockoutEnabled", "LockoutEnabled");
             tableMapping.ColumnMappings.Add("AccessFailedCount", "AccessFailedCount");
             tableMapping.ColumnMappings.Add("UserName", "UserName");
-            tableMapping.ColumnMappings.Add("Name", "Name");
-            tableMapping.ColumnMappings.Add("RoleID", "RoleID");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -9519,11 +9525,8 @@ WHERE	(Locations.BuildingID = @buildingid)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[9];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        AspNetUsers.Id AS UserID, AspNetUsers.Email, AspNetUsers.PhoneNumber, AspNetUsers.TwoFactorEnabled, AspNetUsers.LockoutEndDateUtc, AspNetUsers.LockoutEnabled, AspNetUsers.AccessFailedCount, 
-                         AspNetUsers.UserName, AspNetRoles.Id AS RoleID, AspNetRoles.Name
-FROM            AspNetRoles RIGHT OUTER JOIN
-                         AspNetUserRoles ON AspNetRoles.Id = AspNetUserRoles.RoleId RIGHT OUTER JOIN
-                         AspNetUsers ON AspNetUserRoles.UserId = AspNetUsers.Id";
+            this._commandCollection[0].CommandText = "SELECT        Id AS UserID, Email, PhoneNumber, TwoFactorEnabled, LockoutEndDateU" +
+                "tc, LockoutEnabled, AccessFailedCount, UserName\r\nFROM            AspNetUsers";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -9531,9 +9534,8 @@ FROM            AspNetRoles RIGHT OUTER JOIN
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT\tId AS UserID, Email, PhoneNumber, TwoFactorEnabled, LockoutEndDateUtc, Loc" +
-                "koutEnabled, \tAccessFailedCount, UserName\r\n\r\nFROM \tAspNetUsers\r\n\r\nWHERE\t(Id = @u" +
-                "serID)";
+            this._commandCollection[2].CommandText = "SELECT AccessFailedCount, Email, Id AS UserID, LockoutEnabled, LockoutEndDateUtc," +
+                " PhoneNumber, TwoFactorEnabled, UserName FROM AspNetUsers WHERE (Id = @userID)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userID", global::System.Data.SqlDbType.NVarChar, 128, global::System.Data.ParameterDirection.Input, 0, 0, "UserID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
@@ -11511,9 +11513,11 @@ AND (@supplierID IS NULL OR @supplierID = 0 OR SupplierID = @supplierID)";
             tableMapping.ColumnMappings.Add("RequirementID", "RequirementID");
             tableMapping.ColumnMappings.Add("EquipmentTypeID", "EquipmentTypeID");
             tableMapping.ColumnMappings.Add("Priority", "Priority");
-            tableMapping.ColumnMappings.Add("Frequency", "Frequency");
             tableMapping.ColumnMappings.Add("MaterialsNote", "MaterialsNote");
             tableMapping.ColumnMappings.Add("LegislationURL", "LegislationURL");
+            tableMapping.ColumnMappings.Add("RequirementDesc", "RequirementDesc");
+            tableMapping.ColumnMappings.Add("FirstImplementation", "FirstImplementation");
+            tableMapping.ColumnMappings.Add("Frequency", "Frequency");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -11522,24 +11526,24 @@ AND (@supplierID IS NULL OR @supplierID = 0 OR SupplierID = @supplierID)";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RequirementID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RequirementID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [Requirements] ([EquipmentTypeID], [Priority], [Frequency], [Material" +
-                "sNote], [LegislationURL]) VALUES (@EquipmentTypeID, @Priority, @Frequency, @Mate" +
-                "rialsNote, @LegislationURL)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Requirements] ([RequirementDesc], [EquipmentTypeID], [Priority], [FirstImplementation], [Frequency], [MaterialsNote], [LegislationURL]) VALUES (@RequirementDesc, @EquipmentTypeID, @Priority, @FirstImplementation, @Frequency, @MaterialsNote, @LegislationURL)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RequirementDesc", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RequirementDesc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EquipmentTypeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EquipmentTypeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Priority", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Priority", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Frequency", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Frequency", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstImplementation", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstImplementation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Frequency", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Frequency", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaterialsNote", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaterialsNote", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LegislationURL", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LegislationURL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [Requirements] SET [EquipmentTypeID] = @EquipmentTypeID, [Priority] = @Pri" +
-                "ority, [Frequency] = @Frequency, [MaterialsNote] = @MaterialsNote, [LegislationU" +
-                "RL] = @LegislationURL WHERE (([RequirementID] = @Original_RequirementID))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Requirements] SET [RequirementDesc] = @RequirementDesc, [EquipmentTypeID] = @EquipmentTypeID, [Priority] = @Priority, [FirstImplementation] = @FirstImplementation, [Frequency] = @Frequency, [MaterialsNote] = @MaterialsNote, [LegislationURL] = @LegislationURL WHERE (([RequirementID] = @Original_RequirementID))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RequirementDesc", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RequirementDesc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EquipmentTypeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EquipmentTypeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Priority", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Priority", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Frequency", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Frequency", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstImplementation", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstImplementation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Frequency", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Frequency", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaterialsNote", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaterialsNote", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LegislationURL", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LegislationURL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RequirementID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RequirementID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -11558,7 +11562,9 @@ AND (@supplierID IS NULL OR @supplierID = 0 OR SupplierID = @supplierID)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[11];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        Requirements.*\r\nFROM            Requirements";
+            this._commandCollection[0].CommandText = "SELECT        RequirementID, RequirementDesc, EquipmentTypeID, Priority, FirstImp" +
+                "lementation, Frequency, MaterialsNote, LegislationURL\r\nFROM            Requireme" +
+                "nts";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -11633,82 +11639,64 @@ AND (@supplierID IS NULL OR @supplierID = 0 OR SupplierID = @supplierID)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT        Requirements.RequirementID, Requirements.RequirementDesc, Requireme" +
-                "nts.EquipmentTypeID, Requirements.Priority, Requirements.FirstImplementation, Re" +
-                "quirements.Frequency, Requirements.MaterialsNote, \r\n                         Req" +
-                "uirements.LegislationURL,\r\n                             (SELECT        MAX(Actio" +
-                "nedDateTime) AS MAXActionedDateTime\r\n                               FROM        " +
-                "    Services\r\n                               WHERE        (RequirementID = Requi" +
-                "rements.RequirementID) AND (EquipmentInstanceID = @equipmentInstanceID)) AS Last" +
-                "Actioned, CASE WHEN\r\n                             (SELECT        MAX(ActionedDat" +
-                "eTime) AS MAXActionedDateTime\r\n                               FROM            Se" +
-                "rvices\r\n                               WHERE        (RequirementID = Requirement" +
-                "s.RequirementID) AND (EquipmentInstanceID = @equipmentInstanceID)) IS NULL THEN\r" +
-                "\n                             (SELECT        DATEADD(month, Requirements.FirstIm" +
-                "plementation,\r\n                                                             (SEL" +
-                "ECT        InstallationDate\r\n                                                   " +
-                "            FROM            EquipmentInstance\r\n                                 " +
-                "                              WHERE        (EquipmentInstanceID = @equipmentInst" +
-                "anceID)))) ELSE (CASE WHEN Requirements.Frequency > 0 THEN\r\n                    " +
-                "         (SELECT        DATEADD(month, Requirements.Frequency,\r\n                " +
-                "                                             (SELECT        MAX(ActionedDateTime" +
-                ") AS MAXActionedDateTime\r\n                                                      " +
-                "         FROM            Services\r\n                                             " +
-                "                  WHERE        (RequirementID = Requirements.RequirementID) AND " +
-                "(EquipmentInstanceID = @equipmentInstanceID)))) END) END AS NextDue\r\nFROM       " +
-                "     Requirements INNER JOIN\r\n                         EquipmentInstance AS Equi" +
-                "pmentInstance ON Requirements.EquipmentTypeID = EquipmentInstance.EquipmentTypeI" +
-                "D\r\nWHERE        (EquipmentInstance.EquipmentInstanceID = @equipmentInstanceID) A" +
-                "ND (CASE WHEN\r\n                             (SELECT        MAX(ActionedDateTime)" +
-                " AS MAXActionedDateTime\r\n                               FROM            Services" +
-                "\r\n                               WHERE        (RequirementID = Requirements.Requ" +
-                "irementID) AND (EquipmentInstanceID = @equipmentInstanceID)) IS NULL THEN\r\n     " +
-                "                        (SELECT        DATEADD(month, Requirements.FirstImplemen" +
-                "tation,\r\n                                                             (SELECT   " +
-                "     InstallationDate\r\n                                                         " +
-                "      FROM            EquipmentInstance\r\n                                       " +
-                "                        WHERE        (EquipmentInstanceID = @equipmentInstanceID" +
-                ")))) ELSE (CASE WHEN Requirements.Frequency > 0 THEN\r\n                          " +
-                "   (SELECT        DATEADD(month, Requirements.Frequency,\r\n                      " +
-                "                                       (SELECT        MAX(ActionedDateTime) AS M" +
-                "AXActionedDateTime\r\n                                                            " +
-                "   FROM            Services\r\n                                                   " +
-                "            WHERE        (RequirementID = Requirements.RequirementID) AND (Equip" +
-                "mentInstanceID = @equipmentInstanceID)))) END) END IS NOT NULL)\r\nORDER BY NextDu" +
-                "e";
+            this._commandCollection[3].CommandText = "SELECT        EquipmentInstance.EquipmentInstanceID, EquipmentInstance.Installati" +
+                "onDate, Requirements.RequirementID, Requirements.RequirementDesc, Requirements.E" +
+                "quipmentTypeID, Requirements.Priority, \r\n                         Requirements.F" +
+                "irstImplementation, Requirements.Frequency, Requirements.MaterialsNote, Requirem" +
+                "ents.LegislationURL,\r\n                             (SELECT        MAX(ActionedDa" +
+                "teTime) AS MAXActionedDateTime\r\n                               FROM            S" +
+                "ervices\r\n                               WHERE        (RequirementID = Requiremen" +
+                "ts.RequirementID) AND (EquipmentInstanceID = EquipmentInstance.EquipmentInstance" +
+                "ID)) AS LastActioned, CASE WHEN\r\n                             (SELECT        MAX" +
+                "(ActionedDateTime) AS MAXActionedDateTime\r\n                               FROM  " +
+                "          Services\r\n                               WHERE        (Services.Requir" +
+                "ementID = Requirements.RequirementID) AND (Services.EquipmentInstanceID = Equipm" +
+                "entInstance.EquipmentInstanceID)) IS NULL THEN\r\n                             (SE" +
+                "LECT        DATEADD(month, Requirements.FirstImplementation, EquipmentInstance.I" +
+                "nstallationDate)) ELSE (CASE WHEN Requirements.Frequency > 0 THEN\r\n             " +
+                "                (SELECT        DATEADD(month, Requirements.Frequency,\r\n         " +
+                "                                                    (SELECT        MAX(ActionedD" +
+                "ateTime) AS MAXActionedDateTime\r\n                                               " +
+                "                FROM            Services\r\n                                      " +
+                "                         WHERE        (Services.RequirementID = Requirements.Req" +
+                "uirementID) AND (Services.EquipmentInstanceID = EquipmentInstance.EquipmentInsta" +
+                "nceID)))) END) END AS NextDue\r\nFROM            Requirements INNER JOIN\r\n        " +
+                "                 EquipmentInstance ON Requirements.EquipmentTypeID = EquipmentIn" +
+                "stance.EquipmentTypeID\r\nWHERE        (EquipmentInstance.EquipmentInstanceID = @E" +
+                "quipmentInstanceID) AND (CASE WHEN\r\n                             (SELECT        " +
+                "MAX(ActionedDateTime) AS MAXActionedDateTime\r\n                               FRO" +
+                "M            Services\r\n                               WHERE        (Services.Req" +
+                "uirementID = Requirements.RequirementID) AND (Services.EquipmentInstanceID = Equ" +
+                "ipmentInstance.EquipmentInstanceID)) IS NULL THEN\r\n                             " +
+                "(SELECT        DATEADD(month, Requirements.FirstImplementation, EquipmentInstanc" +
+                "e.InstallationDate)) ELSE (CASE WHEN Requirements.Frequency > 0 THEN\r\n          " +
+                "                   (SELECT        DATEADD(month, Requirements.Frequency,\r\n      " +
+                "                                                       (SELECT        MAX(Action" +
+                "edDateTime) AS MAXActionedDateTime\r\n                                            " +
+                "                   FROM            Services\r\n                                   " +
+                "                            WHERE        (Services.RequirementID = Requirements." +
+                "RequirementID) AND (Services.EquipmentInstanceID = EquipmentInstance.EquipmentIn" +
+                "stanceID)))) END) END IS NOT NULL)\r\nORDER BY NextDue, EquipmentInstance.Installa" +
+                "tionDate";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equipmentInstanceID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "EquipmentInstanceID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EquipmentInstanceID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "EquipmentInstanceID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "SELECT        RequirementID, RequirementDesc, EquipmentTypeID, Priority, FirstImp" +
-                "lementation, Frequency, MaterialsNote, LegislationURL\r\nFROM            Requireme" +
-                "nts\r\nWHERE (EquipmentTypeID = @EquipmentTypeID)";
+            this._commandCollection[4].CommandText = "SELECT EquipmentTypeID, FirstImplementation, Frequency, LegislationURL, Materials" +
+                "Note, Priority, RequirementDesc, RequirementID FROM Requirements WHERE (Equipmen" +
+                "tTypeID = @EquipmentTypeID)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EquipmentTypeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "EquipmentTypeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = "SELECT        RequirementID, RequirementDesc, EquipmentTypeID, Priority, FirstImp" +
-                "lementation, Frequency, MaterialsNote, LegislationURL\r\nFROM            Requireme" +
-                "nts\r\nWHERE        (RequirementID = @requirementID)";
+            this._commandCollection[5].CommandText = "SELECT EquipmentTypeID, FirstImplementation, Frequency, LegislationURL, Materials" +
+                "Note, Priority, RequirementDesc, RequirementID FROM Requirements WHERE (Requirem" +
+                "entID = @requirementID)";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@requirementID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "RequirementID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
-            this._commandCollection[6].CommandText = @"SELECT        RequirementID, RequirementDesc, EquipmentTypeID, Priority, FirstImplementation, Frequency, MaterialsNote, LegislationURL
-FROM            Requirements
-WHERE        (RequirementID = @requirementID OR
-                         @requirementID = 0 OR
-                         @requirementID IS NULL) AND (RequirementDesc = @requirementDesc OR
-                         @requirementDesc IS NULL OR
-                         @requirementDesc = '') AND (EquipmentTypeID = @equipmentID OR
-                         @equipmentID = 0 OR
-                         @equipmentID IS NULL) AND (Priority = @priority OR
-                         @priority IS NULL OR
-                         @priority = '') AND (FirstImplementation = @firstImplementation OR
-                         @firstImplementation = 0 OR
-                         @firstImplementation IS NULL) AND (Frequency = @frequency OR
-                         @frequency = 0 OR
-                         @frequency IS NULL)";
+            this._commandCollection[6].CommandText = @"SELECT EquipmentTypeID, FirstImplementation, Frequency, LegislationURL, MaterialsNote, Priority, RequirementDesc, RequirementID FROM Requirements WHERE (RequirementID = @requirementID OR @requirementID = 0 OR @requirementID IS NULL) AND (RequirementDesc = @requirementDesc OR @requirementDesc IS NULL OR @requirementDesc = '') AND (EquipmentTypeID = @equipmentID OR @equipmentID = 0 OR @equipmentID IS NULL) AND (Priority = @priority OR @priority IS NULL OR @priority = '') AND (FirstImplementation = @firstImplementation OR @firstImplementation = 0 OR @firstImplementation IS NULL) AND (Frequency = @frequency OR @frequency = 0 OR @frequency IS NULL)";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@requirementID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "RequirementID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@requirementDesc", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "RequirementDesc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11748,34 +11736,39 @@ WHERE        (RequirementID = @requirementID OR
             this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[8].Connection = this.Connection;
-            this._commandCollection[8].CommandText = "INSERT INTO [Requirements] ([EquipmentTypeID], [Priority], [Frequency], [Material" +
-                "sNote], [LegislationURL]) VALUES (@EquipmentTypeID, @Priority, @Frequency, @Mate" +
-                "rialsNote, @LegislationURL);\r\n\r\nSELECT SCOPE_IDENTITY()";
+            this._commandCollection[8].CommandText = @"INSERT INTO [Requirements] ([RequirementDesc], [EquipmentTypeID], [Priority], [FirstImplementation], [Frequency], [MaterialsNote], [LegislationURL]) VALUES (@RequirementDesc, @EquipmentTypeID, @Priority, @FirstImplementation, @Frequency, @MaterialsNote, @LegislationURL);
+
+SELECT SCOPE_IDENTITY()";
             this._commandCollection[8].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RequirementDesc", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "RequirementDesc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EquipmentTypeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "EquipmentTypeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Priority", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "Priority", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstImplementation", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "FirstImplementation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Frequency", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Frequency", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaterialsNote", global::System.Data.SqlDbType.Text, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "MaterialsNote", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LegislationURL", global::System.Data.SqlDbType.NVarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "LegislationURL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[9] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[9].Connection = this.Connection;
-            this._commandCollection[9].CommandText = "INSERT INTO [Requirements] ([EquipmentTypeID], [Priority], [Frequency], [Material" +
-                "sNote], [LegislationURL]) VALUES (@EquipmentTypeID, @Priority, @Frequency, @Mate" +
-                "rialsNote, @LegislationURL)";
+            this._commandCollection[9].CommandText = @"INSERT INTO [Requirements] ([RequirementDesc], [EquipmentTypeID], [Priority], [FirstImplementation], [Frequency], [MaterialsNote], [LegislationURL]) VALUES (@RequirementDesc, @EquipmentTypeID, @Priority, @FirstImplementation, @Frequency, @MaterialsNote, @LegislationURL)";
             this._commandCollection[9].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RequirementDesc", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "RequirementDesc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EquipmentTypeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "EquipmentTypeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Priority", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "Priority", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstImplementation", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "FirstImplementation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Frequency", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Frequency", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaterialsNote", global::System.Data.SqlDbType.Text, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "MaterialsNote", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LegislationURL", global::System.Data.SqlDbType.NVarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "LegislationURL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[10] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[10].Connection = this.Connection;
-            this._commandCollection[10].CommandText = "UPDATE [Requirements] SET [EquipmentTypeID] = @EquipmentTypeID, [Priority] = @Pri" +
-                "ority, [Frequency] = @Frequency, [MaterialsNote] = @MaterialsNote, [LegislationU" +
-                "RL] = @LegislationURL WHERE (([RequirementID] = @Original_RequirementID))";
+            this._commandCollection[10].CommandText = @"UPDATE       Requirements
+SET                RequirementDesc = @RequirementDesc, EquipmentTypeID = @EquipmentTypeID, Priority = @Priority, FirstImplementation = @FirstImplementation, Frequency = @Frequency, MaterialsNote = @MaterialsNote, 
+                         LegislationURL = @LegislationURL
+WHERE        (RequirementID = @Original_RequirementID)";
             this._commandCollection[10].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RequirementDesc", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "RequirementDesc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EquipmentTypeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "EquipmentTypeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Priority", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "Priority", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstImplementation", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "FirstImplementation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Frequency", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Frequency", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaterialsNote", global::System.Data.SqlDbType.Text, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "MaterialsNote", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LegislationURL", global::System.Data.SqlDbType.NVarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "LegislationURL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11858,9 +11851,9 @@ WHERE        (RequirementID = @requirementID OR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByEquipmentInstance(_DAL_AMS.RequirementsDataTable dataTable, int equipmentInstanceID) {
+        public virtual int FillByEquipmentInstance(_DAL_AMS.RequirementsDataTable dataTable, int EquipmentInstanceID) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(equipmentInstanceID));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(EquipmentInstanceID));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -11872,9 +11865,9 @@ WHERE        (RequirementID = @requirementID OR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual _DAL_AMS.RequirementsDataTable GetByEquipmentInstance(int equipmentInstanceID) {
+        public virtual _DAL_AMS.RequirementsDataTable GetByEquipmentInstance(int EquipmentInstanceID) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(equipmentInstanceID));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(EquipmentInstanceID));
             _DAL_AMS.RequirementsDataTable dataTable = new _DAL_AMS.RequirementsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -12107,36 +12100,48 @@ WHERE        (RequirementID = @requirementID OR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> EquipmentTypeID, string Priority, string Frequency, string MaterialsNote, string LegislationURL) {
-            if ((EquipmentTypeID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(EquipmentTypeID.Value));
-            }
-            else {
+        public virtual int Insert(string RequirementDesc, global::System.Nullable<int> EquipmentTypeID, string Priority, global::System.Nullable<int> FirstImplementation, global::System.Nullable<int> Frequency, string MaterialsNote, string LegislationURL) {
+            if ((RequirementDesc == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            if ((Priority == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(RequirementDesc));
+            }
+            if ((EquipmentTypeID.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(EquipmentTypeID.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Priority));
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((Frequency == null)) {
+            if ((Priority == null)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Frequency));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Priority));
             }
-            if ((MaterialsNote == null)) {
+            if ((FirstImplementation.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(FirstImplementation.Value));
+            }
+            else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(MaterialsNote));
+            if ((Frequency.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(Frequency.Value));
             }
-            if ((LegislationURL == null)) {
+            else {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
+            if ((MaterialsNote == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(LegislationURL));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(MaterialsNote));
+            }
+            if ((LegislationURL == null)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(LegislationURL));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -12158,38 +12163,50 @@ WHERE        (RequirementID = @requirementID OR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> EquipmentTypeID, string Priority, string Frequency, string MaterialsNote, string LegislationURL, int Original_RequirementID) {
-            if ((EquipmentTypeID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(EquipmentTypeID.Value));
-            }
-            else {
+        public virtual int Update(string RequirementDesc, global::System.Nullable<int> EquipmentTypeID, string Priority, global::System.Nullable<int> FirstImplementation, global::System.Nullable<int> Frequency, string MaterialsNote, string LegislationURL, int Original_RequirementID) {
+            if ((RequirementDesc == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            if ((Priority == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(RequirementDesc));
+            }
+            if ((EquipmentTypeID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(EquipmentTypeID.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Priority));
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((Frequency == null)) {
+            if ((Priority == null)) {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Frequency));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Priority));
             }
-            if ((MaterialsNote == null)) {
+            if ((FirstImplementation.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(FirstImplementation.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(MaterialsNote));
+            if ((Frequency.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Frequency.Value));
             }
-            if ((LegislationURL == null)) {
+            else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(LegislationURL));
+            if ((MaterialsNote == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_RequirementID));
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(MaterialsNote));
+            }
+            if ((LegislationURL == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(LegislationURL));
+            }
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_RequirementID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -12210,96 +12227,114 @@ WHERE        (RequirementID = @requirementID OR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual object InsertAndReturnID(global::System.Nullable<int> EquipmentTypeID, string Priority, global::System.Nullable<int> Frequency, string MaterialsNote, string LegislationURL) {
+        public virtual int InsertAndReturnID(string RequirementDesc, global::System.Nullable<int> EquipmentTypeID, string Priority, global::System.Nullable<int> FirstImplementation, global::System.Nullable<int> Frequency, string MaterialsNote, string LegislationURL) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[8];
-            if ((EquipmentTypeID.HasValue == true)) {
-                command.Parameters[0].Value = ((int)(EquipmentTypeID.Value));
-            }
-            else {
+            if ((RequirementDesc == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }
-            if ((Priority == null)) {
+            else {
+                command.Parameters[0].Value = ((string)(RequirementDesc));
+            }
+            if ((EquipmentTypeID.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(EquipmentTypeID.Value));
+            }
+            else {
                 command.Parameters[1].Value = global::System.DBNull.Value;
             }
-            else {
-                command.Parameters[1].Value = ((string)(Priority));
-            }
-            if ((Frequency.HasValue == true)) {
-                command.Parameters[2].Value = ((int)(Frequency.Value));
-            }
-            else {
+            if ((Priority == null)) {
                 command.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((MaterialsNote == null)) {
+            else {
+                command.Parameters[2].Value = ((string)(Priority));
+            }
+            if ((FirstImplementation.HasValue == true)) {
+                command.Parameters[3].Value = ((int)(FirstImplementation.Value));
+            }
+            else {
                 command.Parameters[3].Value = global::System.DBNull.Value;
             }
-            else {
-                command.Parameters[3].Value = ((string)(MaterialsNote));
+            if ((Frequency.HasValue == true)) {
+                command.Parameters[4].Value = ((int)(Frequency.Value));
             }
-            if ((LegislationURL == null)) {
+            else {
                 command.Parameters[4].Value = global::System.DBNull.Value;
             }
+            if ((MaterialsNote == null)) {
+                command.Parameters[5].Value = global::System.DBNull.Value;
+            }
             else {
-                command.Parameters[4].Value = ((string)(LegislationURL));
+                command.Parameters[5].Value = ((string)(MaterialsNote));
+            }
+            if ((LegislationURL == null)) {
+                command.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[6].Value = ((string)(LegislationURL));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
                 command.Connection.Open();
             }
-            object returnValue;
+            int returnValue;
             try {
-                returnValue = command.ExecuteScalar();
+                returnValue = command.ExecuteNonQuery();
             }
             finally {
                 if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
                     command.Connection.Close();
                 }
             }
-            if (((returnValue == null) 
-                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
-                return null;
-            }
-            else {
-                return ((object)(returnValue));
-            }
+            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertRecord(global::System.Nullable<int> EquipmentTypeID, string Priority, global::System.Nullable<int> Frequency, string MaterialsNote, string LegislationURL) {
+        public virtual int InsertRecord(string RequirementDesc, global::System.Nullable<int> EquipmentTypeID, string Priority, global::System.Nullable<int> FirstImplementation, global::System.Nullable<int> Frequency, string MaterialsNote, string LegislationURL) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[9];
-            if ((EquipmentTypeID.HasValue == true)) {
-                command.Parameters[0].Value = ((int)(EquipmentTypeID.Value));
-            }
-            else {
+            if ((RequirementDesc == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }
-            if ((Priority == null)) {
+            else {
+                command.Parameters[0].Value = ((string)(RequirementDesc));
+            }
+            if ((EquipmentTypeID.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(EquipmentTypeID.Value));
+            }
+            else {
                 command.Parameters[1].Value = global::System.DBNull.Value;
             }
-            else {
-                command.Parameters[1].Value = ((string)(Priority));
-            }
-            if ((Frequency.HasValue == true)) {
-                command.Parameters[2].Value = ((int)(Frequency.Value));
-            }
-            else {
+            if ((Priority == null)) {
                 command.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((MaterialsNote == null)) {
+            else {
+                command.Parameters[2].Value = ((string)(Priority));
+            }
+            if ((FirstImplementation.HasValue == true)) {
+                command.Parameters[3].Value = ((int)(FirstImplementation.Value));
+            }
+            else {
                 command.Parameters[3].Value = global::System.DBNull.Value;
             }
-            else {
-                command.Parameters[3].Value = ((string)(MaterialsNote));
+            if ((Frequency.HasValue == true)) {
+                command.Parameters[4].Value = ((int)(Frequency.Value));
             }
-            if ((LegislationURL == null)) {
+            else {
                 command.Parameters[4].Value = global::System.DBNull.Value;
             }
+            if ((MaterialsNote == null)) {
+                command.Parameters[5].Value = global::System.DBNull.Value;
+            }
             else {
-                command.Parameters[4].Value = ((string)(LegislationURL));
+                command.Parameters[5].Value = ((string)(MaterialsNote));
+            }
+            if ((LegislationURL == null)) {
+                command.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[6].Value = ((string)(LegislationURL));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -12322,39 +12357,51 @@ WHERE        (RequirementID = @requirementID OR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateRecord(global::System.Nullable<int> EquipmentTypeID, string Priority, global::System.Nullable<int> Frequency, string MaterialsNote, string LegislationURL, int Original_RequirementID) {
+        public virtual int UpdateRecord(string RequirementDesc, global::System.Nullable<int> EquipmentTypeID, string Priority, global::System.Nullable<int> FirstImplementation, global::System.Nullable<int> Frequency, string MaterialsNote, string LegislationURL, int Original_RequirementID) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[10];
-            if ((EquipmentTypeID.HasValue == true)) {
-                command.Parameters[0].Value = ((int)(EquipmentTypeID.Value));
-            }
-            else {
+            if ((RequirementDesc == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }
-            if ((Priority == null)) {
+            else {
+                command.Parameters[0].Value = ((string)(RequirementDesc));
+            }
+            if ((EquipmentTypeID.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(EquipmentTypeID.Value));
+            }
+            else {
                 command.Parameters[1].Value = global::System.DBNull.Value;
             }
-            else {
-                command.Parameters[1].Value = ((string)(Priority));
-            }
-            if ((Frequency.HasValue == true)) {
-                command.Parameters[2].Value = ((int)(Frequency.Value));
-            }
-            else {
+            if ((Priority == null)) {
                 command.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((MaterialsNote == null)) {
+            else {
+                command.Parameters[2].Value = ((string)(Priority));
+            }
+            if ((FirstImplementation.HasValue == true)) {
+                command.Parameters[3].Value = ((int)(FirstImplementation.Value));
+            }
+            else {
                 command.Parameters[3].Value = global::System.DBNull.Value;
             }
-            else {
-                command.Parameters[3].Value = ((string)(MaterialsNote));
+            if ((Frequency.HasValue == true)) {
+                command.Parameters[4].Value = ((int)(Frequency.Value));
             }
-            if ((LegislationURL == null)) {
+            else {
                 command.Parameters[4].Value = global::System.DBNull.Value;
             }
-            else {
-                command.Parameters[4].Value = ((string)(LegislationURL));
+            if ((MaterialsNote == null)) {
+                command.Parameters[5].Value = global::System.DBNull.Value;
             }
-            command.Parameters[5].Value = ((int)(Original_RequirementID));
+            else {
+                command.Parameters[5].Value = ((string)(MaterialsNote));
+            }
+            if ((LegislationURL == null)) {
+                command.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[6].Value = ((string)(LegislationURL));
+            }
+            command.Parameters[7].Value = ((int)(Original_RequirementID));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -12572,22 +12619,51 @@ WHERE        (Services.EquipmentInstanceID = @EquipmentInstanceID)";
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "SELECT        ServiceID, RequirementID, EquipmentInstanceID, ContractorID, Action" +
                 "edBy, ActionedDateTime, Status, Charge, CostCode, ExpCode, Notes\r\nFROM          " +
-                "  Services\r\nWHERE        (ServiceID = ServiceID)";
+                "  Services\r\nWHERE        (ServiceID = @ServiceID)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ServiceID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ServiceID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"SELECT ActionedBy, ActionedDateTime, Charge, ContractorID, CostCode, EquipmentInstanceID, ExpCode, Notes, RequirementID, ServiceID, Status FROM Services WHERE (ServiceID = @serviceID) OR (RequirementID = @requirementID) OR (EquipmentInstanceID = @equipmentInstanceID) OR (ContractorID = @contractorID) OR (ActionedBy = @actionedBy) OR (ActionedDateTime = @actionedDateTime) OR (Status = @status) OR (Charge = @charge) OR (CostCode = @costCode) OR (ExpCode = @expCode)";
+            this._commandCollection[3].CommandText = "SELECT        Services.ServiceID, Services.RequirementID, Requirements.Requiremen" +
+                "tDesc, Services.EquipmentInstanceID, Services.ContractorID, Services.ActionedBy," +
+                " Services.ActionedDateTime, Services.Status, Services.Charge, \r\n                " +
+                "         Services.CostCode, Services.ExpCode, Services.Notes\r\nFROM            Se" +
+                "rvices INNER JOIN\r\n                         Requirements ON Services.Requirement" +
+                "ID = Requirements.RequirementID\r\nWHERE        (@serviceID IS NULL OR\r\n          " +
+                "               @serviceID = 0 OR\r\n                         Services.ServiceID = " +
+                "@serviceID) AND (@requirementID IS NULL OR\r\n                         @requiremen" +
+                "tID = 0 OR\r\n                         Services.RequirementID = @requirementID) AN" +
+                "D (@equipmentInstanceID IS NULL OR\r\n                         @equipmentInstanceI" +
+                "D = 0 OR\r\n                         Services.EquipmentInstanceID = @equipmentInst" +
+                "anceID) AND (@contractorID IS NULL OR\r\n                         @contractorID = " +
+                "0 OR\r\n                         Services.ContractorID = @contractorID) AND (@requ" +
+                "irementDesc IS NULL OR\r\n                         @requirementDesc = \'\' OR\r\n     " +
+                "                    Requirements.RequirementDesc LIKE \'%\' + @requirementDesc + \'" +
+                "%\') AND (@actionedBy IS NULL OR\r\n                         @actionedBy = \'\' OR\r\n " +
+                "                        Services.ActionedBy LIKE N\'%\' + @actionedBy + N\'%\') AND " +
+                "(@status IS NULL OR\r\n                         @status = \'\' OR\r\n                 " +
+                "        Services.Status LIKE \'%\' + @status + \'%\') AND (@charge IS NULL OR\r\n     " +
+                "                    @charge = 0 OR\r\n                         Services.Charge = @" +
+                "charge) AND (@costCode IS NULL OR\r\n                         @costCode = \'\' OR\r\n " +
+                "                        Services.CostCode LIKE \'%\' + @costCode + \'%\') AND (@expC" +
+                "ode IS NULL OR\r\n                         @expCode = \'\' OR\r\n                     " +
+                "    Services.ExpCode LIKE \'%\' + @expCode + \'%\') AND (@actionedStartDate IS NULL " +
+                "OR\r\n                         Services.ActionedDateTime >= @actionedStartDate) AN" +
+                "D (@actionedEndDate IS NULL OR\r\n                         Services.ActionedDateTi" +
+                "me <= @actionedEndDate)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@serviceID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ServiceID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@requirementID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "RequirementID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equipmentInstanceID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "EquipmentInstanceID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@contractorID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ContractorID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@requirementDesc", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "RequirementDesc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@actionedBy", global::System.Data.SqlDbType.NVarChar, 128, global::System.Data.ParameterDirection.Input, 0, 0, "ActionedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@actionedDateTime", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "ActionedDateTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@status", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@charge", global::System.Data.SqlDbType.Money, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Charge", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@costCode", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "CostCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@expCode", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "ExpCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@actionedStartDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "ActionedDateTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@actionedEndDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "ActionedDateTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = @"INSERT INTO [Services] ([RequirementID], [EquipmentInstanceID], [ContractorID], [ActionedBy], [ActionedDateTime], [Status], [Charge], [CostCode], [ExpCode], [Notes]) VALUES (@RequirementID, @EquipmentInstanceID, @ContractorID, @ActionedBy, @ActionedDateTime, @Status, @Charge, @CostCode, @ExpCode, @Notes);
@@ -12699,8 +12775,9 @@ SELECT SCOPE_IDENTITY()";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByID(_DAL_AMS.ServicesDataTable dataTable) {
+        public virtual int FillByID(_DAL_AMS.ServicesDataTable dataTable, int ServiceID) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ServiceID));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -12712,8 +12789,9 @@ SELECT SCOPE_IDENTITY()";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual _DAL_AMS.ServicesDataTable GetByID() {
+        public virtual _DAL_AMS.ServicesDataTable GetByID(int ServiceID) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ServiceID));
             _DAL_AMS.ServicesDataTable dataTable = new _DAL_AMS.ServicesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -12723,7 +12801,7 @@ SELECT SCOPE_IDENTITY()";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByParameters(_DAL_AMS.ServicesDataTable dataTable, int serviceID, global::System.Nullable<int> requirementID, global::System.Nullable<int> equipmentInstanceID, global::System.Nullable<int> contractorID, string actionedBy, global::System.Nullable<global::System.DateTime> actionedDateTime, string status, global::System.Nullable<decimal> charge, string costCode, string expCode) {
+        public virtual int FillByParameters(_DAL_AMS.ServicesDataTable dataTable, int serviceID, global::System.Nullable<int> requirementID, global::System.Nullable<int> equipmentInstanceID, global::System.Nullable<int> contractorID, string requirementDesc, string actionedBy, string status, global::System.Nullable<decimal> charge, string costCode, string expCode, global::System.Nullable<global::System.DateTime> actionedStartDate, global::System.Nullable<global::System.DateTime> actionedEndDate) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(serviceID));
             if ((requirementID.HasValue == true)) {
@@ -12744,17 +12822,17 @@ SELECT SCOPE_IDENTITY()";
             else {
                 this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((actionedBy == null)) {
+            if ((requirementDesc == null)) {
                 this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(actionedBy));
+                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(requirementDesc));
             }
-            if ((actionedDateTime.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[5].Value = ((System.DateTime)(actionedDateTime.Value));
+            if ((actionedBy == null)) {
+                this.Adapter.SelectCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.SelectCommand.Parameters[5].Value = ((string)(actionedBy));
             }
             if ((status == null)) {
                 this.Adapter.SelectCommand.Parameters[6].Value = global::System.DBNull.Value;
@@ -12779,6 +12857,18 @@ SELECT SCOPE_IDENTITY()";
             }
             else {
                 this.Adapter.SelectCommand.Parameters[9].Value = ((string)(expCode));
+            }
+            if ((actionedStartDate.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[10].Value = ((System.DateTime)(actionedStartDate.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((actionedEndDate.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[11].Value = ((System.DateTime)(actionedEndDate.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -12791,7 +12881,7 @@ SELECT SCOPE_IDENTITY()";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual _DAL_AMS.ServicesDataTable GetByParameters(int serviceID, global::System.Nullable<int> requirementID, global::System.Nullable<int> equipmentInstanceID, global::System.Nullable<int> contractorID, string actionedBy, global::System.Nullable<global::System.DateTime> actionedDateTime, string status, global::System.Nullable<decimal> charge, string costCode, string expCode) {
+        public virtual _DAL_AMS.ServicesDataTable GetByParameters(int serviceID, global::System.Nullable<int> requirementID, global::System.Nullable<int> equipmentInstanceID, global::System.Nullable<int> contractorID, string requirementDesc, string actionedBy, string status, global::System.Nullable<decimal> charge, string costCode, string expCode, global::System.Nullable<global::System.DateTime> actionedStartDate, global::System.Nullable<global::System.DateTime> actionedEndDate) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(serviceID));
             if ((requirementID.HasValue == true)) {
@@ -12812,17 +12902,17 @@ SELECT SCOPE_IDENTITY()";
             else {
                 this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((actionedBy == null)) {
+            if ((requirementDesc == null)) {
                 this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(actionedBy));
+                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(requirementDesc));
             }
-            if ((actionedDateTime.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[5].Value = ((System.DateTime)(actionedDateTime.Value));
+            if ((actionedBy == null)) {
+                this.Adapter.SelectCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.SelectCommand.Parameters[5].Value = ((string)(actionedBy));
             }
             if ((status == null)) {
                 this.Adapter.SelectCommand.Parameters[6].Value = global::System.DBNull.Value;
@@ -12847,6 +12937,18 @@ SELECT SCOPE_IDENTITY()";
             }
             else {
                 this.Adapter.SelectCommand.Parameters[9].Value = ((string)(expCode));
+            }
+            if ((actionedStartDate.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[10].Value = ((System.DateTime)(actionedStartDate.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((actionedEndDate.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[11].Value = ((System.DateTime)(actionedEndDate.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             _DAL_AMS.ServicesDataTable dataTable = new _DAL_AMS.ServicesDataTable();
             this.Adapter.Fill(dataTable);

@@ -50,9 +50,23 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                        <li><a runat="server" href="~/">Home </a></li>
+                        <li><a runat="server" href="~/About">About </a></li>
+                        <li><a runat="server" href="~/Contact">Contact </a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Locatum <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a runat="server" href="~/Restricted/SiteList">Sites</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a runat="server" href="~/Restricted/EquipmentTypeList">Equipment Types</a></li>
+								<li><a runat="server" href="~/Restricted/EquipmentList">Equipment Items</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a runat="server" href="~/Restricted/RequirementList">Requirements</a></li>
+								<li><a runat="server" href="~/Restricted/ServiceList">Services</a></li>
+							</ul>
+						</li>
+						<li><a runat="server" href="~/Admin/ManageUserList">Manage Users (Admin Only) </a></li>
+
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>

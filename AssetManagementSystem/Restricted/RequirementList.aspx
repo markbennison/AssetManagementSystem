@@ -53,7 +53,7 @@
 							<td><asp:Label ID="lblLastActioned" runat="server" Text='<%#Eval("[LastActioned]", "{0:dd/MM/yyyy}") %>' /></td>
 							<td><asp:Label ID="lblNextDue" runat="server" Text='<%#Eval("[NextDue]", "{0:dd/MM/yyyy}") %>' /></td>
 							
-							<td><asp:LinkButton ID="btnView" runat="server" Text="View" CommandName="View" CommandArgument='<%#Eval("RequirementID") %>'/></td>
+							<td><asp:LinkButton ID="btnView" runat="server" Text="View" CommandName="View" CommandArgument='<%#Eval("EquipmentInstanceID") %>'/></td>
 						</tr>
 					</ItemTemplate>
 

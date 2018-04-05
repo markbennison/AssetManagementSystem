@@ -84,7 +84,7 @@ namespace AssetManagementSystem.Admin
 			}
 			catch (System.Exception ex)
 			{
-				Response.Write("<script LANGUAGE='JavaScript' >alert('An ERROR occurred connecting to the database.')</script>");
+				Response.Write("<script LANGUAGE='JavaScript' >alert('An ERROR (" + ex.Message + ") occurred connecting to the database.')</script>");
 			}
 
 
