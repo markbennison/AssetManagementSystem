@@ -42,6 +42,18 @@ namespace AssetManagementSystem.Restricted
 			LvEquipmentList.DataSource = equipmentAdapter.GetByEquipmentType(etTypeID);
 			LvEquipmentList.DataBind();
 
+			if (FvEquipmentTypeView.CurrentMode == FormViewMode.ReadOnly || FvEquipmentTypeView.CurrentMode == FormViewMode.Edit)
+			{
+				/* ****** Show 'Add New' buttons on sub-lists ****** */
+				btnAddNewRequirement.Visible = true;
+				btnAddNewEquipment.Visible = true;
+			}
+			else if (FvEquipmentTypeView.CurrentMode == FormViewMode.Insert)
+			{
+				/* ****** Hide 'Add New' buttons on sub-lists ****** */
+				btnAddNewRequirement.Visible = false;
+				btnAddNewEquipment.Visible = false;
+			}
 		}
 
 		protected void FvEquipmentTypeView_ItemCommand(object sender, FormViewCommandEventArgs e)
@@ -102,7 +114,7 @@ namespace AssetManagementSystem.Restricted
 					// Conduct Update
 					equipmentTypeAdapter.UpdateRecord(equipmentTypeDesc, equipmentModelNo, supplierID, equipmentTypeID);
 
-					Response.Write("<script LANGUAGE='JavaScript' >alert('Record Edited')</script>");
+					ClientScript.RegisterStartupScript(GetType(), "text", "AlertTimeout();", true);
 
 					// Return to Read Only mode
 					FvEquipmentTypeView.ChangeMode(FormViewMode.ReadOnly);
@@ -112,7 +124,7 @@ namespace AssetManagementSystem.Restricted
 				{
 					equipmentTypeAdapter.InsertRecord(equipmentTypeDesc, equipmentModelNo, supplierID);
 					//string newID = siteAdapter.InsertAndReturnID(siteID, siteName, address1, address2, city, postCode, status).ToString();
-					Response.Write("<script LANGUAGE='JavaScript' >alert('Record Added')</script>");
+					ClientScript.RegisterStartupScript(GetType(), "text", "AlertTimeout();", true);
 					// Redirect User
 					Response.Redirect("~/Restricted/EquipmentTypeView.aspx?id=" + equipmentTypeID);
 				}

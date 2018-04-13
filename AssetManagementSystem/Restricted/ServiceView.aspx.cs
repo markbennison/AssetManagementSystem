@@ -142,7 +142,7 @@ namespace AssetManagementSystem.Restricted
 					// Conduct Update
 					serviceAdapter.UpdateRecord(requirementID, equipmentID, contractorID, actionedBy, actionedOn, status, charge, costCode, expCode, notes, originalID);
 
-					Response.Write("<script LANGUAGE='JavaScript' >alert('Record Edited')</script>");
+					ClientScript.RegisterStartupScript(GetType(), "text", "AlertTimeout();", true);
 
 					// Return to Read Only mode
 					FvServiceView.ChangeMode(FormViewMode.ReadOnly);
@@ -152,7 +152,7 @@ namespace AssetManagementSystem.Restricted
 				{
 
 					string newID = serviceAdapter.InsertAndReturnID(requirementID, equipmentID, contractorID, actionedBy, actionedOn, status, charge, costCode, expCode, notes).ToString();
-					Response.Write("<script LANGUAGE='JavaScript' >alert('Record Added')</script>");
+					ClientScript.RegisterStartupScript(GetType(), "text", "AlertTimeout();", true);
 					// Redirect User
 					Response.Redirect("~/Restricted/RequirementView.aspx?id=" + newID);
 				}

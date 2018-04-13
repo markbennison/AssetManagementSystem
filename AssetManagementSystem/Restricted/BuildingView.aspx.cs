@@ -39,6 +39,16 @@ namespace AssetManagementSystem.Restricted
 			/* ****** Refresh Drop Down Lists ****** */
 			ddlSiteRefresh();
 
+			if (FvBuildingView.CurrentMode == FormViewMode.ReadOnly || FvBuildingView.CurrentMode == FormViewMode.Edit)
+			{
+				/* ****** Show 'Add New' buttons on sub-lists ****** */
+				btnAddNew.Visible = true;
+			}
+			else if (FvBuildingView.CurrentMode == FormViewMode.Insert)
+			{
+				/* ****** Hide 'Add New' buttons on sub-lists ****** */
+				btnAddNew.Visible = false;
+			}
 		}
 
 		protected void FvBuildingView_ItemCommand(object sender, FormViewCommandEventArgs e)
@@ -113,7 +123,7 @@ namespace AssetManagementSystem.Restricted
 					// Conduct Update
 					buildingsAdapter.UpdateRecord(buildingID, buildingName, siteID, originalID);
 
-					Response.Write("<script LANGUAGE='JavaScript' >alert('Record Edited')</script>");
+					ClientScript.RegisterStartupScript(GetType(), "text", "AlertTimeout();", true);
 
 					// Return to Read Only mode
 					FvBuildingView.ChangeMode(FormViewMode.ReadOnly);
@@ -123,7 +133,7 @@ namespace AssetManagementSystem.Restricted
 				{
 					buildingsAdapter.InsertRecord(buildingID, buildingName, siteID);
 					//string newID = siteAdapter.InsertAndReturnID(siteID, siteName, address1, address2, city, postCode, status).ToString();
-					Response.Write("<script LANGUAGE='JavaScript' >alert('Record Added')</script>");
+					ClientScript.RegisterStartupScript(GetType(), "text", "AlertTimeout();", true);
 					// Redirect User
 					Response.Redirect("~/Restricted/BuildingView.aspx?id=" + buildingID);
 				}
@@ -140,7 +150,7 @@ namespace AssetManagementSystem.Restricted
 		//private void ddlSiteRefresh(string ddlSiteValue = "", int ddlSiteIndex = 0)
 		private void ddlSiteRefresh()
 		{
-			SiteTableAdapter siteAdapter = new SiteTableAdapter();
+			SitesTableAdapter siteAdapter = new SitesTableAdapter();
 
 			DropDownList site_ddl = (DropDownList)FvBuildingView.FindControl("ddlSite");
 			site_ddl.DataSource = siteAdapter.Get();

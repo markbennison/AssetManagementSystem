@@ -31,6 +31,7 @@
                 </section>
                 <section class="row">
                     <section class="col-xs-12">
+						<table class="table table-borderless table-condensed">
                             <tr><td>Location ID:</td><td><asp:TextBox ID="txtLocationID" runat="server" Enabled="False" Text='<%#Eval("LocationID") %>'></asp:TextBox></td></tr>
                             <tr><td>Location Easy Name:</td><td><asp:TextBox ID="txtLocationEasyName" runat="server" Enabled="False" Text='<%#Eval("LocationEasyName") %>'></asp:TextBox></td></tr>
 							<tr><td>Location Type:</td><td><asp:DropDownList ID="ddlLocationType" runat="server" AutoPostBack="true" Enabled="False"/></td></tr>
@@ -55,7 +56,7 @@
                 </section>
                 <section class="row">
                     <section class="col-xs-12">
-                        <table>
+                        <table class="table table-borderless table-condensed">
                             <tr><td>Location ID:</td><td><asp:TextBox ID="txtLocationID" runat="server" Enabled="True" Text='<%#Bind("LocationID") %>'></asp:TextBox></td></tr>
                             <tr><td>Location Easy Name:</td><td><asp:TextBox ID="txtLocationEasyName" runat="server" Enabled="True" Text='<%#Bind("LocationEasyName") %>'></asp:TextBox></td></tr>
 							<tr><td>Location Type:</td><td><asp:DropDownList ID="ddlLocationType" runat="server" AutoPostBack="true"/></td></tr>
@@ -82,12 +83,11 @@
                 </section>
                 <section class="row">
                     <section class="col-xs-12">
-                        <table>
+                        <table class="table table-borderless table-condensed">
                             <tr><td>Location ID:</td><td><asp:TextBox ID="txtLocationID" runat="server" Enabled="True" Text='<%#Bind("LocationID") %>'></asp:TextBox></td></tr>
                             <tr><td>Location Easy Name:</td><td><asp:TextBox ID="txtLocationEasyName" runat="server" Enabled="True" Text='<%#Bind("LocationEasyName") %>'></asp:TextBox></td></tr>
 							<tr><td>Location Type:</td><td><asp:DropDownList ID="ddlLocationType" runat="server" AutoPostBack="true"/></td></tr>
 							<tr><td>Building:</td><td><asp:DropDownList ID="ddlBuilding" runat="server" AutoPostBack="true"/></td></tr>
-
 
                             <tr><td></td><td><asp:LinkButton ID="btnInsert" runat="server" CommandName="Insert" Text="Submit" CssClass="btn btn-primary"/></td></tr>
                         </table>
@@ -104,6 +104,13 @@
             </EmptyDataTemplate>
 
 		</asp:FormView>
-
 	</section>
+
+	<section class="alert-timeout alert-hidden alert alert-success">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong>Success!</strong> The record has been saved.
+	</section>
+
+	<script src="../Scripts/SCscripts.js"></script>
+
 </asp:Content>

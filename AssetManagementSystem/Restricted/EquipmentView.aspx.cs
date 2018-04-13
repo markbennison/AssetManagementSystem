@@ -129,7 +129,7 @@ namespace AssetManagementSystem.Restricted
 				{
 					// Conduct Update
 					equipmentAdapter.UpdateRecord(equipmentTypeID, status, serialNumber, locationID, installationDate, equipmentInstanceID);
-					Response.Write("<script LANGUAGE='JavaScript' >alert('Record Edited')</script>");
+					ClientScript.RegisterStartupScript(GetType(), "text", "AlertTimeout();", true);
 
 					// Return to Read Only mode
 					FvEquipmentView.ChangeMode(FormViewMode.ReadOnly);
@@ -139,7 +139,7 @@ namespace AssetManagementSystem.Restricted
 				{ 
 					//equipmentAdapter.InsertRecord(equipmentTypeID, status, serialNumber, locationID, installationDate);
 					string newID = equipmentAdapter.InsertAndReturnID(equipmentTypeID, status, serialNumber, locationID, installationDate).ToString();
-					Response.Write("<script LANGUAGE='JavaScript' >alert('Record Added')</script>");
+					ClientScript.RegisterStartupScript(GetType(), "text", "AlertTimeout();", true);
 					// Redirect User
 					Response.Redirect("~/Restricted/EquipmentView.aspx?id=" + newID);
 				}
@@ -237,7 +237,7 @@ namespace AssetManagementSystem.Restricted
 
 		private void ddlSiteRefresh(string ddlSiteValue = "", int ddlSiteIndex = 0, string BuildID = "", string LocID = "")
 		{
-			SiteTableAdapter siteAdapter = new SiteTableAdapter();
+			SitesTableAdapter siteAdapter = new SitesTableAdapter();
 
 			DropDownList Site_ddl = (DropDownList)FvEquipmentView.FindControl("ddlSite");
 			Site_ddl.DataSource = siteAdapter.Get();

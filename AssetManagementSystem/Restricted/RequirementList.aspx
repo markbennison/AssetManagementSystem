@@ -53,7 +53,7 @@
 							<td><asp:Label ID="lblLastActioned" runat="server" Text='<%#Eval("[LastActioned]", "{0:dd/MM/yyyy}") %>' /></td>
 							<td><asp:Label ID="lblNextDue" runat="server" Text='<%#Eval("[NextDue]", "{0:dd/MM/yyyy}") %>' /></td>
 							
-							<td><asp:LinkButton ID="btnView" runat="server" Text="View" CommandName="View" CommandArgument='<%#Eval("EquipmentInstanceID") %>'/></td>
+							<td><asp:LinkButton ID="btnView" runat="server" CssClass="glyphicon glyphicon-eye-open btn" CommandName="View" CommandArgument='<%#Eval("EquipmentInstanceID") %>'/></td>
 						</tr>
 					</ItemTemplate>
 
@@ -128,7 +128,7 @@
 							<td><asp:Label ID="lblFrequency" runat="server" Text='<%#Eval("[Frequency]") %>' /></td>
 							<td><asp:Label ID="lblLegislationURL" runat="server" Text='<%#Eval("[LegislationURL]") %>' /></td>
 
-							<td><asp:LinkButton ID="btnView" runat="server" Text="View" CommandName="View" CommandArgument='<%#Eval("RequirementID") %>'/></td>
+							<td><asp:LinkButton ID="btnView" runat="server" CssClass="glyphicon glyphicon-eye-open btn" CommandName="View" CommandArgument='<%#Eval("RequirementID") %>'/></td>
 						</tr>
 					</ItemTemplate>
 

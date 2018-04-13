@@ -20,7 +20,7 @@ namespace AssetManagementSystem
             string sCity = txtSearchCity.Text.ToString();
             string sPostCode = txtSearchPostCode.Text.ToString();
 
-            SiteTableAdapter siteAdapter = new SiteTableAdapter();
+            SitesTableAdapter siteAdapter = new SitesTableAdapter();
             LvSiteList.DataSource = siteAdapter.GetByParameters(sID, sName, sStatus, sAddress1, sAddress2, sCity, sPostCode);
             LvSiteList.DataBind();
         }

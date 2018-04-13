@@ -12,6 +12,14 @@ namespace AssetManagementSystem.Restricted
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			if (!IsPostBack)
+			{
+				PageDataRefresh();
+			}
+		}
+
+		private void PageDataRefresh()
+		{
 			int sID = 0;
 			int rID = 0;
 			int eID = 0;
@@ -36,15 +44,6 @@ namespace AssetManagementSystem.Restricted
 			string status = txtSearchStatus.Text.Trim();
 			string costCode = txtSearchCostCode.Text.Trim();
 			string expCode = txtSearchExpCode.Text.Trim();
-
-			//if (requirementDesc == "")
-			//{
-			//	requirementDesc = null;
-			//}
-			//if (actionedBy == "")
-			//{
-			//	actionedBy = null;
-			//}
 
 			ServicesTableAdapter serviceAdapter = new ServicesTableAdapter();
 
@@ -71,6 +70,11 @@ namespace AssetManagementSystem.Restricted
 		protected void LvServiceList_ItemCommand(object sender, ListViewCommandEventArgs e)
 		{
 			Response.Redirect("~/Restricted/ServiceView.aspx?id=" + e.CommandArgument.ToString());
+		}
+
+		protected void DataPager_LvServiceList_PreRender(object sender, EventArgs e)
+		{
+			PageDataRefresh();
 		}
 	}
 }

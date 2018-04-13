@@ -31,11 +31,11 @@
                 </section>
                 <section class="row">
                     <section class="col-xs-12">
-                        <table>
+                        <table class="table table-borderless table-condensed">
                             <tr><td>Site ID:</td><td><asp:TextBox ID="txtSiteID" runat="server" Enabled="False" Text='<%#Eval("SiteID") %>'></asp:TextBox></td></tr>
                             <tr><td>Site Name:</td><td><asp:TextBox ID="txtSiteName" runat="server" Enabled="False" Text='<%#Eval("SiteName") %>'></asp:TextBox></td></tr>
-                            <tr><td>Address Line 1:</td><td><asp:TextBox ID="txtAddress1" runat="server" Enabled="False" Text='<%#Eval("[Address 1]") %>'></asp:TextBox></td></tr>
-                            <tr><td>Address Line 2:</td><td><asp:TextBox ID="txtAddress2" runat="server" Enabled="False" Text='<%#Eval("[Address 2]") %>'></asp:TextBox></td></tr>
+                            <tr><td>Address Line 1:</td><td><asp:TextBox ID="txtAddress1" runat="server" Enabled="False" Text='<%#Eval("[Address1]") %>'></asp:TextBox></td></tr>
+                            <tr><td>Address Line 2:</td><td><asp:TextBox ID="txtAddress2" runat="server" Enabled="False" Text='<%#Eval("[Address2]") %>'></asp:TextBox></td></tr>
                             <tr><td>City:</td><td><asp:TextBox ID="txtCity" runat="server" Enabled="False" Text='<%#Eval("City") %>'></asp:TextBox></td></tr>
                             <tr><td>Post Code:</td><td><asp:TextBox ID="txtPostCode" runat="server" Enabled="False" Text='<%#Eval("PostCode") %>'></asp:TextBox></td></tr>
                             <tr><td>Status:</td><td><asp:TextBox ID="txtStatus" runat="server" Enabled="False" Text='<%#Eval("Status") %>'></asp:TextBox></td></tr>
@@ -59,11 +59,11 @@
                 </section>
                 <section class="row">
                     <section class="col-xs-12">
-                        <table>
+                        <table class="table table-borderless table-condensed">
                             <tr><td>Site ID:</td><td><asp:TextBox ID="txtSiteID" runat="server" Enabled="True" Text='<%#Bind("SiteID") %>'></asp:TextBox></td></tr>
                             <tr><td>Site Name:</td><td><asp:TextBox ID="txtSiteName" runat="server" Enabled="True" Text='<%#Bind("SiteName") %>'></asp:TextBox></td></tr>
-                            <tr><td>Address Line 1:</td><td><asp:TextBox ID="txtAddress1" runat="server" Enabled="True" Text='<%#Bind("[Address 1]") %>'></asp:TextBox></td></tr>
-                            <tr><td>Address Line 2:</td><td><asp:TextBox ID="txtAddress2" runat="server" Enabled="True" Text='<%#Bind("[Address 2]") %>'></asp:TextBox></td></tr>
+                            <tr><td>Address Line 1:</td><td><asp:TextBox ID="txtAddress1" runat="server" Enabled="True" Text='<%#Bind("[Address1]") %>'></asp:TextBox></td></tr>
+                            <tr><td>Address Line 2:</td><td><asp:TextBox ID="txtAddress2" runat="server" Enabled="True" Text='<%#Bind("[Address2]") %>'></asp:TextBox></td></tr>
                             <tr><td>City:</td><td><asp:TextBox ID="txtCity" runat="server" Enabled="True" Text='<%#Bind("City") %>'></asp:TextBox></td></tr>
                             <tr><td>Post Code:</td><td><asp:TextBox ID="txtPostCode" runat="server" Enabled="True" Text='<%#Bind("PostCode") %>'></asp:TextBox></td></tr>
                             <tr><td>Status:</td><td><asp:TextBox ID="txtStatus" runat="server" Enabled="True" Text='<%#Bind("Status") %>'></asp:TextBox></td></tr>
@@ -89,11 +89,11 @@
                 </section>
                 <section class="row">
                     <section class="col-xs-12">
-                        <table>
+                        <table class="table table-borderless table-condensed">
                             <tr><td>Site ID:</td><td><asp:TextBox ID="txtSiteID" runat="server" Enabled="True" Text='<%#Bind("SiteID") %>'></asp:TextBox></td></tr>
                             <tr><td>Site Name:</td><td><asp:TextBox ID="txtSiteName" runat="server" Enabled="True" Text='<%#Bind("SiteName") %>'></asp:TextBox></td></tr>
-                            <tr><td>Address Line 1:</td><td><asp:TextBox ID="txtAddress1" runat="server" Enabled="True" Text='<%#Bind("[Address 1]") %>'></asp:TextBox></td></tr>
-                            <tr><td>Address Line 2:</td><td><asp:TextBox ID="txtAddress2" runat="server" Enabled="True" Text='<%#Bind("[Address 2]") %>'></asp:TextBox></td></tr>
+                            <tr><td>Address Line 1:</td><td><asp:TextBox ID="txtAddress1" runat="server" Enabled="True" Text='<%#Bind("[Address1]") %>'></asp:TextBox></td></tr>
+                            <tr><td>Address Line 2:</td><td><asp:TextBox ID="txtAddress2" runat="server" Enabled="True" Text='<%#Bind("[Address2]") %>'></asp:TextBox></td></tr>
                             <tr><td>City:</td><td><asp:TextBox ID="txtCity" runat="server" Enabled="True" Text='<%#Bind("City") %>'></asp:TextBox></td></tr>
                             <tr><td>Post Code:</td><td><asp:TextBox ID="txtPostCode" runat="server" Enabled="True" Text='<%#Bind("PostCode") %>'></asp:TextBox></td></tr>
                             <tr><td>Status:</td><td><asp:TextBox ID="txtStatus" runat="server" Enabled="True" Text='<%#Bind("Status") %>'></asp:TextBox></td></tr>
@@ -149,7 +149,7 @@
 							<td><asp:Label ID="lblBuildingID" runat="server" Text='<%#Eval("[BuildingID]") %>' /></td>
 							<td><asp:Label ID="lblBuildingName" runat="server" Text='<%#Eval("[BuildingName]") %>' /></td>
 							<td><asp:Label ID="lblLocationCount" runat="server" Text='<%#Eval("[LocationCount]") %>' /></td>
-							<td><asp:LinkButton ID="btnView" runat="server" Text="View" CommandName="View" CommandArgument='<%#Eval("BuildingID") %>'/></td>
+							<td><asp:LinkButton ID="btnView" runat="server" CssClass="glyphicon glyphicon-eye-open btn" CommandName="View" CommandArgument='<%#Eval("BuildingID") %>'/></td>
 						</tr>
 					</ItemTemplate>
 
@@ -171,5 +171,12 @@
 			</section>
 		</section>
     </section>
+
+	<section class="alert-timeout alert-hidden alert alert-success">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong>Success!</strong> The record has been saved.
+	</section>
+
+	<script src="../Scripts/SCscripts.js"></script>
 
 </asp:Content>

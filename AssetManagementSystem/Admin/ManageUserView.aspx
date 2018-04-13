@@ -29,7 +29,7 @@
                 </section>
                 <section class="row">
                     <section class="col-xs-12">
-                        <table>
+                        <table class="table table-borderless table-condensed">
                             <tr><td>User ID:</td><td><asp:TextBox ID="txtUserID" runat="server" Enabled="False" Text='<%#Eval("[UserID]") %>'></asp:TextBox></td></tr>
                             <tr><td>Email:</td><td><asp:TextBox ID="txtEmail" runat="server" Enabled="False" Text='<%#Eval("[Email]") %>'></asp:TextBox></td></tr>
 							<tr><td>Phone Number:</td><td><asp:TextBox ID="txtPhoneNumber" runat="server" Enabled="False" Text='<%#Eval("[PhoneNumber]") %>'></asp:TextBox></td></tr>
@@ -38,6 +38,7 @@
                             <tr><td>Lockout Enabled:</td><td><asp:TextBox ID="txtLockoutEnabled" runat="server" Enabled="False" Text='<%#Eval("[LockoutEnabled]") %>'></asp:TextBox></td></tr>
                             <tr><td>Access Failed Count:</td><td><asp:TextBox ID="txtAccessFailedCount" runat="server" Enabled="False" Text='<%#Eval("[AccessFailedCount]") %>'></asp:TextBox></td></tr>
                             <tr><td>Username:</td><td><asp:TextBox ID="txtUserName" runat="server" Enabled="False" Text='<%#Eval("[UserName]") %>'></asp:TextBox></td></tr>
+							<tr><td>Roles</td><td><asp:CheckBoxList ID="CblRoles" runat="server" Enabled="False" RepeatLayout="Flow" RepeatDirection="Horizontal" CssClass="checkboxlist" /></td></tr>
                         </table>
                     </section>
                 </section>
@@ -58,7 +59,7 @@
                 </section>
                 <section class="row">
                     <section class="col-xs-12">
-                        <table>
+                        <table class="table table-borderless table-condensed">
                             <tr><td>User ID:</td><td><asp:TextBox ID="txtUserID" runat="server" Enabled="False" Text='<%#Eval("[UserID]") %>'></asp:TextBox></td></tr>
                             <tr><td>Email:</td><td><asp:TextBox ID="txtEmail" runat="server" Enabled="True" Text='<%#Bind("[Email]") %>'></asp:TextBox></td></tr>
 							<tr><td>Phone Number:</td><td><asp:TextBox ID="txtPhoneNumber" runat="server" Enabled="True" Text='<%#Bind("[PhoneNumber]") %>'></asp:TextBox></td></tr>
@@ -67,6 +68,7 @@
                             <tr><td>Lockout Enabled:</td><td><asp:TextBox ID="txtLockoutEnabled" runat="server" Enabled="False" Text='<%#Eval("[LockoutEnabled]") %>'></asp:TextBox></td></tr>
                             <tr><td>Access Failed Count:</td><td><asp:TextBox ID="txtAccessFailedCount" runat="server" Enabled="False" Text='<%#Eval("[AccessFailedCount]") %>'></asp:TextBox></td></tr>
                             <tr><td>Username:</td><td><asp:TextBox ID="txtUserName" runat="server" Enabled="True" Text='<%#Bind("[UserName]") %>'></asp:TextBox></td></tr>
+							<tr><td>Roles</td><td><asp:CheckBoxList ID="CblRoles" runat="server" Enabled="True"  RepeatLayout="Flow" RepeatDirection="Horizontal" CssClass="checkboxlist" /></td></tr>
 
                             <tr><td></td><td><asp:LinkButton ID="btnUpdate" runat="server" CommandName="Update" Text="Save" CssClass="btn btn-primary"/></td></tr>
                         </table>
@@ -89,7 +91,7 @@
                 </section>
                 <section class="row">
                     <section class="col-xs-12">
-                        <table>
+                        <table class="table table-borderless table-condensed">
                             <tr><td>User ID:</td><td><asp:TextBox ID="txtUserID" runat="server" Enabled="False" Text='<%#Eval("[UserID]") %>'></asp:TextBox></td></tr>
                             <tr><td>Email:</td><td><asp:TextBox ID="txtEmail" runat="server" Enabled="True" Text='<%#Bind("[Email]") %>'></asp:TextBox></td></tr>
 							<tr><td>Phone Number:</td><td><asp:TextBox ID="txtPhoneNumber" runat="server" Enabled="True" Text='<%#Bind("[PhoneNumber]") %>'></asp:TextBox></td></tr>
@@ -116,5 +118,12 @@
 		</asp:FormView>
 
 	</section>
+
+	<section class="alert-timeout alert-hidden alert alert-success">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong>Success!</strong> The record has been saved.
+	</section>
+
+	<script src="../Scripts/SCscripts.js"></script>
 
 </asp:Content>

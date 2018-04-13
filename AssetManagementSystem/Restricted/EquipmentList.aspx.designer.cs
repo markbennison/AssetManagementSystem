@@ -13,6 +13,15 @@ namespace AssetManagementSystem.Restricted {
     public partial class EquipmentList {
         
         /// <summary>
+        /// lblSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSearch;
+        
+        /// <summary>
         /// btnAddNew control.
         /// </summary>
         /// <remarks>
@@ -20,15 +29,6 @@ namespace AssetManagementSystem.Restricted {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnAddNew;
-        
-        /// <summary>
-        /// LvEquipmentList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView LvEquipmentList;
         
         /// <summary>
         /// txtSearchEquipmentInstanceID control.
@@ -101,5 +101,14 @@ namespace AssetManagementSystem.Restricted {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSearchSite;
+        
+        /// <summary>
+        /// LvEquipmentList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView LvEquipmentList;
     }
 }

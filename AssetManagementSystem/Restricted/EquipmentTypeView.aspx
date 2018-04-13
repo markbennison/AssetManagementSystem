@@ -31,7 +31,7 @@
                 </section>
                 <section class="row">
                     <section class="col-xs-12">
-                        <table>
+                        <table class="table table-borderless table-condensed">
                             <tr><td>Equipment Type ID:</td><td><asp:TextBox ID="txtEquipmentTypeID" runat="server" Enabled="False" Text='<%#Eval("EquipmentTypeID") %>'></asp:TextBox></td></tr>
                             <tr><td>Equipment Type Description:</td><td><asp:TextBox ID="txtEquipmentTypeDesc" runat="server" Enabled="False" Text='<%#Eval("EquipmentTypeDesc") %>'></asp:TextBox></td></tr>
                             <tr><td>Equipment Model No:</td><td><asp:TextBox ID="txtEquipmentModelNo" runat="server" Enabled="False" Text='<%#Eval("EquipmentModelNo") %>'></asp:TextBox></td></tr>
@@ -56,7 +56,7 @@
                 </section>
                 <section class="row">
                     <section class="col-xs-12">
-                        <table>
+                        <table class="table table-borderless table-condensed">
                             <tr><td>Equipment Type ID:</td><td><asp:TextBox ID="txtEquipmentTypeID" runat="server" Enabled="True" Text='<%#Bind("EquipmentTypeID") %>'></asp:TextBox></td></tr>
                             <tr><td>Equipment Type Description:</td><td><asp:TextBox ID="txtEquipmentTypeDesc" runat="server" Enabled="True" Text='<%#Bind("EquipmentTypeDesc") %>'></asp:TextBox></td></tr>
                             <tr><td>Equipment Model No:</td><td><asp:TextBox ID="txtEquipmentModelNo" runat="server" Enabled="True" Text='<%#Bind("EquipmentModelNo") %>'></asp:TextBox></td></tr>
@@ -83,7 +83,7 @@
                 </section>
                 <section class="row">
                     <section class="col-xs-12">
-                        <table>
+                        <table class="table table-borderless table-condensed">
                             <tr><td>Equipment Type ID:</td><td><asp:TextBox ID="txtEquipmentTypeID" runat="server" Enabled="True" Text='<%#Bind("EquipmentTypeID") %>'></asp:TextBox></td></tr>
                             <tr><td>Equipment Type Description:</td><td><asp:TextBox ID="txtEquipmentTypeDesc" runat="server" Enabled="True" Text='<%#Bind("EquipmentTypeDesc") %>'></asp:TextBox></td></tr>
                             <tr><td>Equipment Model No:</td><td><asp:TextBox ID="txtEquipmentModelNo" runat="server" Enabled="True" Text='<%#Bind("EquipmentModelNo") %>'></asp:TextBox></td></tr>
@@ -152,7 +152,7 @@
 							<td><asp:Label ID="lblMaterialsNote" runat="server" Text='<%#Eval("[MaterialsNote]") %>' /></td>
 							<td><asp:Label ID="lblLegislationURL" runat="server" Text='<%#Eval("[LegislationURL]") %>' /></td>
 
-							<td><asp:LinkButton ID="btnView" runat="server" Text="View" CommandName="View" CommandArgument='<%#Eval("RequirementID") %>'/></td>
+							<td><asp:LinkButton ID="btnView" runat="server" CssClass="glyphicon glyphicon-eye-open btn" CommandName="View" CommandArgument='<%#Eval("RequirementID") %>'/></td>
 						</tr>
 					</ItemTemplate>
 
@@ -221,7 +221,7 @@
 							<td><asp:Label ID="lblLocationID" runat="server" Text='<%#Eval("[LocationID]") %>' /></td>
 							<td><asp:Label ID="lblInstallationDate" runat="server" Text='<%#Eval("[InstallationDate]", "{0:dd/MM/yyyy}") %>' /></td>
 
-							<td><asp:LinkButton ID="btnView" runat="server" Text="View" CommandName="View" CommandArgument='<%#Eval("EquipmentInstanceID") %>'/></td>
+							<td><asp:LinkButton ID="btnView" runat="server" CssClass="glyphicon glyphicon-eye-open btn" CommandName="View" CommandArgument='<%#Eval("EquipmentInstanceID") %>'/></td>
 						</tr>
                     </ItemTemplate>
 
@@ -245,10 +245,13 @@
 				</asp:ListView>
 			</section>
 		</section>
-
-
-
-
     </section>
+
+	<section class="alert-timeout alert-hidden alert alert-success">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong>Success!</strong> The record has been saved.
+	</section>
+
+	<script src="../Scripts/SCscripts.js"></script>
 
 </asp:Content>

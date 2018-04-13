@@ -12,6 +12,14 @@ namespace AssetManagementSystem.Restricted
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			if (!IsPostBack)
+			{
+				PageDataRefresh();
+			}
+		}
+
+		private void PageDataRefresh()
+		{
 			int eID = 0;
 			int eTypeID = 0;
 			int eLocID = 0;
@@ -57,13 +65,18 @@ namespace AssetManagementSystem.Restricted
 			{
 				LvEquipmentList.DataSource = equipmentAdapter.GetByParameters(eID, eTypeID, eStatus, eSerialNo, eLocID, null, null);
 			}
-			
+
 			LvEquipmentList.DataBind();
 		}
 
 		protected void LvEquipmentList_ItemCommand(object sender, ListViewCommandEventArgs e)
 		{
 			Response.Redirect("~/Restricted/EquipmentView.aspx?id=" + e.CommandArgument.ToString());
+		}
+
+		protected void DataPager_LvEquipmentList_PreRender(object sender, EventArgs e)
+		{
+			PageDataRefresh();
 		}
 	}
 }

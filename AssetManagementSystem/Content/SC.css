@@ -12,6 +12,16 @@
  * Color 8 #a5360f (border of button) #005f7d
 */
 
+.alert-timeout {
+    position: fixed;
+    bottom: 5px;
+    left: 2%;
+    width: 96%;
+}
+
+.alert-hidden {
+    display: none;
+}
 
 
 /*!
@@ -20,6 +30,10 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+.checkboxlist label {
+    margin-left: 5px;
+    margin-right: 15px;
+}
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;

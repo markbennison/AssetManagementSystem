@@ -116,7 +116,7 @@ namespace AssetManagementSystem.Restricted
 					// Conduct Update
 					requirementAdapter.UpdateRecord(requirementDesc, equipmentTypeID, priority, firstImplementation, frequency, materialsNote, legislationURL, originalID);
 
-					Response.Write("<script LANGUAGE='JavaScript' >alert('Record Edited')</script>");
+					ClientScript.RegisterStartupScript(GetType(), "text", "AlertTimeout();", true);
 
 					// Return to Read Only mode
 					FvRequirementView.ChangeMode(FormViewMode.ReadOnly);
@@ -126,7 +126,7 @@ namespace AssetManagementSystem.Restricted
 				{
 					
 					string newID = requirementAdapter.InsertRecord(requirementDesc, equipmentTypeID, priority, firstImplementation, frequency, materialsNote, legislationURL).ToString();
-					Response.Write("<script LANGUAGE='JavaScript' >alert('Record Added')</script>");
+					ClientScript.RegisterStartupScript(GetType(), "text", "AlertTimeout();", true);
 					// Redirect User
 					Response.Redirect("~/Restricted/RequirementView.aspx?id=" + newID);
 				}

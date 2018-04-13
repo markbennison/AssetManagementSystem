@@ -13,13 +13,13 @@ namespace AssetManagementSystem.Restricted {
     public partial class ManageUserList {
         
         /// <summary>
-        /// btnResetPassword control.
+        /// lblSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnResetPassword;
+        protected global::System.Web.UI.WebControls.Label lblSearch;
         
         /// <summary>
         /// btnAddNew control.
@@ -29,15 +29,6 @@ namespace AssetManagementSystem.Restricted {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnAddNew;
-        
-        /// <summary>
-        /// LvUserList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView LvUserList;
         
         /// <summary>
         /// txtEmail control.
@@ -92,5 +83,14 @@ namespace AssetManagementSystem.Restricted {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSearchSite;
+        
+        /// <summary>
+        /// LvUserList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView LvUserList;
     }
 }

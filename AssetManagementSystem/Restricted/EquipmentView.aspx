@@ -290,9 +290,13 @@
 				</asp:ListView>
 			</section>
 		</section>
-
-
-
     </section>
+
+	<section class="alert-timeout alert-hidden alert alert-success">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong>Success!</strong> The record has been saved.
+	</section>
+
+	<script src="../Scripts/SCscripts.js"></script>
 
 </asp:Content>
